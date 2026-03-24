@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Contributions in libp2p(-py) in PLDG Cohort-3 | Abhinav Agarwalla</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+Hey folks 👋,
+Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.
+This blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.
+I’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.">
+<meta name="author" content="Abhinav Agarwalla">
+<link rel="canonical" href="http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blogs/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/code" title="Builds">
+                    <span>Builds</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Contributions in libp2p(-py) in PLDG Cohort-3
+    </h1>
+    <div class="post-meta"><span title='2025-07-27 00:00:00 +0000 UTC'>July 27, 2025</span>&nbsp;·&nbsp;Abhinav Agarwalla
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>Hey folks <strong>👋</strong>,<br>
+Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.<br>
+This blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.<br>
+I’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.</p>
+</blockquote>
+<p>![](<a href="https://cdn.hashnode.com/res/hashnode/image/upload/v1753620337100/67ca88bd-a18f-46cd-b99b-6346c72303aa.webp">https://cdn.hashnode.com/res/hashnode/image/upload/v1753620337100/67ca88bd-a18f-46cd-b99b-6346c72303aa.webp</a> align=&ldquo;center&rdquo;)</p>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>Py-libp2p is the <strong>Python implementation of the libp2p networking stack</strong>, part of the broader libp2p ecosystem originally modularized out of IPFS to support peer-to-peer systems like Ethereum, Filecoin, and decentralized apps across languages like Go, Rust, JavaScript, and more.<br>
+Designed to be modular and protocol-agnostic, libp2p abstracts transport (TCP), multiplexing, peer identification, security handshakes (Noise, TLS), and pub-sub mechanisms (Floodsub, Goosipsub) into reusable building blocks. Although still experimental, py-libp2p is steadily progressing toward feature parity with other mature implementations.</p>
+<p><a href="https://github.com/libp2p/py-libp2p">https://github.com/libp2p/py-libp2p</a><br>
+<a href="https://github.com/libp2p">https://github.com/libp2p</a></p>
+<h1 id="background--context">Background &amp; Context<a hidden class="anchor" aria-hidden="true" href="#background--context">#</a></h1>
+<p>Originally libp2p was developed for <strong>IPFS and Filecoin</strong>, its now used across a range of protocols and projects. Most real-world deployment use the Go or Rust implementations of libp2p. But the python version — py-libp2p — plays a crucial role in bridging the ecosystem to Python-based tooling, prototyping, and intergration with other Python-native libraries. Its specially useful in research, rapid experimentation, and educational contexts.</p>
+<p><a href="https://github.com/libp2p/rust-libp2p">https://github.com/libp2p/rust-libp2p</a><br>
+<a href="https://github.com/libp2p/go-libp2p">https://github.com/libp2p/go-libp2p</a></p>
+<p>When I started contributing to py-libp2p, the project was in an interesting place. While it had the basic structure of a libp2p stack — transports, peerstore, protocols like ping and identify — it still lacked full compatibility with other languages implementations. There were various rough edges, partial implementations in the <strong>PeerStore</strong>, and TODOs that made it a long way from a production grade software or even in interop testing.<br>
+At the same time, the libp2p ecosystem was putting more focus on <strong>cross-language compatibility,</strong> especially as more protocols aim to support mixed stacks (eg. a Rust node communicating with a Python client). Getting Python to “<strong>speak libp2p</strong>“ the same way Go or Rust does mean closing a bunch of gaps — both in code and in design alignment.<br>
+That’s where my work started.</p>
+<h1 id="core-contribution-areas">Core Contribution Areas<a hidden class="anchor" aria-hidden="true" href="#core-contribution-areas">#</a></h1>
+<h2 id="advancing-py-libp2p---rust-libp2p-interoperability">Advancing py-libp2p &lt;-&gt; rust-libp2p Interoperability<a hidden class="anchor" aria-hidden="true" href="#advancing-py-libp2p---rust-libp2p-interoperability">#</a></h2>
+<p><a href="https://github.com/libp2p/py-libp2p/pull/620">https://github.com/libp2p/py-libp2p/pull/620</a><br>
+<a href="https://github.com/libp2p/py-libp2p/discussions/598#discussioncomment-13420717">https://github.com/libp2p/py-libp2p/discussions/598#discussioncomment-13420717</a></p>
+<p>One of my major contributions was working toward establishing successful <strong>Ping interoperability between</strong> <strong>py-libp2p and rust-libp2p</strong> implementations. This work was crucial for ensuring that Python-based libp2p applications can communicate seamlessly with Rust-based ones.</p>
+<p><strong>Key achievements:</strong></p>
+<ul>
+<li>
+<p><strong>Ping Protocol Interoperability:</strong> Successfully made ping interop happen between py-libp2p and rust-libp2p using Noise security and Yamux multiplexing.</p>
+</li>
+<li>
+<p><strong>Protocol negotiation -</strong> Select negotiation that were preventing successful cross-implementation communication.</p>
+</li>
+</ul>
+<p><strong>Technical challenges:</strong></p>
+<ul>
+<li>
+<p><strong>Stream Protocol Issues:</strong> Initially, protocol negotiation was failing after security and muxer negotiation. The py-dialer could write <code>/multistream/1.0.0</code> but couldn’t read responses from rust nodes.</p>
+</li>
+<li>
+<p><strong>Key encoding Compatibility:</strong> Addressed mismatches in how cryptographic keys were being encoded/serialized between implementations in the <strong>Noise</strong> security module.</p>
+</li>
+</ul>
+<p>Ping Interop successful demo:</p>
+<p>%[https://vimeo.com/1104887674?share=copy]</p>
+<h2 id="systematic-todo-and-fixme-resolution">Systematic TODO and FIXME Resolution<a hidden class="anchor" aria-hidden="true" href="#systematic-todo-and-fixme-resolution">#</a></h2>
+<p>One of the biggest contributions I made early on was just rolling up sleeves and going after a bunch of long-standing TODOs and FIXMEs scattered across the codebase. These weren’t just minor style fixes — many of them touched core parts of py-libp2p’s functionality, from protocol negotiation to stream handling to security logic.</p>
+<p>Here are some of the key things I tackled:</p>
+<h3 id="-protocol-negotiation-handling-ls-command-before-connection-happens">🔄 Protocol Negotiation: Handling <code>ls</code> command before connection happens<a hidden class="anchor" aria-hidden="true" href="#-protocol-negotiation-handling-ls-command-before-connection-happens">#</a></h3>
+<p>PR: <a href="https://github.com/libp2p/py-libp2p/pull/622">https://github.com/libp2p/py-libp2p/pull/622</a></p>
+<p>I added a support for the <code>ls</code> command in the multistream-select handshake logic (in <code>multiselect.py</code>). This lets a dialer ask the listener, <em>“Hey, what protocols do you support?“</em> — which is a standard part of libp2p’s connection upgrade flow, but was missing in the Python version. Without it, protocol negotiation with other implementations (like Rust and Go) was pretty fragile.</p>
+<p>Screenshot:</p>
+<p>![](<a href="https://cdn.hashnode.com/res/hashnode/image/upload/v1753624416760/b4afa3aa-69f1-4d86-86af-c092f065d74b.png">https://cdn.hashnode.com/res/hashnode/image/upload/v1753624416760/b4afa3aa-69f1-4d86-86af-c092f065d74b.png</a> align=&ldquo;center&rdquo;)</p>
+<h3 id="-security-layer-real-peer-ids-only">🔐 Security Layer: Real Peer IDs Only<a hidden class="anchor" aria-hidden="true" href="#-security-layer-real-peer-ids-only">#</a></h3>
+<p>PR: <a href="https://github.com/libp2p/py-libp2p/pull/622">https://github.com/libp2p/py-libp2p/pull/6</a>81</p>
+<p>In the security handshake code <code>upgrade_security</code>, there was a sketchy placeholder that used a dummy peer ID <code>ID(b””)</code> when establishing inbound connections. I fixed that by making <code>peer_id</code> optional and explicitly handling the inbound/outbound case. This not only removed the FIXME but also cleaned up the semantics of the API</p>
+<h3 id="-concurrency-and-timeout">⚙️ Concurrency and Timeout<a hidden class="anchor" aria-hidden="true" href="#-concurrency-and-timeout">#</a></h3>
+<p>While digging through some of the more subtle runtime behavior in py-libp2p, I noticed a couple of rough edges around concurrency that could easily become major pain points, especially as the number of peers grows.</p>
+<p><strong>🔒 Async Validator Throttling</strong><br>
+PR: <a href="https://github.com/libp2p/py-libp2p/pull/622">https://github.com/libp2p/py-libp2p/pull/</a>755</p>
+<p>The validator subsystem, especially in the context of the DHT or identify porotocol, can end up running many validations concurrently — for example, when a node is receiving a high volume of peer records or signed data. There was not mechanism in place to cap how many async validators could run at once, which made it vulnerable to resource exhaustion, especially in tests that simulate high peer churn.</p>
+<p>To fix this, I introduced a <strong>semaphore-based throttle</strong> that limits how many async validators can run at the same time. This makes the system far more predictable under load. Instead of hitting weird trio warnings or memory bloat, you now get backpressure — which is exactly what you want in a peer-to-peer system under stress.</p>
+<p>The mechanism looked something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PubSub</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, max_concurrent_validators<span style="color:#f92672">=</span>MAX_CONCURRENT_VALIDATORS):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_validator_semaphore <span style="color:#f92672">=</span> trio<span style="color:#f92672">.</span>Semaphore(max_concurrent_validators)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_run_async_validator</span>(self, func, msg_forwarder, msg, results):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">with</span> self<span style="color:#f92672">.</span>_validator_semaphore:
+</span></span><span style="display:flex;"><span>            result <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> func(msg_forwarder, msg)
+</span></span><span style="display:flex;"><span>            results<span style="color:#f92672">.</span>append(result)
+</span></span></code></pre></div><p><strong>⏱️ Timeout on Stream Closures</strong></p>
+<p>![](<a href="https://cdn.hashnode.com/res/hashnode/image/upload/v1753620384021/ec720b83-58c3-4b85-bc67-50a34dc6f139.gif">https://cdn.hashnode.com/res/hashnode/image/upload/v1753620384021/ec720b83-58c3-4b85-bc67-50a34dc6f139.gif</a> align=&ldquo;center&rdquo;)</p>
+<p>PR: <a href="https://github.com/libp2p/py-libp2p/pull/622">https://github.com/libp2p/py-libp2p/pull/6</a>96</p>
+<p>Another issue was with <strong>stream closure logic</strong>. In a few places, especially where streams were being shut down as part of connection teardown or during tests, there was no timeout — which meant that if anything hung internally (e.g. a stalled read or write), the whole operation could get stuck indefinitely. That’s brutal during testing, and worse in a live node.</p>
+<p>So I added proper timeouts using <code>trio.fail_after(5)</code> during stream close and shutdown phases. It’s a small change, but it makes the system way more resilient. Now if a stream doesn’t cleanly shut down within a few seconds, the code doesn’t hang — it just fails fast and continues with cleanup.</p>
+<p><em>These kinds of changes are less flashy at the protocol-level work, but they’re critical for making the stack actually usable in the rea-world conditions. You don&rsquo;t want your node falling over bacause 200 peers showed up or because one stream forgot to say goodbye.</em></p>
+<h2 id="-refactoring-the-peerstore-making-py-libp2p-record-aware">🧠 Refactoring the PeerStore: Making py-libp2p Record-Aware<a hidden class="anchor" aria-hidden="true" href="#-refactoring-the-peerstore-making-py-libp2p-record-aware">#</a></h2>
+<p>One of the most impactful chunks of work I did was around cleaning up and upgrading the <code>PeerStore</code> in py-libp2p. For context, the PeerStore is the core module responsible for storing information about known peers — things like their multiaddrs, public keys, supported protocols, metadata, etc.</p>
+<p>But when I started, py-libp2p’s PeerStore was still pretty barebones. It didn’t handle signed peer records, didn’t respect sequence number for address updates, and wasn’t alligned with how other libp2p implementations (like Go or Rust) handle peer identity and trust. So I set out to fix that.</p>
+<p>This work spanned across three PRs:</p>
+<h3 id="peerstore-refactor---httpsgithubcomlibp2ppy-libp2ppull648"><strong>PeerStore Refactor</strong> :- <a href="https://github.com/libp2p/py-libp2p/pull/648">https://github.com/libp2p/py-libp2p/pull/648</a><a hidden class="anchor" aria-hidden="true" href="#peerstore-refactor---httpsgithubcomlibp2ppy-libp2ppull648">#</a></h3>
+<p>This PR was the groundwork. The existing <code>PeerStore</code> was messy — it let you blindly overwrite a peer’s multiaddrs with no regard for where that data came from, how recent it was, or whether it was trustworthy.<br>
+I started by simplifying the address handling logic and cleaning up how multiaddrs were stored and retrieved. This helped eliminate weird edge cases where stale or empty address lists would override valid data.</p>
+<p><strong>✅ What changed:</strong></p>
+<ul>
+<li>
+<p><strong>AddrBook, KeyBook, ProtocolBook, and MetadataBook interfaces</strong> matching go-libp2p’s abstractions, enabling identical method names (e.g., <code>add_addrs()</code>, <code>get_pubkey()</code>, <code>put_metadata()</code>) and TTL semantics for stored data.</p>
+</li>
+<li>
+<p><strong>Permanent vs. ephemeral TTLs</strong> for peer addresses, so that bootstrap or recently connected peers behave exactly as in go-libp2p (permanent TTL = ∞, recently connected TTL = 10 min, temporary TTL = 2 min)</p>
+</li>
+<li>
+<p><strong>AddrStream support</strong>, enabling clients to consume a continuous stream of address updates for a given peer—crucial for services that need to react when a peer’s reachable addresses change.</p>
+<p>These reactivity empowers p2p applications (eg. pubsub routers, DHT clients) to maintain up-to-date peer views without manual polling.</p>
+</li>
+</ul>
+<h3 id="signed-peerrecord-support-to-peerstore--httpsgithubcomlibp2ppy-libp2ppull753"><strong>Signed PeerRecord support to PeerStore:-</strong> <a href="https://github.com/libp2p/py-libp2p/pull/753">https://github.com/libp2p/py-libp2p/pull/753</a><a hidden class="anchor" aria-hidden="true" href="#signed-peerrecord-support-to-peerstore--httpsgithubcomlibp2ppy-libp2ppull753">#</a></h3>
+<p>This was a big one. Here I added full support for libp2p’s PeerRecord format — which is a spec-compliant way to share peer addresses in a secure, verifiable format.</p>
+<p>Now, instead of just storing raw multiaddrs, py-libp2p can accept an <code>Envelope</code>, verify the peer’s signature, extract the <code>PeerRecord</code>, and decide whether to accept or reject it based on the record’s sequence number.</p>
+<p><strong>✅ What changed:</strong></p>
+<ul>
+<li>
+<p>Implemented the <code>PeerRecord</code> class the wrapper <code>Envelope</code> class.</p>
+</li>
+<li>
+<p>Implemented the <code>Certified-Addr-Book</code> interface in the <code>PeerStore</code> class.</p>
+</li>
+<li>
+<p>Sequence numbers are checked to ensure newer records override older ones</p>
+</li>
+<li>
+<p>Invalid or replayed records are silently ignored</p>
+</li>
+<li>
+<p>Stored <code>PeerRecord</code> data is cached and used when the peer info is requested again</p>
+</li>
+<li>
+<p>A separate <code>async task</code> for <strong>periodic cleanup</strong> of the <code>PeerStore</code> data, to prevent exhaustion.</p>
+</li>
+</ul>
+<p><strong>💡 Why this mattered:</strong><br>
+This brought py-libp2p in line with Rust, Go, and JS implementations. With this, a Python peer can now securely share its address information, and other peers can verify that info wasn’t spoofed or tampered with. This is a core requirement for Identify and DHT interop.</p>
+<h1 id="lessons-learned">Lessons learned<a hidden class="anchor" aria-hidden="true" href="#lessons-learned">#</a></h1>
+<p><strong>Cross-Implementation Compatibility is Complex</strong>. Working on interoperability between py-libp2p and rust-libp2p taught me that:</p>
+<ul>
+<li>
+<p><strong>Protocol details matter</strong>: Small differences in implementation can break compatibility</p>
+</li>
+<li>
+<p><strong>Error handling varies</strong>: Different languages and frameworks handle errors differently, requiring careful alignment</p>
+</li>
+<li>
+<p><strong>Testing is crucial</strong>: Cross-implementation testing requires sophisticated test setups and coordination</p>
+</li>
+</ul>
+<p><strong>Technical Debt Management.</strong> Systematically addressing TODOs and FIXMEs showed me:</p>
+<ul>
+<li>
+<p><strong>Incremental improvements</strong>: Small, focused changes are more manageable than large refactors</p>
+</li>
+<li>
+<p><strong>Breaking changes require care</strong>: Even beneficial changes need proper versioning and communication</p>
+</li>
+<li>
+<p><strong>Test coverage is essential</strong>: Every change needs corresponding tests to prevent regressions</p>
+</li>
+</ul>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>Contributing to py-libp2p over these three months has been an incredibly rewarding experience. From debugging complex interoperability issues to implementing resource management systems, each contribution has helped make py-libp2p more robust and reliable.</p>
+<p>The work on <strong>py-libp2p ↔ rust-libp2p interoperability</strong> represents a significant step forward for the broader libp2p ecosystem, enabling Python developers to build applications that can seamlessly communicate with Rust-based libp2p implementations. The systematic <strong>TODO/FIXME resolution</strong> effort has reduced technical debt and improved code quality across the project.</p>
+<p>Looking ahead, py-libp2p has tremendous potential to become a fully-featured peer-to-peer networking stack for Python developers. The foundation is solid, and with continued community effort, it will undoubtedly play a crucial role in the decentralized web ecosystem.</p>
+<p>![](<a href="https://cdn.hashnode.com/res/hashnode/image/upload/v1753620553897/b13d22a2-a34e-43e3-bf78-88b6efcf927c.webp">https://cdn.hashnode.com/res/hashnode/image/upload/v1753620553897/b13d22a2-a34e-43e3-bf78-88b6efcf927c.webp</a> align=&ldquo;center&rdquo;)</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

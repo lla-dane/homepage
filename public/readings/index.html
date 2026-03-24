@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Readings | Max Inden</title>
+<meta name="keywords" content="">
+<meta name="description" content="General
+Books
+
+
+Gregg, B. (2013). Systems performance: enterprise and the cloud. Pearson
+Education.
+
+
+Beyer, B., Jones, C., Petoff, J., &amp; Murphy, N. R. (2016). Site Reliability
+Engineering: How Google Runs Production Systems. &quot; O&rsquo;Reilly Media, Inc.&quot;.
+
+
+Ousterhout, John K. A philosophy of software design. Vol. 98. Palo Alto, CA, USA: Yaknyam Press, 2018.
+
+
+Bakhvalov, Denis. Performance Analysis and Tuning of Modern CPUs. D. Bakhvalov, 2020.
+
+
+Tanenbaum, A. S., &amp; Van Steen, M. (2017). Distributed systems: principles and
+paradigms.">
+<meta name="author" content="Max Inden">
+<link rel="canonical" href="http://localhost:1313/readings/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/readings/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Max Inden (Alt + H)">Max Inden</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/readings" title="Blogs">
+                    <span class="active">Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Readings
+    </h1>
+    <div class="post-meta">Max Inden
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="general">General<a hidden class="anchor" aria-hidden="true" href="#general">#</a></h2>
+<p>Books</p>
+<ul>
+<li>
+<p>Gregg, B. (2013). <strong>Systems performance: enterprise and the cloud</strong>. Pearson
+Education.</p>
+</li>
+<li>
+<p>Beyer, B., Jones, C., Petoff, J., &amp; Murphy, N. R. (2016). <strong>Site Reliability
+Engineering: How Google Runs Production Systems</strong>. &quot; O&rsquo;Reilly Media, Inc.&quot;.</p>
+</li>
+<li>
+<p><a href="https://web.stanford.edu/~ouster/cgi-bin/book.php">Ousterhout, John K. <strong>A philosophy of software design</strong>. Vol. 98. Palo Alto, CA, USA: Yaknyam Press, 2018.</a></p>
+</li>
+<li>
+<p>Bakhvalov, Denis. <a href="https://www.goodreads.com/book/show/221589431-performance-analysis-and-tuning-on-modern-cpus">Performance Analysis and Tuning of Modern CPUs</a>. D. Bakhvalov, 2020.</p>
+</li>
+<li>
+<p>Tanenbaum, A. S., &amp; Van Steen, M. (2017). <strong>Distributed systems</strong>: principles and
+paradigms.</p>
+</li>
+<li>
+<p>Love, R. (2005). <strong>Linux Kernel Development</strong> (Novell Press). Novell Press.</p>
+</li>
+</ul>
+<h2 id="consensus">Consensus<a hidden class="anchor" aria-hidden="true" href="#consensus">#</a></h2>
+<p>Papers</p>
+<ul>
+<li>
+<p>Howard, Heidi. (2018). <strong>Distributed consensus revised.</strong></p>
+</li>
+<li>
+<p>Yin, Maofan, et al. <strong>&ldquo;Hotstuff: Bft consensus in the lens of blockchain.&rdquo;</strong>
+arXiv preprint arXiv:1803.05069 (2018).</p>
+</li>
+<li>
+<p>Fischer, Michael J., Nancy A. Lynch, and Michael S. Paterson. <strong>Impossibility
+of distributed consensus with one faulty process.</strong> No. MIT/LCS/TR-282.
+Massachusetts Inst of Tech Cambridge lab for Computer Science, 1982.</p>
+</li>
+<li>
+<p>Nakamoto, Satoshi. Bitcoin: <strong>A peer-to-peer electronic cash system</strong>.
+Manubot, 2019.</p>
+</li>
+<li>
+<p>Castro, Miguel, and Barbara Liskov. <strong>&ldquo;Practical Byzantine fault tolerance.&rdquo;</strong>
+OSDI. Vol. 99. No. 1999. 1999.</p>
+</li>
+<li>
+<p>Miller, Andrew, et al. <strong>&ldquo;The honey badger of BFT protocols.&rdquo;</strong> Proceedings of
+the 2016 ACM SIGSAC Conference on Computer and Communications Security. 2016.</p>
+</li>
+<li>
+<p>Chan, Benjamin Y., and Elaine Shi. <strong>&ldquo;Streamlet: Textbook Streamlined
+Blockchains.&rdquo;</strong> IACR Cryptol. ePrint Arch. 2020 (2020): 88.</p>
+</li>
+</ul>
+<h2 id="cryptography">Cryptography<a hidden class="anchor" aria-hidden="true" href="#cryptography">#</a></h2>
+<p>Books</p>
+<ul>
+<li>Ferguson, Niels, Bruce Schneier, and Tadayoshi Kohno. &ldquo;<strong>Cryptography
+engineering.</strong>&rdquo; Design Princi (2010).</li>
+</ul>
+<h2 id="databases">Databases<a hidden class="anchor" aria-hidden="true" href="#databases">#</a></h2>
+<p>Books</p>
+<ul>
+<li>
+<p>Kleppmann, M. (2017). <strong>Designing data-intensive applications</strong>: The big ideas
+behind reliable, scalable, and maintainable systems. &quot; O&rsquo;Reilly Media, Inc.&quot;.</p>
+</li>
+<li>
+<p>Silberschatz, Abraham, Henry F. Korth, and Shashank Sudarshan. <strong>Database
+system concepts.</strong> Vol. 7. New York: McGraw-Hill, 2019.</p>
+</li>
+</ul>
+<p>Papers</p>
+<ul>
+<li>
+<p>Levandoski, Justin J., David B. Lomet, and Sudipta Sengupta. <strong>&ldquo;The Bw-Tree: A
+B-tree for new hardware platforms.&rdquo;</strong> 2013 IEEE 29th International Conference
+on Data Engineering (ICDE). IEEE, 2013.</p>
+</li>
+<li>
+<p>Thomson, Alexander, et al. <strong>&ldquo;Calvin: fast distributed transactions for
+partitioned database systems.&rdquo;</strong> Proceedings of the 2012 ACM SIGMOD
+International Conference on Management of Data. ACM, 2012.</p>
+</li>
+</ul>
+<h2 id="lock-free-data-structures">Lock-free data structures<a hidden class="anchor" aria-hidden="true" href="#lock-free-data-structures">#</a></h2>
+<p>Papers</p>
+<ul>
+<li>
+<p>Hendler, Danny, Nir Shavit, and Lena Yerushalmi. <strong>&ldquo;A scalable lock-free stack
+algorithm.&rdquo;</strong> Proceedings of the sixteenth annual ACM symposium on Parallelism
+in algorithms and architectures. 2004.</p>
+</li>
+<li>
+<p>Hart, Thomas Edward. <strong>Comparative performance of memory reclamation strategies
+for lock-free and concurrently-readable data structures</strong>. University of
+Toronto, 2005.</p>
+</li>
+<li>
+<p>Kogan, Alex, and Erez Petrank. <strong>&ldquo;A methodology for creating fast wait-free
+data structures.&rdquo;</strong> ACM SIGPLAN Notices. Vol. 47. No. 8. ACM, 2012.</p>
+</li>
+<li>
+<p>Herlihy, Maurice, Victor Luchangco, and Mark Moir. <strong>&ldquo;Obstruction-free
+synchronization: Double-ended queues as an example.&rdquo;</strong> 23rd International
+Conference on Distributed Computing Systems, 2003. Proceedings.. IEEE, 2003.</p>
+</li>
+</ul>
+<h2 id="hardware-synchronization">Hardware synchronization<a hidden class="anchor" aria-hidden="true" href="#hardware-synchronization">#</a></h2>
+<p>Books</p>
+<ul>
+<li>
+<p>Herlihy, Maurice, and Nir Shavit. <strong>The Art of Multiprocessor Programming</strong>,
+revised first edition. Morgan Kaufmann, 2012.</p>
+</li>
+<li>
+<p>John L. Hennessy and David A. Patterson. 2017. <strong>Computer Architecture, Sixth
+Edition: A Quantitative Approach</strong> (6th. ed.). Morgan Kaufmann Publishers
+Inc., San Francisco, CA, USA.</p>
+</li>
+</ul>
+<p>Papers</p>
+<ul>
+<li>David, Tudor, Rachid Guerraoui, and Vasileios Trigonakis. <strong>&ldquo;Everything you
+always wanted to know about synchronization but were afraid to ask.&rdquo;</strong>
+Proceedings of the Twenty-Fourth ACM Symposium on Operating Systems
+Principles. ACM, 2013.</li>
+</ul>
+<h2 id="networking">Networking<a hidden class="anchor" aria-hidden="true" href="#networking">#</a></h2>
+<p>Books</p>
+<ul>
+<li>
+<p>Kurose, J. F., &amp; Ross, K. W. (2017). <strong>Computer networking: a top-down
+approach</strong> (Vol. 7). Boston, USA: Addison Wesley.</p>
+</li>
+<li>
+<p>Grigorik, I. (2013). <strong>High Performance Browser Networking</strong>: What every web
+developer should know about networking and web performance. &quot; O&rsquo;Reilly Media,
+Inc.&quot;.</p>
+</li>
+</ul>
+<p>Papers</p>
+<ul>
+<li>
+<p>Lamport, Leslie. <strong>&ldquo;Time, clocks, and the ordering of events in a distributed
+system.&rdquo;</strong> Communications of the ACM 21.7 (1978): 558-565.</p>
+</li>
+<li>
+<p>Chandy, K. Mani, and Leslie Lamport. <strong>&ldquo;Distributed snapshots: Determining
+global states of distributed systems.&rdquo;</strong> ACM Transactions on Computer Systems
+(TOCS) 3.1 (1985): 63-75.</p>
+</li>
+<li>
+<p>Shapiro, Marc, et al. <strong>&ldquo;A comprehensive study of convergent and commutative
+replicated data types.&rdquo;</strong> (2011).</p>
+</li>
+<li>
+<p>Cardwell, Neal, et al. <strong>&ldquo;BBR: Congestion-based congestion control.&rdquo;</strong> Queue
+14.5 (2016): 20-53.</p>
+</li>
+<li>
+<p>Carpenter, Brian, ed. <strong>&ldquo;RFC1958: Architectural principles of the Internet.&rdquo;</strong>
+(1996).</p>
+</li>
+<li>
+<p>Bush, Randy, and David Meyer. <strong>&ldquo;RFC3439: Some internet architectural
+guidelines and philosophy.&rdquo;</strong> (2002).</p>
+</li>
+<li>
+<p>Jennings, Cullen, et al. <strong>&ldquo;Resource location and discovery (reload) base
+protocol.&rdquo;</strong> REsource (2014).</p>
+</li>
+<li>
+<p>Piotrowska, Ania M., et al. <strong>&ldquo;The loopix anonymity system.&rdquo;</strong> 26th {USENIX}
+Security Symposium ({USENIX} Security 17). 2017.</p>
+</li>
+<li>
+<p>Diaz, Claudia, Harry Halpin, and Aggelos Kiayias. <strong>&ldquo;The Nym Network.&rdquo;</strong>
+(2021).</p>
+</li>
+<li>
+<p>Malhotra, Aanchal, et al. <strong>&ldquo;Attacking the Network Time Protocol.&rdquo;</strong> NDSS.
+2016.</p>
+</li>
+<li>
+<p>Birge-Lee, Henry, et al. <strong>&ldquo;Sico: Surgical interception attacks by
+manipulating bgp communities.&rdquo;</strong> Proceedings of the 2019 ACM SIGSAC Conference
+on Computer and Communications Security. 2019.</p>
+</li>
+<li>
+<p>Gao, Lixin, and Jennifer Rexford. <strong>&ldquo;Stable Internet routing without global
+coordination.&rdquo;</strong> IEEE/ACM Transactions on networking 9.6 (2001): 681-692.</p>
+</li>
+<li>
+<p>Gray, Caitlin, et al. <strong>&ldquo;BGP Beacons, Network Tomography, and Bayesian
+Computation to Locate Route Flap Damping.&rdquo;</strong> Proceedings of the ACM Internet
+Measurement Conference. 2020.</p>
+</li>
+<li>
+<p>Shreedhar, Madhavapeddi, and George Varghese. <strong>&ldquo;Efficient fair queuing using
+deficit round-robin.&rdquo;</strong> IEEE/ACM Transactions on networking 4.3 (1996):
+375-385.</p>
+</li>
+<li>
+<p>Van Renesse, Robbert, et al. <strong>&ldquo;Efficient reconciliation and flow control for
+anti-entropy protocols.&rdquo;</strong> proceedings of the 2nd Workshop on Large-Scale
+Distributed Systems and Middleware. ACM, 2008.</p>
+</li>
+</ul>
+<h3 id="peer-to-peer">Peer to peer<a hidden class="anchor" aria-hidden="true" href="#peer-to-peer">#</a></h3>
+<p>Papers</p>
+<ul>
+<li>
+<p>Cohen, Bram. <strong>&ldquo;Incentives build robustness in BitTorrent.&rdquo;</strong> Workshop on
+Economics of Peer-to-Peer systems. Vol. 6. 2003.</p>
+</li>
+<li>
+<p>Zhao, Mingchen, et al. <strong>&ldquo;Peer-assisted content distribution in akamai
+netsession.&rdquo;</strong> Proceedings of the 2013 conference on Internet measurement
+conference. 2013.</p>
+</li>
+</ul>
+<h4 id="gossip--epidemic-broadcast">Gossip / epidemic broadcast<a hidden class="anchor" aria-hidden="true" href="#gossip--epidemic-broadcast">#</a></h4>
+<p>Papers</p>
+<ul>
+<li>
+<p>Vyzovitis, Dimitris, et al. <strong>&ldquo;GossipSub: Attack-Resilient Message Propagation
+in the Filecoin and ETH2. 0 Networks.&rdquo;</strong> arXiv preprint arXiv:2007.02754
+(2020).</p>
+</li>
+<li>
+<p>Leitao, Joao, Jose Pereira, and Luis Rodrigues. <strong>&ldquo;Epidemic broadcast
+trees.&rdquo;</strong> 2007 26th IEEE International Symposium on Reliable Distributed
+Systems (SRDS 2007). IEEE, 2007.</p>
+</li>
+</ul>
+<h4 id="distributed-hash-table">Distributed hash table<a hidden class="anchor" aria-hidden="true" href="#distributed-hash-table">#</a></h4>
+<p>Papers</p>
+<ul>
+<li>
+<p>Maymounkov, Petar, and David Mazieres. <strong>&ldquo;Kademlia: A peer-to-peer information
+system based on the xor metric.&rdquo;</strong> International Workshop on Peer-to-Peer
+Systems. Springer, Berlin, Heidelberg, 2002.</p>
+</li>
+<li>
+<p>Baumgart, Ingmar, and Sebastian Mies. <strong>&ldquo;S/kademlia: A practicable approach
+towards secure key-based routing.&rdquo;</strong> 2007 International Conference on Parallel
+and Distributed Systems. IEEE, 2007.</p>
+</li>
+</ul>
+<h4 id="membership-protocol">Membership protocol<a hidden class="anchor" aria-hidden="true" href="#membership-protocol">#</a></h4>
+<p>Papers</p>
+<ul>
+<li>
+<p>Das, Abhinandan, Indranil Gupta, and Ashish Motivala. <strong>&ldquo;Swim: Scalable
+weakly-consistent infection-style process group membership protocol.&rdquo;</strong>
+Proceedings International Conference on Dependable Systems and Networks. IEEE,
+2002.</p>
+</li>
+<li>
+<p>Bortnikov, Edward, et al. <strong>&ldquo;Brahms: Byzantine resilient random membership
+sampling.&rdquo;</strong> Computer Networks 53.13 (2009): 2340-2359.</p>
+</li>
+</ul>
+<h2 id="programming-languages">Programming Languages<a hidden class="anchor" aria-hidden="true" href="#programming-languages">#</a></h2>
+<p>Books</p>
+<ul>
+<li>
+<p>Klabnik, Steve, and Carol Nichols. <strong>The Rust Programming Language</strong>. No
+Starch Press, 2018.</p>
+</li>
+<li>
+<p>Brady, Edwin. <strong>Type-driven development with Idris</strong>. Manning Publications
+Company, 2017.</p>
+</li>
+<li>
+<p>Lipovaca, M. (2011). <strong>Learn you a haskell for great good!</strong>: a beginner&rsquo;s
+guide. no starch press.</p>
+</li>
+<li>
+<p>Graham Hutton. 2016. <strong>Programming in Haskell</strong> (2nd. ed.). Cambridge
+University Press, USA.</p>
+</li>
+<li>
+<p>Friedman, Daniel P., and Matthias Felleisen. <strong>The Little Schemer</strong>. MIT
+Press, 1995.</p>
+</li>
+<li>
+<p>Abelson, Harold, and Gerald Jay Sussman. <strong>Structure and interpretation of
+computer programs</strong>. The MIT Press, 1996.</p>
+</li>
+<li>
+<p>Cooper, Keith, and Linda Torczon. <strong>Engineering a compiler</strong>. Elsevier, 2011.</p>
+</li>
+<li>
+<p>Cox-Buday, Katherine. <strong>Concurrency in Go: Tools and Techniques for
+Developers.</strong> &quot; O&rsquo;Reilly Media, Inc.&quot;, 2017.</p>
+</li>
+<li>
+<p>Armstrong, Joe. <strong>Programming Erlang: software for a concurrent world</strong>.
+Pragmatic Bookshelf, 2013.</p>
+</li>
+</ul>
+<p>Papers</p>
+<ul>
+<li>Hughes, John. <strong>&ldquo;QuickCheck testing for fun and profit.&rdquo;</strong> International
+Symposium on Practical Aspects of Declarative Languages. Springer, Berlin,
+Heidelberg, 2007.</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Max Inden</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

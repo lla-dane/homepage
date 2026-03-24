@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Improve Floresta&#39;s testing - Part 1 | Abhinav Agarwalla</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:
+Improve the testing environment of Floresta.
+
+Floresta ?
+Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
+At the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.">
+<meta name="author" content="Abhinav Agarwalla">
+<link rel="canonical" href="http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blogs/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/code" title="Builds">
+                    <span>Builds</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Improve Floresta&#39;s testing - Part 1
+    </h1>
+    <div class="post-meta"><span title='2024-07-18 00:00:00 +0000 UTC'>July 18, 2024</span>&nbsp;·&nbsp;Abhinav Agarwalla
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:<br>
+Improve the testing environment of Floresta.</p>
+</blockquote>
+<h1 id="floresta-">Floresta ?<a hidden class="anchor" aria-hidden="true" href="#floresta-">#</a></h1>
+<p>Floresta a lightweight Bitcoin full node implementation written in Rust. powered by <a href="https://eprint.iacr.org/2019/611">Utreexo</a> a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated <a href="https://thebitcoinmanual.com/articles/btc-electrum-server/">Electrum</a> server.</p>
+<p>At the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.</p>
+<h1 id="my-progress-">My progress :<a hidden class="anchor" aria-hidden="true" href="#my-progress-">#</a></h1>
+<iframe src="https://giphy.com/embed/GoyHSQzWVhN4Cvi0ko" width="480" height="269" class="giphy-embed"></iframe>
+<blockquote>
+<p>All my related PRs for Floresta:</p>
+<ul>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/168">https://github.com/vinteumorg/Floresta/pull/168</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/179">https://github.com/vinteumorg/Floresta/pull/179</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/182">https://github.com/vinteumorg/Floresta/pull/182</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/180">https://github.com/vinteumorg/Floresta/pull/180</a></p>
+</li>
+</ul>
+</blockquote>
+<p>Floresta is composed of two parts :-</p>
+<ul>
+<li>
+<p><strong>libfloresta:</strong> It is a set of reusable components that can be used to build Bitcoin applications.</p>
+</li>
+<li>
+<p><strong>florestad:</strong> Built on top of libfloresta to provide a full node implementation, inncluding a watch-only wallet and Electrum server.</p>
+</li>
+</ul>
+<h2 id="tools-installation">Tools installation:<a hidden class="anchor" aria-hidden="true" href="#tools-installation">#</a></h2>
+<p>I first started off with installing the <strong>Tarpaulin,</strong> a code coverage tool specifically designed for Rust projects. It offers developers a way to measure how much of their codebase is being exercised by tests.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>// Installation 
+</span></span><span style="display:flex;"><span>cargo install cargo-tarpaulin
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// This command will execute all your tests and report the code coverage percentage 
+</span></span><span style="display:flex;"><span>cargo tarpaulin 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// To generate a detailed report in HTML or XML formats, use: 
+</span></span><span style="display:flex;"><span>cargo tarpaulin --out Html
+</span></span><span style="display:flex;"><span>cargo tarpaulin --out Xml
+</span></span></code></pre></div><blockquote>
+<p>Checkout the initial test-coverage report by <strong>cargo tarpaulin</strong> of Floresta here: <a href="https://lla-dane.github.io/floresta-tests.github.io/">https://lla-dane.github.io/floresta-tests.github.io/</a></p>
+</blockquote>
+<h2 id="exploring-the-codebase">Exploring the codebase:<a hidden class="anchor" aria-hidden="true" href="#exploring-the-codebase">#</a></h2>
+<p>I started exploring the codebase with <strong>libfloresta,</strong> which has 5 major modules:</p>
+<ul>
+<li>
+<p><strong>floresta-chain:</strong> Updates the blockchain state for our node.</p>
+</li>
+<li>
+<p><strong>floresta-cli:</strong> A CLI utility to interact with the node.</p>
+</li>
+<li>
+<p><strong>floresta-electrum:</strong> The Electrum protocol implementation for interating with the node.</p>
+</li>
+<li>
+<p><strong>floresta-watch-only:</strong> A watch-only wallet that can track details for some particular addresses in the blockchain.</p>
+</li>
+<li>
+<p><strong>floresta-wire:</strong> This library communicates with the Bitcoin network, learning about new blocks and transactions.</p>
+</li>
+</ul>
+<h3 id="floresta-chain-">Floresta-chain :<a hidden class="anchor" aria-hidden="true" href="#floresta-chain-">#</a></h3>
+<p>It was first time reading and understanding those advanced programming techniques combined with the bitcoin protocol, it took a little bit extra time then expected, but I soon caught up.</p>
+<p>The main functionality for blockchain management is implemented in <strong>chain_state.rs.</strong> Initially it only had unit tests for:</p>
+<ul>
+<li>
+<p>accepting mainnet and signet headers</p>
+</li>
+<li>
+<p>reorg blockchain in case of forks</p>
+</li>
+<li>
+<p>calculate the next work(pow) required</p>
+</li>
+</ul>
+<p>I added the following tests:</p>
+<ul>
+<li>
+<p>pushing signet headers in the blockchain without validating them.</p>
+</li>
+<li>
+<p>reindexing the chain.</p>
+</li>
+<li>
+<p>invalidate a random block in the middle of the blockchain.</p>
+</li>
+<li>
+<p>get block headers by height and hash from the database</p>
+</li>
+</ul>
+<p>While going through the chain-management logic, I didn&rsquo;t understand how the Utreexo accumulator logic was integrated with the chain, but it soon cleared up when I ran <strong>utrrexod</strong> on my local system, and got to see the <strong>udata</strong> components in the <strong>UtreexoBlock</strong>s which was processed in Floresta.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// A typical UtreexoBlock looked like this
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// A block plus some udata
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#[derive(PartialEq, Eq, Clone, Debug)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">UtreexoBlock</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// An actual block
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> block: <span style="color:#a6e22e">Block</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The utreexo specific data
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> udata: Option<span style="color:#f92672">&lt;</span>UData<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After this small contribution I moved on to understanding <strong>floresta-watch-only.</strong></p>
+<h3 id="floresta-watch-only-">Floresta-watch-only :<a hidden class="anchor" aria-hidden="true" href="#floresta-watch-only-">#</a></h3>
+<p>After reading floresta-chain, at first I went for floresta-wire but its complexity was still out of my reach so I took a step back.</p>
+<p>As I discussed above this module acts as a watch-only wallet for tracking our intended script hashes in the blockchain, like transactions, UTXOs, balance, descriptors etc. related to those addresses.</p>
+<p>It has two two of data storing techniques:</p>
+<ul>
+<li>
+<p><strong>kv_database:</strong> A key-value store-based database for the watch-only wallet using <strong>kv</strong> crate. The <strong>KvDatabase</strong> is meant to used for production.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">KvDatabase</span>(Store, Bucket<span style="color:#f92672">&lt;</span>&#39;static, String, Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;&gt;</span>);
+</span></span></code></pre></div></li>
+<li>
+<p><strong>memory_database:</strong> An in-memory database to store address data. Being in-memory means this database is volatile, ans all data is lost after the database is dropped or the process is terminates.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[derive(Debug, Default)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">MemoryDatabase</span> {
+</span></span><span style="display:flex;"><span>    inner: <span style="color:#a6e22e">RwLock</span><span style="color:#f92672">&lt;</span>Inner<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[derive(Debug, Default)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Inner</span> {
+</span></span><span style="display:flex;"><span>    addresses: <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span>sha256::Hash, CachedAddress<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    transactions: <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span>Txid, CachedTransaction<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>    stats: <span style="color:#a6e22e">Stats</span>,
+</span></span><span style="display:flex;"><span>    height: <span style="color:#66d9ef">u32</span>,
+</span></span><span style="display:flex;"><span>    descriptors: Vec<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This feature is not meant for production, but for the integrated testing framework.</p>
+</li>
+</ul>
+<p><strong>My contribution in floresta-watch-only:</strong></p>
+<ol>
+<li><strong>Memory database:</strong></li>
+</ol>
+<ul>
+<li>
+<p>Added tests for caching address hashes.</p>
+</li>
+<li>
+<p>Modified tests for caching transaction by adding tests for helper functions that work around with caching a transaction.</p>
+</li>
+<li>
+<p>Modified tests for processing blocks to monitor transactions related to our intended addresses by adding tests for helper functions that work around with processing a block.</p>
+</li>
+</ul>
+<p><strong>2) KvDatabase:</strong></p>
+<ul>
+<li>Added tests for the basic functions used by the kv-database like getting, saving and updating stuff for our watch-only-wallet.</li>
+</ul>
+<p><strong>Bug Fix:</strong></p>
+<p>There was a potential bottleneck in the cache-transaction function. Previously the <strong>balance</strong> and <strong>utxos</strong> related to a <strong>script_hash</strong> gets pushed again in the cache under some particular conditions, resulting the balance associated with that <strong>script_hash</strong> becoming twice as much. So, this could have been disastrous.</p>
+<p>I did the following changes.</p>
+<p>This concluds my work with <strong>floresta-watch-only.</strong></p>
+<blockquote>
+<p>For detailed info about this bug fix and the watch-only-wallet tests, refer to the related PR: <a href="https://github.com/vinteumorg/Floresta/pull/180">https://github.com/vinteumorg/Floresta/pull/1</a>68</p>
+</blockquote>
+<h3 id="floresta-electrum">Floresta-electrum:<a hidden class="anchor" aria-hidden="true" href="#floresta-electrum">#</a></h3>
+<iframe src="https://giphy.com/embed/rdma0nDFZMR32" width="480" height="346" class="giphy-embed"></iframe>
+<p>I had most of the fun here, while exploring this module. As the name suggests this is the <strong>Electrum protocol</strong> implementation for the node.</p>
+<p>The Electrum server is set up to communicate over the <strong>TCP Stream,</strong> so you can&rsquo;t go along and try to get the responses using <strong>Postman,</strong> or any similar services, it has to be over the <strong>Tcp stream.</strong><br>
+One way to do it is like this using the terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;{&#34;id&#34;: 5, &#34;method&#34;: &#34;server.banner&#34;, &#34;jsonrpc&#34;: &#34;2.0&#34;, &#34;params&#34;: []}&#39;</span> | nc localhost <span style="color:#ae81ff">50001</span>
+</span></span></code></pre></div><p>Through the Electrum Server we interact with the watch-only wallet as discussed above.</p>
+<p><strong>My contribution:</strong></p>
+<p>The most important function for this testing environment is this function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>   <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">start_electrum</span>(port: <span style="color:#66d9ef">u16</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> e_addr <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;0.0.0.0:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, port);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> wallet <span style="color:#f92672">=</span> get_test_cache();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Create test_chain_state
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> test_id <span style="color:#f92672">=</span> rand::random::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chainstore <span style="color:#f92672">=</span> KvChainStore::new(<span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;./data/</span><span style="color:#e6db74">{test_id}</span><span style="color:#e6db74">.floresta/&#34;</span>)).unwrap();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chain <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>            ChainState::<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;</span>::new(chainstore, Network::Signet, AssumeValidArg::Hardcoded);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> headers <span style="color:#f92672">=</span> get_test_signet_headers();
+</span></span><span style="display:flex;"><span>        chain.push_headers(headers, <span style="color:#ae81ff">1</span>).unwrap();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chain <span style="color:#f92672">=</span> Arc::new(chain);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Create test_node_interface
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> u_config <span style="color:#f92672">=</span> UtreexoNodeConfig {
+</span></span><span style="display:flex;"><span>            network: <span style="color:#a6e22e">bitcoin</span>::Network::Signet,
+</span></span><span style="display:flex;"><span>            pow_fraud_proofs: <span style="color:#a6e22e">true</span>,
+</span></span><span style="display:flex;"><span>            proxy: None,
+</span></span><span style="display:flex;"><span>            datadir: <span style="color:#e6db74">&#34;/data&#34;</span>.to_string(),
+</span></span><span style="display:flex;"><span>            fixed_peer: None,
+</span></span><span style="display:flex;"><span>            max_banscore: <span style="color:#ae81ff">50</span>,
+</span></span><span style="display:flex;"><span>            compact_filters: <span style="color:#a6e22e">false</span>,
+</span></span><span style="display:flex;"><span>            max_outbound: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>            max_inflight: <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>            assume_utreexo: None,
+</span></span><span style="display:flex;"><span>            backfill: <span style="color:#a6e22e">false</span>,
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chain_provider: <span style="color:#a6e22e">UtreexoNode</span><span style="color:#f92672">&lt;</span>RunningNode, Arc<span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>            UtreexoNode::new(
+</span></span><span style="display:flex;"><span>                u_config,
+</span></span><span style="display:flex;"><span>                chain.clone(),
+</span></span><span style="display:flex;"><span>                Arc::new(async_std::sync::RwLock::new(Mempool::new())),
+</span></span><span style="display:flex;"><span>                None,
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> node_interface <span style="color:#f92672">=</span> chain_provider.get_handle();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> electrum_server: <span style="color:#a6e22e">ElectrumServer</span><span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">=</span> block_on(
+</span></span><span style="display:flex;"><span>            ElectrumServer::new(e_addr, wallet, chain, None, node_interface),
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        .unwrap();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        task::spawn(client_accept_loop(
+</span></span><span style="display:flex;"><span>            electrum_server.tcp_listener.clone(),
+</span></span><span style="display:flex;"><span>            electrum_server.message_transmitter.clone(),
+</span></span><span style="display:flex;"><span>        ));
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Electrum main loop
+</span></span></span><span style="display:flex;"><span>        task::spawn(electrum_server.main_loop());
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>This is a dummy simulation of a working <strong>Electrum server</strong> over a random port, with a dummy <strong>chain-store database</strong> to store the blockchain and a <strong>watch-only wallet</strong> to monitor the user&rsquo;s intended addresses.</p>
+<p>After this, I just created tests for different features of electrum like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span> <span style="color:#75715e">#[async_std::test]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">test_server_banner</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> port <span style="color:#f92672">=</span> rand::random::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u16</span><span style="color:#f92672">&gt;</span>() <span style="color:#f92672">%</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">18443</span>;
+</span></span><span style="display:flex;"><span>        start_electrum(port).<span style="color:#66d9ef">await</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> method <span style="color:#f92672">=</span> Value::String(<span style="color:#e6db74">&#34;server.banner&#34;</span>.to_string());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> request <span style="color:#f92672">=</span> generate_request(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> <span style="color:#a6e22e">vec!</span>[method]).to_string();
+</span></span><span style="display:flex;"><span>        request.push(<span style="color:#e6db74">&#39;\n&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, request);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">assert_eq!</span>(send_request(request, port).<span style="color:#66d9ef">await</span>, <span style="color:#e6db74">&#34;Welcome to Floresta&#39;s Electrum Server&#34;</span>.to_string())
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>This concludes my work with <strong>floresta-electrum.</strong></p>
+<blockquote>
+<p>For detailed information check it out in the related PR:<br>
+<a href="https://github.com/vinteumorg/Floresta/pull/180">https://github.com/vinteumorg/Floresta/pull/180</a></p>
+</blockquote>
+<h3 id="floresta-wire">Floresta-wire:<a hidden class="anchor" aria-hidden="true" href="#floresta-wire">#</a></h3>
+<p>Here comes the monster of them all. This is the most complex module of them all, using the features of all the remaining modules.</p>
+<p>The Bitcoin wire protocol is fundamental to the operation of the Bitcoin network, enabling the distributed and decentralised verification of transactions. This protocol defines how nodes exchange information about transactions, blocks, and other data to maintain the decentralised blockchain.</p>
+<p>It has composed of three bridge nodes namely:</p>
+<ul>
+<li>
+<p><strong>chain_selector_node:</strong> This module connects with multiple peers and finds the best chain. We optimistically download all headers from one random peer, and then check with the others if they agree. If they have another chain for us, we download that chain, and pick whichever has more work.</p>
+<p>Most likely we&rsquo;ll only download one chain and all peers will agree with it. Then we can start downloading the actual blocks and validating them.</p>
+</li>
+<li>
+<p><strong>sync_node</strong> : This node downloads and validates the blockchain.</p>
+</li>
+<li>
+<p><strong>running_node:</strong> After the node caches-up with the network, we can start listening for new blocks, handling any request our user might make and keep our peers alive.</p>
+</li>
+</ul>
+<p><strong>My contribution with the chain_selector node:</strong></p>
+<p>The fundamental function related to this testing environment are these:</p>
+<ul>
+<li>
+<p><strong>create_peer:</strong> This simulates a running peer that responds to the <strong>chain_selector</strong> node with any incoming requests like:</p>
+<ul>
+<li>
+<p><strong>GetHeaders</strong></p>
+</li>
+<li>
+<p><strong>GetUtreexoState</strong></p>
+</li>
+<li>
+<p><strong>Shutdown</strong></p>
+</li>
+<li>
+<p><strong>GetBlock</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">create_peer</span>(
+</span></span><span style="display:flex;"><span>        headers: Vec<span style="color:#f92672">&lt;</span>Header<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        blocks: <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span>BlockHash, UtreexoBlock<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        filters: <span style="color:#a6e22e">HashMap</span><span style="color:#f92672">&lt;</span>BlockHash, Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;&gt;</span>,
+</span></span><span style="display:flex;"><span>        node_sender: <span style="color:#a6e22e">Sender</span><span style="color:#f92672">&lt;</span>NodeNotification<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        sender: <span style="color:#a6e22e">Sender</span><span style="color:#f92672">&lt;</span>NodeRequest<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        node_rcv: <span style="color:#a6e22e">Receiver</span><span style="color:#f92672">&lt;</span>NodeRequest<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        peer_id: <span style="color:#66d9ef">u32</span>,
+</span></span><span style="display:flex;"><span>    ) -&gt; <span style="color:#a6e22e">LocalPeerView</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> peer <span style="color:#f92672">=</span> TestPeer::new(node_sender, headers, blocks, filters, node_rcv, peer_id);
+</span></span><span style="display:flex;"><span>        task::spawn(peer.run());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        LocalPeerView {
+</span></span><span style="display:flex;"><span>            address: <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>.parse().unwrap(),
+</span></span><span style="display:flex;"><span>            services: <span style="color:#a6e22e">ServiceFlags</span>::from(<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">25</span>),
+</span></span><span style="display:flex;"><span>            user_agent: <span style="color:#e6db74">&#34;/utreexo:0.1.0/&#34;</span>.to_string(),
+</span></span><span style="display:flex;"><span>            height: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            state: <span style="color:#a6e22e">PeerStatus</span>::Ready,
+</span></span><span style="display:flex;"><span>            channel: <span style="color:#a6e22e">sender</span>,
+</span></span><span style="display:flex;"><span>            port: <span style="color:#ae81ff">8333</span>,
+</span></span><span style="display:flex;"><span>            feeler: <span style="color:#a6e22e">false</span>,
+</span></span><span style="display:flex;"><span>            banscore: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            address_id: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>            _last_message: <span style="color:#a6e22e">Instant</span>::now(),
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><ul>
+<li><strong>setup_test:</strong> This is the dummy simulation of a chain_selector node, that syncs up with the provided running peers in the parameters.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">setup_node</span>(
+</span></span><span style="display:flex;"><span>        peers: Vec<span style="color:#f92672">&lt;</span>(
+</span></span><span style="display:flex;"><span>            Vec<span style="color:#f92672">&lt;</span>Header<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>            HashMap<span style="color:#f92672">&lt;</span>BlockHash, UtreexoBlock<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>            HashMap<span style="color:#f92672">&lt;</span>BlockHash, Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;&gt;</span>,
+</span></span><span style="display:flex;"><span>        )<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        pow_fraud_proofs: <span style="color:#66d9ef">bool</span>,
+</span></span><span style="display:flex;"><span>        network: <span style="color:#a6e22e">floresta_chain</span>::Network,
+</span></span><span style="display:flex;"><span>    ) -&gt; <span style="color:#a6e22e">Arc</span><span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&lt;</span>&#39;static<span style="color:#f92672">&gt;&gt;&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> datadir <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;./data/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">.node_test&#34;</span>, rand::random::<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u32</span><span style="color:#f92672">&gt;</span>());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chainstore <span style="color:#f92672">=</span> KvChainStore::new(datadir.clone()).unwrap();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> mempool <span style="color:#f92672">=</span> Arc::new(RwLock::new(Mempool::new()));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chain <span style="color:#f92672">=</span> ChainState::new(chainstore, network, AssumeValidArg::Disabled);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chain <span style="color:#f92672">=</span> Arc::new(chain);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> config <span style="color:#f92672">=</span> UtreexoNodeConfig {
+</span></span><span style="display:flex;"><span>            network: <span style="color:#a6e22e">network</span>.into(),
+</span></span><span style="display:flex;"><span>            pow_fraud_proofs,
+</span></span><span style="display:flex;"><span>            compact_filters: <span style="color:#a6e22e">false</span>,
+</span></span><span style="display:flex;"><span>            fixed_peer: None,
+</span></span><span style="display:flex;"><span>            max_banscore: <span style="color:#ae81ff">100</span>,
+</span></span><span style="display:flex;"><span>            max_outbound: <span style="color:#ae81ff">8</span>,
+</span></span><span style="display:flex;"><span>            max_inflight: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>            datadir: <span style="color:#a6e22e">datadir</span>.clone(),
+</span></span><span style="display:flex;"><span>            proxy: None,
+</span></span><span style="display:flex;"><span>            assume_utreexo: None,
+</span></span><span style="display:flex;"><span>            backfill: <span style="color:#a6e22e">false</span>,
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> node <span style="color:#f92672">=</span> UtreexoNode::<span style="color:#f92672">&lt;</span>ChainSelector, Arc<span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;&gt;&gt;</span>::new(
+</span></span><span style="display:flex;"><span>            config,
+</span></span><span style="display:flex;"><span>            chain.clone(),
+</span></span><span style="display:flex;"><span>            mempool,
+</span></span><span style="display:flex;"><span>            None,
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (i, peer) <span style="color:#66d9ef">in</span> peers.into_iter().enumerate() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> (sender, receiver) <span style="color:#f92672">=</span> async_std::channel::bounded(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> peer <span style="color:#f92672">=</span> create_peer(
+</span></span><span style="display:flex;"><span>                peer.<span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>                peer.<span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>                peer.<span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>                node.node_tx.clone(),
+</span></span><span style="display:flex;"><span>                sender.clone(),
+</span></span><span style="display:flex;"><span>                receiver,
+</span></span><span style="display:flex;"><span>                i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">u32</span>,
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> _peer <span style="color:#f92672">=</span> peer.clone();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            node.peers.insert(i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">u32</span>, peer);
+</span></span><span style="display:flex;"><span>            node.peer_ids.push(i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">u32</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">match</span> node.peer_by_service.get_mut(<span style="color:#f92672">&amp;</span>_peer.services) {
+</span></span><span style="display:flex;"><span>                Some(peer_vec) <span style="color:#f92672">=&gt;</span> peer_vec.push(i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">u32</span>),
+</span></span><span style="display:flex;"><span>                None <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                    node.peer_by_service.insert(_peer.services, <span style="color:#a6e22e">vec!</span>[i <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">u32</span>]);
+</span></span><span style="display:flex;"><span>                    ()
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> node <span style="color:#f92672">=</span> ManuallyDrop::new(Box::new(node));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> kill_signal <span style="color:#f92672">=</span> Arc::new(RwLock::new(<span style="color:#66d9ef">false</span>));
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// FIXME: This doesn&#39;t look very safe, but we need to coerce a &amp;mut reference of the node
+</span></span></span><span style="display:flex;"><span>        <span style="color:#75715e">//        to live for the static lifetime, or it can&#39;t be spawn-ed by async-std::task
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> _node: <span style="color:#66d9ef">&amp;</span>&#39;static <span style="color:#a6e22e">mut</span> UtreexoNode<span style="color:#f92672">&lt;</span>ChainSelector, Arc<span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">unsafe</span> { std::mem::transmute(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> <span style="color:#f92672">**</span>node) };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        future::timeout(Duration::from_secs(<span style="color:#ae81ff">2</span>), _node.run(kill_signal))
+</span></span><span style="display:flex;"><span>            .<span style="color:#66d9ef">await</span>
+</span></span><span style="display:flex;"><span>            .unwrap()
+</span></span><span style="display:flex;"><span>            .unwrap();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        chain
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>After this I just created tests for different scenarios like:</p>
+<ul>
+<li>
+<p>accept one header</p>
+</li>
+<li>
+<p>two_peers with different tips</p>
+</li>
+<li>
+<p>ten peers with different tips</p>
+</li>
+<li>
+<p>two peers one lying</p>
+</li>
+<li>
+<p>ten peers one honest</p>
+</li>
+</ul>
+<p>One of these tests looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span> <span style="color:#75715e">#[async_std::test]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">ten_peers_different_tips</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> (<span style="color:#66d9ef">mut</span> headers, _, _, _) <span style="color:#f92672">=</span> get_essentials();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> _headers <span style="color:#f92672">=</span> headers.clone();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> peers <span style="color:#f92672">=</span> Vec::new();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> _ <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">..</span><span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>            headers.pop();
+</span></span><span style="display:flex;"><span>            headers.pop();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            peers.push((headers.clone(), HashMap::new(), HashMap::new()))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> chain <span style="color:#f92672">=</span> setup_test(peers, <span style="color:#66d9ef">false</span>, floresta_chain::Network::Signet).<span style="color:#66d9ef">await</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">assert_eq!</span>(chain.get_best_block().unwrap().<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2013</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">assert_eq!</span>(
+</span></span><span style="display:flex;"><span>            chain.get_best_block().unwrap().<span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>            _headers[<span style="color:#ae81ff">2013</span>].block_hash()
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p><strong>Bug fix:</strong></p>
+<ol>
+<li><em><strong>req_headers:</strong></em> Extended the parameters of <code>request_headers</code> function, by mentioning the <code>peer_id</code> of the peer to which the <code>GetHeaders</code> req is being sent to.</li>
+</ol>
+<p>Previously when <code>request_headers</code> function was called it was always sending req to <code>node.sync_peer</code>.</p>
+<blockquote>
+<p>PR related to this fix: <a href="https://github.com/vinteumorg/Floresta/pull/180">https://github.com/vinteumorg/Floresta/pull/1</a>79</p>
+</blockquote>
+<ol start="2">
+<li><em><strong>find_who_is_lying:</strong></em> Modified the declaration of <code>agree</code> bool in <code>find_who_is_lying</code> function.</li>
+</ol>
+<blockquote>
+<p>PR related to this fix: <a href="https://github.com/vinteumorg/Floresta/pull/180">https://github.com/vinteumorg/Floresta/pull/18</a>2</p>
+</blockquote>
+<p>This concludes my current work done with floresta-wire. I plan to do the same with <strong>sync_node</strong> and <strong>running_node.</strong></p>
+<blockquote>
+<p>For detailed info about this, refer to the related PR:<br>
+<a href="https://github.com/vinteumorg/Floresta/pull/180">https://github.com/vinteumorg/Floresta/pull/180</a></p>
+</blockquote>
+<h1 id="future-milestones">Future Milestones<a hidden class="anchor" aria-hidden="true" href="#future-milestones">#</a></h1>
+<ul>
+<li>
+<p>Functional tests for <strong>sync_node</strong> and <strong>running_node.</strong></p>
+</li>
+<li>
+<p>Setting up <strong>Grafana</strong> and <strong>Prometheus client</strong> support for enchanced monitoring.</p>
+</li>
+<li>
+<p>Documentation for a complete and extensible testing infrastructure.</p>
+</li>
+</ul>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>I had a lot of fun till now understanding Floresta&rsquo;s codebase and enhancing my coding skills in Rust.</p>
+<p>Thank you for reading, hope you enjoyed it! I&rsquo;ll continue to update my progress via the series of blogs ;)</p>
+<p>Follow me on <a href="https://x.com/lla_dane">Twitter</a> | <a href="https://www.linkedin.com/in/abhinav-agarwalla-a80425258/">Linkedln</a> for more development related tips and posts.</p>
+<p>That&rsquo;s all for today! You have read this article till the end.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

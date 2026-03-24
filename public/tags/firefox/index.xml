@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Firefox on Abhinav Agarwalla</title>
+    <link>http://localhost:1313/tags/firefox/</link>
+    <description>Recent content in Firefox on Abhinav Agarwalla</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Talk &#34;Intro to WebTransport - the next WebSocket?!&#34; @FOSDEM</title>
+      <link>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</guid>
+      <description>&lt;p&gt;I gave a talk on the upcoming WebTransport protocol in the Browser Devroom at FOSDEM 2026.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;WebTransport is an upcoming protocol (standardized by the IETF) and Web API (standardized by the W3C) for bidirectional communication on the web. It provides multiplexed streams and unreliable datagrams on top of HTTP/3 and HTTP/2.&lt;/p&gt;
+&lt;p&gt;This talk explains how WebTransport works at the protocol level, how it maps to QUIC when run on top of HTTP/3, and how its capabilities differ from WebSocket. The session will also cover the current state of browser and server support, and where the ecosystem is heading next.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Talk &#34;Modern Network Protocols — What’s Next for Firefox and the Web?&#34; @FOSDEM</title>
+      <link>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
+      <description>&lt;p&gt;Andrew, a colleague, and I presented an outlook for Firefox and the web.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Web’s transport stack is changing rapidly, with QUIC, HTTP/3, and encrypted DNS seeing broad adoption. This talk gives an overview of the modern network protocols Firefox already deploys and invests in, including QUIC and HTTP/3’s growing share of Web traffic. It will highlight what Firefox actually sends on the wire today, what benefits we observe in practice, and where the Web’s protocol landscape stands in early 2026.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>netstack.fm - Modern networking in Firefox with Max Inden</title>
+      <link>http://localhost:1313/post/modern-networking-in-firefox-podcast/</link>
+      <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/modern-networking-in-firefox-podcast/</guid>
+      <description>&lt;p&gt;I joined Glen on the netstack.fm podcast to talk about modern networking in Firefox.&lt;/p&gt;
+&lt;p&gt;We discussed Mozilla &amp;rsquo;s work on Firefox&amp;rsquo;s QUIC and HTTP/3 stack — improving UDP I/O, congestion control, and overall performance — and why QUIC matters as a fast, encrypted, and evolvable transport for HTTP/3, WebTransport, and beyond.&lt;/p&gt;
+&lt;p&gt;Thanks for having me, Glen!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://netstack.fm/#episode-11&#34;&gt;https://netstack.fm/#episode-11&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fast UDP I/O for Firefox in Rust</title>
+      <link>http://localhost:1313/post/fast-udp-io-in-firefox/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/fast-udp-io-in-firefox/</guid>
+      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;Around 20% of Firefox&amp;rsquo;s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP.
+This translates to substantial UDP I/O activity.&lt;/p&gt;
+&lt;p&gt;Firefox uses &lt;a href=&#34;https://www-archive.mozilla.org/projects/nspr/&#34;&gt;NSPR&lt;/a&gt; for most of its network I/O.
+When it comes to UDP I/O, NSPR only offers a limited set of dated APIs, most relevant here &lt;a href=&#34;https://firefox-source-docs.mozilla.org/nspr/reference/pr_sendto.html&#34;&gt;&lt;code&gt;PR_SendTo&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://firefox-source-docs.mozilla.org/nspr/reference/pr_recvfrom.html&#34;&gt;&lt;code&gt;PR_RecvFrom&lt;/code&gt;&lt;/a&gt;, wrappers around POSIX&amp;rsquo;s &lt;code&gt;sendto&lt;/code&gt; and &lt;code&gt;recvfrom&lt;/code&gt;.
+The N in NSPR stands for Netscape, giving you a hint of its age.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Talk &#34;Fast UDP makes QUIC quicker - optimizing Firefox’s HTTP3 IO stack&#34; @FOSDEM</title>
+      <link>http://localhost:1313/post/2025-02-02-fast-udp-makes-quic-quicker/</link>
+      <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/2025-02-02-fast-udp-makes-quic-quicker/</guid>
+      <description>&lt;p&gt;I presented my recent work on Firefox&amp;rsquo;s HTTP3/QUIC stack in the Network Devroom at FOSDEM 2025.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;QUIC is a new transport protocol on top of UDP, transporting a large portion of the Internet traffic today. UDP I/O performance is crucial for QUIC implementations, where e.g. system call overhead can significantly impact throughput at high network speeds. To improve QUIC throughput, Firefox is switching to a modern UDP IO stack in Rust, using mechanisms like recvmmsg, and GRO across Linux, Windows, and Android.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

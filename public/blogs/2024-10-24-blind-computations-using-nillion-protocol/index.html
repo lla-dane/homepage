@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Implementing Blind Computation using Nillion Protocol | Abhinav Agarwalla</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.
+
+Introduction
+So what is the meaning of blind computation ? What are its advantages ?
+I recently participated in ETHGlobal’s ETHOnline’24 hackathon, and my team built a decentarlized roulette platform (FairBet) with the help of Nillion and Sign Protocol, and won a partner prize too !!
+%[https://x.com/lla_dane/status/1839514686351421874]
+I worked on implementing a blind computation infrastructure using Nillion so that the result of the game gets calculated not on the open backend or frontend which could be easily manipulated by malicious entities, but on a secure blockchain environment on which the variables are dispersed over the network and also encrypted when they are computed upon !! So not chance of tampering with the result.">
+<meta name="author" content="Abhinav Agarwalla">
+<link rel="canonical" href="http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blogs/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/code" title="Builds">
+                    <span>Builds</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Implementing Blind Computation using Nillion Protocol
+    </h1>
+    <div class="post-meta"><span title='2024-10-24 00:00:00 +0000 UTC'>October 24, 2024</span>&nbsp;·&nbsp;Abhinav Agarwalla
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.</p>
+</blockquote>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>So what is the meaning of blind computation ? What are its advantages ?</p>
+<p>I recently participated in <a href="https://ethglobal.com/">ETHGlobal</a>’s <a href="https://ethglobal.com/events/ethonline2024">ETHOnline’24</a> hackathon, and my team built a decentarlized roulette platform (<a href="https://github.com/aaravm/FairBET">FairBet</a>) with the help of <a href="https://nillion.com/">Nillion</a> and <a href="https://sign.global/">Sign Protocol</a>, and won a partner prize too !!</p>
+<p>%[https://x.com/lla_dane/status/1839514686351421874]</p>
+<p>I worked on implementing a blind computation infrastructure using Nillion so that the result of the game gets calculated not on the open backend or frontend which could be easily manipulated by malicious entities, but on a secure blockchain environment on which the variables are dispersed over the network and also encrypted when they are computed upon !! So not chance of tampering with the result.</p>
+<h1 id="what-exactly-nillion-does-">What exactly Nillion does ?<a hidden class="anchor" aria-hidden="true" href="#what-exactly-nillion-does-">#</a></h1>
+<p>Nillion is a secure computation network that decentralizes trust for high value data in the same way that blockchains decentralized transactions.</p>
+<p>Traditionally securing high value data requires encryption before storage. While this is effective for safeguarding the data at rest, it creates limitations when the data needs to be used or processed.<br>
+Once the data is encrypted and stored, the traditional process involves decrypting it to perform necessary computations, and the re-encrypting it. This decrypt-compute-reencrypt cycle not only causes potential security vulnerabilities, but also leads to inefficiencies in data handling !!</p>
+<p>Nillion addresses these challenges by leveraging privacy enhancing technologies (PETs) including Multi-Party Computation (MPC). These PETs enable users to securely store high value data on Nillion&rsquo;s peer-to-peer network of nodes, and allow for computations to be executed on the masked data itself. This eliminates the traditional need to decrypt data ahead of computation, enhancing the high value data&rsquo;s security.</p>
+<p><strong>In short, high value data stored in the Nillion Network can be computed on while staying hidden (encrypted).</strong></p>
+<h1 id="how-we-used-nillion-">How we used Nillion ?<a hidden class="anchor" aria-hidden="true" href="#how-we-used-nillion-">#</a></h1>
+<p>As I mentioned before, we used it for data security in a roulette game. A user’s bet remain completely private, stored on Nillion’s devnet, making it inaccessible to anyone - including game administrators. Once the roulette wheel is spun, and it generates a result, it sent to the Nillion backend server, which privately computes whether the user won or lost. The result is returned securely, without exposing any sensitive data. This ensures that neither the game makers nor external actors can influence the outcome, promoting fairness and transparency.</p>
+<h1 id="how-we-built-it-">How we built it ?<a hidden class="anchor" aria-hidden="true" href="#how-we-built-it-">#</a></h1>
+<p>Like everyone else we referred to the developer <a href="https://docs.nillion.com/start-building">docs</a> to get started. Basically the thing is, you have to implement nillion clients in python or java-script to interact with the nillion network. I went for the python client and below I will show you, how I built it.</p>
+<p>For the nillion-python-development environment setup refer to the docs. This will get you installed with Nillion SDK Tools and nilup.</p>
+<p>Fork and clone the <a href="https://github.com/NillionNetwork/nillion-python-starter">Nillion-pyhton-starter repo</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/&lt;your-github-username&gt;/nillion-python-starter.git
+</span></span><span style="display:flex;"><span>cd nillion-python-starter
+</span></span></code></pre></div><p>After that install the required dependencies and tools as mentioned in the docs.</p>
+<h3 id="nillion-secret-programs">Nillion-Secret Programs<a hidden class="anchor" aria-hidden="true" href="#nillion-secret-programs">#</a></h3>
+<p>First let’s get on with the nada-programs. A binary of these programs will be deployed along with the compute variables to the nillion-devnet for blind computations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd quickstart
+</span></span><span style="display:flex;"><span>nada init nada_quickstart_programs
+</span></span></code></pre></div><p>This will generate a simple secret-addition.py program that looks like this -</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> nada_dsl <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">nada_main</span>():
+</span></span><span style="display:flex;"><span>    party1 <span style="color:#f92672">=</span> Party(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Party1&#34;</span>)
+</span></span><span style="display:flex;"><span>    my_int1 <span style="color:#f92672">=</span> SecretInteger(Input(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_int1&#34;</span>, party<span style="color:#f92672">=</span>party1))
+</span></span><span style="display:flex;"><span>    my_int2 <span style="color:#f92672">=</span> SecretInteger(Input(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;my_int2&#34;</span>, party<span style="color:#f92672">=</span>party1))
+</span></span><span style="display:flex;"><span>    new_int <span style="color:#f92672">=</span> my_int1 <span style="color:#f92672">+</span> my_int2
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [Output(new_int, <span style="color:#e6db74">&#34;my_output&#34;</span>, party1)]
+</span></span></code></pre></div><p>The one thing to watch-out for is the ownership of variables. You must use the party name for secret integers, from which they were deployed in the first place from the client code.</p>
+<p>I wrote a <a href="https://github.com/aaravm/FairBET/blob/master/nillion-python-starter/quickstart/nada_quickstart_programs/src/check_equal.py">check_equal.py</a> file for checking if the user’s bet and the upcoming target on which the ball would land, intersect ? If they do then the player won and vice versa.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> nada_dsl <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_guess_in_target</span>(array: List[SecretInteger], value: Integer) <span style="color:#f92672">-&gt;</span> SecretBoolean:
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> Integer(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> element <span style="color:#f92672">in</span> array:
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">+=</span> (value <span style="color:#f92672">==</span> element)<span style="color:#f92672">.</span>if_else(Integer(<span style="color:#ae81ff">1</span>), Integer(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (result <span style="color:#f92672">&gt;</span> Integer(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">nada_main</span>():
+</span></span><span style="display:flex;"><span>    user <span style="color:#f92672">=</span> Party(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PLAYER&#34;</span>)
+</span></span><span style="display:flex;"><span>    game <span style="color:#f92672">=</span> Party(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;GAME_MANAGER&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    secret_targets <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        SecretInteger(Input(name<span style="color:#f92672">=</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;SECRET_TARGETS_</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, party<span style="color:#f92672">=</span>game)) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    secret_guess <span style="color:#f92672">=</span> SecretInteger(Input(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SECRET_GUESS&#34;</span>, party<span style="color:#f92672">=</span>user))
+</span></span><span style="display:flex;"><span>    is_present <span style="color:#f92672">=</span> is_guess_in_target(secret_targets, secret_guess)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> [Output(is_present, <span style="color:#e6db74">&#34;BET_RESULT&#34;</span>, game)]
+</span></span></code></pre></div><p>So basically what’s happening is, for a particular target there could be 5 winning bets in roulette, so when the target is received from the frontend, the numeric codes corresponding to the winning bets are deployed along with the player’s bet.</p>
+<p>That’s happening in the <em><strong>secret_targets</strong></em> <em>and</em> <em><strong>secret_guess.</strong></em> After that if the <em><strong>secret_guess</strong></em> is in the <em><strong>secret_target</strong></em> array, <strong>true</strong> is returned to nillion-client, otherwise <strong>false</strong>.<br>
+All this happens without ever knowing the actual values to targets or guess, so it cannot be tampered with. Cool isn’t !!</p>
+<p>I also wrote a <em><strong>random_shuffling.py</strong></em> script, which will be distribute cards to the existing players truely randomly without any tampering. Check it out <a href="https://github.com/aaravm/FairBET/blob/master/nillion-python-starter/quickstart/nada_quickstart_programs/src/random_shuffle.py">here</a>.</p>
+<p>Now let’s get on with the client code.</p>
+<h3 id="nillion-clients">Nillion-Clients<a hidden class="anchor" aria-hidden="true" href="#nillion-clients">#</a></h3>
+<p>Clients are required to store and retrieve secrets from the nillion-devnet.</p>
+<p>I wrote a <a href="https://github.com/aaravm/FairBET/blob/master/nillion-python-starter/quickstart/client_code/slots.py">slots.py</a> script that fetches the target and guess value from the running flask server, and then deploys the target array, guess and check.equal.py script over the nillion-devent and returns the result of the game as TRUE/FALSE.</p>
+<p>Refer to the complete code <a href="https://github.com/aaravm/FairBET/blob/master/nillion-python-starter/quickstart/client_code/slots.py">here</a></p>
+<p>I will guide step by step the important components of the code.</p>
+<ol>
+<li>
+<p>Fetching the <em><strong>secret_target</strong></em> and <em><strong>secret_guess</strong></em> and generate the <em><strong>SECRET_TARGETS</strong></em> array</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    target <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> fetch_target()
+</span></span><span style="display:flex;"><span>    SECRET_GUESS <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> fetch_guess()
+</span></span><span style="display:flex;"><span>    SECRET_TARGETS <span style="color:#f92672">=</span> generate_secret_target(target)
+</span></span></code></pre></div></li>
+<li>
+<p>Set up the player and game-manager client</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># PLAYER</span>
+</span></span><span style="display:flex;"><span>    seed <span style="color:#f92672">=</span> PLAYER_ALIAS
+</span></span><span style="display:flex;"><span>    user_key <span style="color:#f92672">=</span> UserKey<span style="color:#f92672">.</span>from_seed(seed)
+</span></span><span style="display:flex;"><span>    node_key <span style="color:#f92672">=</span> NodeKey<span style="color:#f92672">.</span>from_seed(seed)
+</span></span><span style="display:flex;"><span>    PLAYER_CLIENT <span style="color:#f92672">=</span> create_nillion_client(user_key, node_key)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GAME-MANAGER</span>
+</span></span><span style="display:flex;"><span>    manager_seed <span style="color:#f92672">=</span> MANAGER
+</span></span><span style="display:flex;"><span>    user_key <span style="color:#f92672">=</span> UserKey<span style="color:#f92672">.</span>from_seed(manager_seed)
+</span></span><span style="display:flex;"><span>    node_key <span style="color:#f92672">=</span> NodeKey<span style="color:#f92672">.</span>from_seed(manager_seed)
+</span></span><span style="display:flex;"><span>    MANAGER_CLIENT <span style="color:#f92672">=</span> create_nillion_client(user_key, node_key)
+</span></span></code></pre></div></li>
+</ol>
+<p>After that retrieve the nillion-devnet env configurations and with it set up the payments wallet as given in the code.</p>
+<ol start="3">
+<li>
+<p>Deploy the <em><strong>check_equal.py</strong></em> program under the ownership of game-manager, that means only the game-manager can use that program for computations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> <span style="color:#75715e"># DEPLOY THE PROGRAM BY GAME MANAGER</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    CHECK_EQUAL_PROGRAM <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;check_equal&#34;</span>
+</span></span><span style="display:flex;"><span>    PROGRAM_PATH <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;../nada_quickstart_programs/target/</span><span style="color:#e6db74">{</span>CHECK_EQUAL_PROGRAM<span style="color:#e6db74">}</span><span style="color:#e6db74">.nada.bin&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    check_equal_program_receipt <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> get_quote_and_pay(
+</span></span><span style="display:flex;"><span>        MANAGER_CLIENT,
+</span></span><span style="display:flex;"><span>        nillion<span style="color:#f92672">.</span>Operation<span style="color:#f92672">.</span>store_program(PROGRAM_PATH),
+</span></span><span style="display:flex;"><span>        payments_wallet,
+</span></span><span style="display:flex;"><span>        payments_client,
+</span></span><span style="display:flex;"><span>        cluster_id,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    action_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MANAGER_CLIENT<span style="color:#f92672">.</span>store_program(
+</span></span><span style="display:flex;"><span>        cluster_id, CHECK_EQUAL_PROGRAM, PROGRAM_PATH, check_equal_program_receipt
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PROGRAM_ID <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>manager_user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>CHECK_EQUAL_PROGRAM<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Deploy the <em><strong>secret_guess</strong></em> under the ownership of the <em><strong>player-client</strong></em> and give out permissions that which entities could compute over these variables i.e. verify_equal.py.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># DEPLOY THE SECRET_GUESS BY THE PLAYER</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    player_secrets <span style="color:#f92672">=</span> nillion<span style="color:#f92672">.</span>NadaValues(
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">&#34;SECRET_GUESS&#34;</span>: nillion<span style="color:#f92672">.</span>SecretInteger(SECRET_GUESS)}
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    permissions <span style="color:#f92672">=</span> nillion<span style="color:#f92672">.</span>Permissions<span style="color:#f92672">.</span>default_for_user(player_user_id)    
+</span></span><span style="display:flex;"><span>    permissions<span style="color:#f92672">.</span>add_compute_permissions({PLAYER_CLIENT<span style="color:#f92672">.</span>user_id: {PROGRAM_ID}})
+</span></span><span style="display:flex;"><span>    permissions<span style="color:#f92672">.</span>add_compute_permissions({MANAGER_CLIENT<span style="color:#f92672">.</span>user_id: {PROGRAM_ID}})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    receipt_store <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> get_quote_and_pay(
+</span></span><span style="display:flex;"><span>        PLAYER_CLIENT,
+</span></span><span style="display:flex;"><span>        nillion<span style="color:#f92672">.</span>Operation<span style="color:#f92672">.</span>store_values(player_secrets, ttl_days<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>),
+</span></span><span style="display:flex;"><span>        payments_wallet,
+</span></span><span style="display:flex;"><span>        payments_client,
+</span></span><span style="display:flex;"><span>        cluster_id,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    guess_store_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> PLAYER_CLIENT<span style="color:#f92672">.</span>store_values(
+</span></span><span style="display:flex;"><span>        cluster_id, player_secrets, permissions, receipt_store
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div></li>
+<li>
+<p>In the same way deploy the <em><strong>SECRET_TARGETS</strong></em> under the ownership of game-manager client.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># DEPLOY THE SECRET_TARGETS BY THE GAME-MANAGER</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    manager_secrets <span style="color:#f92672">=</span> nillion<span style="color:#f92672">.</span>NadaValues(
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;SECRET_TARGETS_</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>: nillion<span style="color:#f92672">.</span>SecretInteger(SECRET_TARGETS[i]) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(SECRET_TARGETS))}
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    permissions <span style="color:#f92672">=</span> nillion<span style="color:#f92672">.</span>Permissions<span style="color:#f92672">.</span>default_for_user(manager_user_id)    
+</span></span><span style="display:flex;"><span>    permissions<span style="color:#f92672">.</span>add_compute_permissions({PLAYER_CLIENT<span style="color:#f92672">.</span>user_id: {PROGRAM_ID}})
+</span></span><span style="display:flex;"><span>    permissions<span style="color:#f92672">.</span>add_compute_permissions({MANAGER_CLIENT<span style="color:#f92672">.</span>user_id: {PROGRAM_ID}})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    receipt_store <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> get_quote_and_pay(
+</span></span><span style="display:flex;"><span>        MANAGER_CLIENT,
+</span></span><span style="display:flex;"><span>        nillion<span style="color:#f92672">.</span>Operation<span style="color:#f92672">.</span>store_values(manager_secrets, ttl_days<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>),
+</span></span><span style="display:flex;"><span>        payments_wallet,
+</span></span><span style="display:flex;"><span>        payments_client,
+</span></span><span style="display:flex;"><span>        cluster_id,
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    target_store_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MANAGER_CLIENT<span style="color:#f92672">.</span>store_values(
+</span></span><span style="display:flex;"><span>        cluster_id, manager_secrets, permissions, receipt_store
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div></li>
+<li>
+<p>Set up compute bindings the input parties (inputs are under the ownership of which parties ?) and output parties (outputs will be under the ownership of which parties) and then finally execute the blind computation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># SET UP COMPUTATION OF THE SECRETS</span>
+</span></span><span style="display:flex;"><span>    compute_bindings <span style="color:#f92672">=</span> nillion<span style="color:#f92672">.</span>ProgramBindings(PROGRAM_ID)
+</span></span><span style="display:flex;"><span>    compute_bindings<span style="color:#f92672">.</span>add_input_party(PLAYER_ALIAS, player_party_id)  <span style="color:#75715e"># Ensure the correct input party is added</span>
+</span></span><span style="display:flex;"><span>    compute_bindings<span style="color:#f92672">.</span>add_input_party(MANAGER, manager_party_id)  <span style="color:#75715e"># Add Game Manager as input party</span>
+</span></span><span style="display:flex;"><span>    compute_bindings<span style="color:#f92672">.</span>add_output_party(MANAGER, manager_party_id)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    COMPUTE_SECRETS <span style="color:#f92672">=</span> nillion<span style="color:#f92672">.</span>NadaValues({})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    receipt_compute <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> get_quote_and_pay(
+</span></span><span style="display:flex;"><span>        MANAGER_CLIENT,
+</span></span><span style="display:flex;"><span>        nillion<span style="color:#f92672">.</span>Operation<span style="color:#f92672">.</span>compute(PROGRAM_ID, COMPUTE_SECRETS),
+</span></span><span style="display:flex;"><span>        payments_wallet,
+</span></span><span style="display:flex;"><span>        payments_client,
+</span></span><span style="display:flex;"><span>        cluster_id
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    compute_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MANAGER_CLIENT<span style="color:#f92672">.</span>compute(
+</span></span><span style="display:flex;"><span>        cluster_id,
+</span></span><span style="display:flex;"><span>        compute_bindings,
+</span></span><span style="display:flex;"><span>        [guess_store_id, target_store_id],
+</span></span><span style="display:flex;"><span>        COMPUTE_SECRETS,
+</span></span><span style="display:flex;"><span>        receipt_compute
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div></li>
+<li>
+<p>Extract the result and return it back to the running flask server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        compute_event <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> MANAGER_CLIENT<span style="color:#f92672">.</span>next_compute_event()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> isinstance(compute_event, nillion<span style="color:#f92672">.</span>ComputeFinishedEvent):
+</span></span><span style="display:flex;"><span>            print(compute_event<span style="color:#f92672">.</span>result<span style="color:#f92672">.</span>value)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> compute_event<span style="color:#f92672">.</span>result<span style="color:#f92672">.</span>value
+</span></span></code></pre></div></li>
+</ol>
+<p>So this is how you can execute a blind computation using Nillion-SDK. I know that all the ownership and other configurations could be a little bit confusing, <em><strong>but at the same time security comes with some low level complexities right ?</strong></em></p>
+<p>I also wrote a couple of more client scripts:</p>
+<ul>
+<li><a href="https://github.com/aaravm/FairBET/blob/master/nillion-python-starter/quickstart/client_code/game_manager.py"><em><strong>game_manager.py</strong></em></a><em><strong>:</strong></em> This client executes the blind computation program that I mentioned earlier and the result is a tamper-proof random and blind shuffling. This client was intended for the blackjack game.</li>
+</ul>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>As Nillion is in early development phase, we faced a lot of problems with simple boolean operators and variable types. Only integer type variables could be operated upon, so that reduces the scope of development. But I am sure Nillion will expand its developer environment.</p>
+<p>We also participated in <strong>ETHSingapore’24</strong> organised during 20th-22nd September 2024. There we built a lending platform on Oasis Sapphire blockchain with on-chain and off-chain confidentiality. We won a partner prize too !!</p>
+<p>%[https://x.com/lla_dane/status/1839519548984189277]</p>
+<p>It has been a great learning experience from participating in <strong>ETHGlobal</strong> hackathons, met a tonn of amazing people in the web3 space, and can’t wait for more !!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+---
+date: 2016-10-13T00:00:00Z
+tags: ["travel","usa"]
+title: Hana Haus
+---
+
+During the day we worked in the fancy [Hana Haus](http://www.hanahaus.com), a
+coworking space by SAP. Afterwards we stayed for a Design Thinking Talk at the
+same place and finished the evening at a steake house close to the Apple
+offices.

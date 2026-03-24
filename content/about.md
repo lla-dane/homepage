@@ -13,4 +13,4 @@ You can best reach me via e-mail: mail@max-inden.de.
 
 GPG Fingerprint: `080694E5D36410B9C9B62185779B0E427AFE5ABB`
 
-![Summit](/static/summit.jpg)
+![Summit](/profile/summit.jpg)

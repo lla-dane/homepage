@@ -47,6 +47,9 @@ theme = "PaperMod"
 #   weight = 40
 #   identifier = "categories"
 #   url = "/categories/"
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
 
 [params.homeInfoParams]
 Title = "I am Max, a [_strange loop_](https://en.wikipedia.org/wiki/Strange_loop) ..."

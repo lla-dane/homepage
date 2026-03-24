@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Improve Floresta&#39;s testing - Part 1 | Abhinav Agarwalla</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -15,16 +15,16 @@ Floresta ?
 Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
 At the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.">
 <meta name="author" content="Abhinav Agarwalla">
-<link rel="canonical" href="http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/">
+<link rel="canonical" href="https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://shell.soiraspi.win/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://shell.soiraspi.win/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://shell.soiraspi.win/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://shell.soiraspi.win/apple-touch-icon.png">
+<link rel="mask-icon" href="https://shell.soiraspi.win/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/">
+<link rel="alternate" hreflang="en" href="https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -76,13 +76,86 @@ At the beginning Floresta only had some basic functional and unit testing, far f
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/">
+  <meta property="og:site_name" content="Abhinav Agarwalla">
+  <meta property="og:title" content="Improve Floresta&#39;s testing - Part 1">
+  <meta property="og:description" content="This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:
+Improve the testing environment of Floresta.
+Floresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
+At the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2024-07-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-18T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Improve Floresta&#39;s testing - Part 1">
+  <meta name="twitter:description" content="This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:
+Improve the testing environment of Floresta.
+Floresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
+At the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://shell.soiraspi.win/blogs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Improve Floresta's testing - Part 1",
+      "item": "https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Improve Floresta's testing - Part 1",
+  "name": "Improve Floresta\u0027s testing - Part 1",
+  "description": " This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:\nImprove the testing environment of Floresta.\nFloresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.\nAt the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:\nImprove the testing environment of Floresta.\nFloresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.\nAt the beginning Floresta only had some basic functional and unit testing, far from ideal. My job is to build a robust testing infrastructure, improving the quality and assurance of the software.\nMy progress : All my related PRs for Floresta:\nhttps://github.com/vinteumorg/Floresta/pull/168\nhttps://github.com/vinteumorg/Floresta/pull/179\nhttps://github.com/vinteumorg/Floresta/pull/182\nhttps://github.com/vinteumorg/Floresta/pull/180\nFloresta is composed of two parts :-\nlibfloresta: It is a set of reusable components that can be used to build Bitcoin applications.\nflorestad: Built on top of libfloresta to provide a full node implementation, inncluding a watch-only wallet and Electrum server.\nTools installation: I first started off with installing the Tarpaulin, a code coverage tool specifically designed for Rust projects. It offers developers a way to measure how much of their codebase is being exercised by tests.\n// Installation cargo install cargo-tarpaulin // This command will execute all your tests and report the code coverage percentage cargo tarpaulin // To generate a detailed report in HTML or XML formats, use: cargo tarpaulin --out Html cargo tarpaulin --out Xml Checkout the initial test-coverage report by cargo tarpaulin of Floresta here: https://lla-dane.github.io/floresta-tests.github.io/\nExploring the codebase: I started exploring the codebase with libfloresta, which has 5 major modules:\nfloresta-chain: Updates the blockchain state for our node.\nfloresta-cli: A CLI utility to interact with the node.\nfloresta-electrum: The Electrum protocol implementation for interating with the node.\nfloresta-watch-only: A watch-only wallet that can track details for some particular addresses in the blockchain.\nfloresta-wire: This library communicates with the Bitcoin network, learning about new blocks and transactions.\nFloresta-chain : It was first time reading and understanding those advanced programming techniques combined with the bitcoin protocol, it took a little bit extra time then expected, but I soon caught up.\nThe main functionality for blockchain management is implemented in chain_state.rs. Initially it only had unit tests for:\naccepting mainnet and signet headers\nreorg blockchain in case of forks\ncalculate the next work(pow) required\nI added the following tests:\npushing signet headers in the blockchain without validating them.\nreindexing the chain.\ninvalidate a random block in the middle of the blockchain.\nget block headers by height and hash from the database\nWhile going through the chain-management logic, I didn’t understand how the Utreexo accumulator logic was integrated with the chain, but it soon cleared up when I ran utrrexod on my local system, and got to see the udata components in the UtreexoBlocks which was processed in Floresta.\n// A typical UtreexoBlock looked like this // A block plus some udata #[derive(PartialEq, Eq, Clone, Debug)] pub struct UtreexoBlock { // An actual block pub block: Block, // The utreexo specific data pub udata: Option\u003cUData\u003e, } After this small contribution I moved on to understanding floresta-watch-only.\nFloresta-watch-only : After reading floresta-chain, at first I went for floresta-wire but its complexity was still out of my reach so I took a step back.\nAs I discussed above this module acts as a watch-only wallet for tracking our intended script hashes in the blockchain, like transactions, UTXOs, balance, descriptors etc. related to those addresses.\nIt has two two of data storing techniques:\nkv_database: A key-value store-based database for the watch-only wallet using kv crate. The KvDatabase is meant to used for production.\npub struct KvDatabase(Store, Bucket\u003c'static, String, Vec\u003cu8\u003e\u003e); memory_database: An in-memory database to store address data. Being in-memory means this database is volatile, ans all data is lost after the database is dropped or the process is terminates.\n#[derive(Debug, Default)] pub struct MemoryDatabase { inner: RwLock\u003cInner\u003e, } #[derive(Debug, Default)] struct Inner { addresses: HashMap\u003csha256::Hash, CachedAddress\u003e, transactions: HashMap\u003cTxid, CachedTransaction\u003e, stats: Stats, height: u32, descriptors: Vec\u003cString\u003e, } This feature is not meant for production, but for the integrated testing framework.\nMy contribution in floresta-watch-only:\nMemory database: Added tests for caching address hashes.\nModified tests for caching transaction by adding tests for helper functions that work around with caching a transaction.\nModified tests for processing blocks to monitor transactions related to our intended addresses by adding tests for helper functions that work around with processing a block.\n2) KvDatabase:\nAdded tests for the basic functions used by the kv-database like getting, saving and updating stuff for our watch-only-wallet. Bug Fix:\nThere was a potential bottleneck in the cache-transaction function. Previously the balance and utxos related to a script_hash gets pushed again in the cache under some particular conditions, resulting the balance associated with that script_hash becoming twice as much. So, this could have been disastrous.\nI did the following changes.\nThis concluds my work with floresta-watch-only.\nFor detailed info about this bug fix and the watch-only-wallet tests, refer to the related PR: https://github.com/vinteumorg/Floresta/pull/168\nFloresta-electrum: I had most of the fun here, while exploring this module. As the name suggests this is the Electrum protocol implementation for the node.\nThe Electrum server is set up to communicate over the TCP Stream, so you can’t go along and try to get the responses using Postman, or any similar services, it has to be over the Tcp stream.\nOne way to do it is like this using the terminal:\necho '{\"id\": 5, \"method\": \"server.banner\", \"jsonrpc\": \"2.0\", \"params\": []}' | nc localhost 50001 Through the Electrum Server we interact with the watch-only wallet as discussed above.\nMy contribution:\nThe most important function for this testing environment is this function:\nasync fn start_electrum(port: u16) { let e_addr = format!(\"0.0.0.0:{}\", port); let wallet = get_test_cache(); // Create test_chain_state let test_id = rand::random::\u003cu32\u003e(); let chainstore = KvChainStore::new(format!(\"./data/{test_id}.floresta/\")).unwrap(); let chain = ChainState::\u003cKvChainStore\u003e::new(chainstore, Network::Signet, AssumeValidArg::Hardcoded); let headers = get_test_signet_headers(); chain.push_headers(headers, 1).unwrap(); let chain = Arc::new(chain); // Create test_node_interface let u_config = UtreexoNodeConfig { network: bitcoin::Network::Signet, pow_fraud_proofs: true, proxy: None, datadir: \"/data\".to_string(), fixed_peer: None, max_banscore: 50, compact_filters: false, max_outbound: 10, max_inflight: 20, assume_utreexo: None, backfill: false, }; let chain_provider: UtreexoNode\u003cRunningNode, Arc\u003cChainState\u003cKvChainStore\u003e\u003e\u003e = UtreexoNode::new( u_config, chain.clone(), Arc::new(async_std::sync::RwLock::new(Mempool::new())), None, ); let node_interface = chain_provider.get_handle(); let electrum_server: ElectrumServer\u003cChainState\u003cKvChainStore\u003e\u003e = block_on( ElectrumServer::new(e_addr, wallet, chain, None, node_interface), ) .unwrap(); task::spawn(client_accept_loop( electrum_server.tcp_listener.clone(), electrum_server.message_transmitter.clone(), )); // Electrum main loop task::spawn(electrum_server.main_loop()); } This is a dummy simulation of a working Electrum server over a random port, with a dummy chain-store database to store the blockchain and a watch-only wallet to monitor the user’s intended addresses.\nAfter this, I just created tests for different features of electrum like this:\n#[async_std::test] async fn test_server_banner() { let port = rand::random::\u003cu16\u003e() % 1000 + 18443; start_electrum(port).await; let method = Value::String(\"server.banner\".to_string()); let mut request = generate_request(\u0026mut vec![method]).to_string(); request.push('\\n'); println!(\"{}\", request); assert_eq!(send_request(request, port).await, \"Welcome to Floresta's Electrum Server\".to_string()) } This concludes my work with floresta-electrum.\nFor detailed information check it out in the related PR:\nhttps://github.com/vinteumorg/Floresta/pull/180\nFloresta-wire: Here comes the monster of them all. This is the most complex module of them all, using the features of all the remaining modules.\nThe Bitcoin wire protocol is fundamental to the operation of the Bitcoin network, enabling the distributed and decentralised verification of transactions. This protocol defines how nodes exchange information about transactions, blocks, and other data to maintain the decentralised blockchain.\nIt has composed of three bridge nodes namely:\nchain_selector_node: This module connects with multiple peers and finds the best chain. We optimistically download all headers from one random peer, and then check with the others if they agree. If they have another chain for us, we download that chain, and pick whichever has more work.\nMost likely we’ll only download one chain and all peers will agree with it. Then we can start downloading the actual blocks and validating them.\nsync_node : This node downloads and validates the blockchain.\nrunning_node: After the node caches-up with the network, we can start listening for new blocks, handling any request our user might make and keep our peers alive.\nMy contribution with the chain_selector node:\nThe fundamental function related to this testing environment are these:\ncreate_peer: This simulates a running peer that responds to the chain_selector node with any incoming requests like:\nGetHeaders\nGetUtreexoState\nShutdown\nGetBlock\nfn create_peer( headers: Vec\u003cHeader\u003e, blocks: HashMap\u003cBlockHash, UtreexoBlock\u003e, filters: HashMap\u003cBlockHash, Vec\u003cu8\u003e\u003e, node_sender: Sender\u003cNodeNotification\u003e, sender: Sender\u003cNodeRequest\u003e, node_rcv: Receiver\u003cNodeRequest\u003e, peer_id: u32, ) -\u003e LocalPeerView { let peer = TestPeer::new(node_sender, headers, blocks, filters, node_rcv, peer_id); task::spawn(peer.run()); LocalPeerView { address: \"127.0.0.1\".parse().unwrap(), services: ServiceFlags::from(1 \u003c\u003c 25), user_agent: \"/utreexo:0.1.0/\".to_string(), height: 0, state: PeerStatus::Ready, channel: sender, port: 8333, feeler: false, banscore: 0, address_id: 0, _last_message: Instant::now(), } } setup_test: This is the dummy simulation of a chain_selector node, that syncs up with the provided running peers in the parameters. pub async fn setup_node( peers: Vec\u003c( Vec\u003cHeader\u003e, HashMap\u003cBlockHash, UtreexoBlock\u003e, HashMap\u003cBlockHash, Vec\u003cu8\u003e\u003e, )\u003e, pow_fraud_proofs: bool, network: floresta_chain::Network, ) -\u003e Arc\u003cChainState\u003cKvChainStore\u003c'static\u003e\u003e\u003e { let datadir = format!(\"./data/{}.node_test\", rand::random::\u003cu32\u003e()); let chainstore = KvChainStore::new(datadir.clone()).unwrap(); let mempool = Arc::new(RwLock::new(Mempool::new())); let chain = ChainState::new(chainstore, network, AssumeValidArg::Disabled); let chain = Arc::new(chain); let config = UtreexoNodeConfig { network: network.into(), pow_fraud_proofs, compact_filters: false, fixed_peer: None, max_banscore: 100, max_outbound: 8, max_inflight: 10, datadir: datadir.clone(), proxy: None, assume_utreexo: None, backfill: false, }; let mut node = UtreexoNode::\u003cChainSelector, Arc\u003cChainState\u003cKvChainStore\u003e\u003e\u003e::new( config, chain.clone(), mempool, None, ); for (i, peer) in peers.into_iter().enumerate() { let (sender, receiver) = async_std::channel::bounded(10); let peer = create_peer( peer.0, peer.1, peer.2, node.node_tx.clone(), sender.clone(), receiver, i as u32, ); let _peer = peer.clone(); node.peers.insert(i as u32, peer); node.peer_ids.push(i as u32); match node.peer_by_service.get_mut(\u0026_peer.services) { Some(peer_vec) =\u003e peer_vec.push(i as u32), None =\u003e { node.peer_by_service.insert(_peer.services, vec![i as u32]); () } } } let mut node = ManuallyDrop::new(Box::new(node)); let kill_signal = Arc::new(RwLock::new(false)); // FIXME: This doesn't look very safe, but we need to coerce a \u0026mut reference of the node // to live for the static lifetime, or it can't be spawn-ed by async-std::task let _node: \u0026'static mut UtreexoNode\u003cChainSelector, Arc\u003cChainState\u003cKvChainStore\u003e\u003e\u003e = unsafe { std::mem::transmute(\u0026mut **node) }; future::timeout(Duration::from_secs(2), _node.run(kill_signal)) .await .unwrap() .unwrap(); chain } After this I just created tests for different scenarios like:\naccept one header\ntwo_peers with different tips\nten peers with different tips\ntwo peers one lying\nten peers one honest\nOne of these tests looks like this:\n#[async_std::test] async fn ten_peers_different_tips() { let (mut headers, _, _, _) = get_essentials(); let _headers = headers.clone(); let mut peers = Vec::new(); for _ in 0..10 { headers.pop(); headers.pop(); peers.push((headers.clone(), HashMap::new(), HashMap::new())) } let chain = setup_test(peers, false, floresta_chain::Network::Signet).await; assert_eq!(chain.get_best_block().unwrap().0, 2013); assert_eq!( chain.get_best_block().unwrap().1, _headers[2013].block_hash() ); } Bug fix:\nreq_headers: Extended the parameters of request_headers function, by mentioning the peer_id of the peer to which the GetHeaders req is being sent to. Previously when request_headers function was called it was always sending req to node.sync_peer.\nPR related to this fix: https://github.com/vinteumorg/Floresta/pull/179\nfind_who_is_lying: Modified the declaration of agree bool in find_who_is_lying function. PR related to this fix: https://github.com/vinteumorg/Floresta/pull/182\nThis concludes my current work done with floresta-wire. I plan to do the same with sync_node and running_node.\nFor detailed info about this, refer to the related PR:\nhttps://github.com/vinteumorg/Floresta/pull/180\nFuture Milestones Functional tests for sync_node and running_node.\nSetting up Grafana and Prometheus client support for enchanced monitoring.\nDocumentation for a complete and extensible testing infrastructure.\nConclusion I had a lot of fun till now understanding Floresta’s codebase and enhancing my coding skills in Rust.\nThank you for reading, hope you enjoyed it! I’ll continue to update my progress via the series of blogs ;)\nFollow me on Twitter | Linkedln for more development related tips and posts.\nThat’s all for today! You have read this article till the end.\n",
+  "wordCount" : "1879",
+  "inLanguage": "en",
+  "datePublished": "2024-07-18T00:00:00Z",
+  "dateModified": "2024-07-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Abhinav Agarwalla"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Abhinav Agarwalla",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shell.soiraspi.win/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <a href="https://shell.soiraspi.win/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -108,37 +181,37 @@ At the beginning Floresta only had some basic functional and unit testing, far f
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Home">
+                <a href="https://shell.soiraspi.win/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/resume" title="Resume">
+                <a href="https://shell.soiraspi.win/resume" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blogs/" title="Blogs">
+                <a href="https://shell.soiraspi.win/blogs/" title="Blogs">
                     <span>Blogs</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/post/" title="Archive">
+                <a href="https://shell.soiraspi.win/post/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/code" title="Builds">
+                <a href="https://shell.soiraspi.win/code" title="Builds">
                     <span>Builds</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://shell.soiraspi.win/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://shell.soiraspi.win/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -628,7 +701,7 @@ One way to do it is like this using the terminal:</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+        <span>&copy; 2026 <a href="https://shell.soiraspi.win/">Abhinav Agarwalla</a></span> · 
 
     <span>
         Powered by

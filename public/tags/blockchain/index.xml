@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blockchain on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/blockchain/</link>
+    <link>https://shell.soiraspi.win/tags/blockchain/</link>
     <description>Recent content in Blockchain on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>28th DistSys Reading Group - Hotstuff</title>
-      <link>http://localhost:1313/post/2020-09-08-28th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-09-08-28th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</guid>
       <description>&lt;p&gt;With the 28th session we jumped into the space of byzantine fault tolerant
 consensus protocols. We covered fault tolerant consensus with various Paxos
 variants in the past, but this session was the first one looking into how to

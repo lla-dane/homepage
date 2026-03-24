@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Networking on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/networking/</link>
+    <link>https://shell.soiraspi.win/tags/networking/</link>
     <description>Recent content in Networking on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Talk &#34;Intro to WebTransport - the next WebSocket?!&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</link>
+      <link>https://shell.soiraspi.win/post/intro-to-webtransport-the-next-websocket/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</guid>
+      <guid>https://shell.soiraspi.win/post/intro-to-webtransport-the-next-websocket/</guid>
       <description>&lt;p&gt;I gave a talk on the upcoming WebTransport protocol in the Browser Devroom at FOSDEM 2026.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;WebTransport is an upcoming protocol (standardized by the IETF) and Web API (standardized by the W3C) for bidirectional communication on the web. It provides multiplexed streams and unreliable datagrams on top of HTTP/3 and HTTP/2.&lt;/p&gt;
@@ -20,18 +20,18 @@
     </item>
     <item>
       <title>Talk &#34;Modern Network Protocols — What’s Next for Firefox and the Web?&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
+      <link>https://shell.soiraspi.win/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
+      <guid>https://shell.soiraspi.win/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
       <description>&lt;p&gt;Andrew, a colleague, and I presented an outlook for Firefox and the web.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The Web’s transport stack is changing rapidly, with QUIC, HTTP/3, and encrypted DNS seeing broad adoption. This talk gives an overview of the modern network protocols Firefox already deploys and invests in, including QUIC and HTTP/3’s growing share of Web traffic. It will highlight what Firefox actually sends on the wire today, what benefits we observe in practice, and where the Web’s protocol landscape stands in early 2026.&lt;/p&gt;</description>
     </item>
     <item>
       <title>netstack.fm - Modern networking in Firefox with Max Inden</title>
-      <link>http://localhost:1313/post/modern-networking-in-firefox-podcast/</link>
+      <link>https://shell.soiraspi.win/post/modern-networking-in-firefox-podcast/</link>
       <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/modern-networking-in-firefox-podcast/</guid>
+      <guid>https://shell.soiraspi.win/post/modern-networking-in-firefox-podcast/</guid>
       <description>&lt;p&gt;I joined Glen on the netstack.fm podcast to talk about modern networking in Firefox.&lt;/p&gt;
 &lt;p&gt;We discussed Mozilla &amp;rsquo;s work on Firefox&amp;rsquo;s QUIC and HTTP/3 stack — improving UDP I/O, congestion control, and overall performance — and why QUIC matters as a fast, encrypted, and evolvable transport for HTTP/3, WebTransport, and beyond.&lt;/p&gt;
 &lt;p&gt;Thanks for having me, Glen!&lt;/p&gt;
@@ -39,9 +39,9 @@
     </item>
     <item>
       <title>Fast UDP I/O for Firefox in Rust</title>
-      <link>http://localhost:1313/post/fast-udp-io-in-firefox/</link>
+      <link>https://shell.soiraspi.win/post/fast-udp-io-in-firefox/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/fast-udp-io-in-firefox/</guid>
+      <guid>https://shell.soiraspi.win/post/fast-udp-io-in-firefox/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Around 20% of Firefox&amp;rsquo;s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP.
 This translates to substantial UDP I/O activity.&lt;/p&gt;
@@ -51,9 +51,9 @@ The N in NSPR stands for Netscape, giving you a hint of its age.&lt;/p&gt;</desc
     </item>
     <item>
       <title>Optimizing Yamux Flow Control - Sending Window Update Frames Early</title>
-      <link>http://localhost:1313/post/2021-03-07-optimizing-yamux-flow-control/</link>
+      <link>https://shell.soiraspi.win/post/2021-03-07-optimizing-yamux-flow-control/</link>
       <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-03-07-optimizing-yamux-flow-control/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-03-07-optimizing-yamux-flow-control/</guid>
       <description>&lt;p&gt;Below is a summary of our efforts to optimize flow control in the &lt;a href=&#34;https://github.com/paritytech/yamux&#34;&gt;Rust Yamux
 implementation&lt;/a&gt;. While not a novel
 approach, I still find the end result worth sharing thus my forum post.&lt;/p&gt;
@@ -61,9 +61,9 @@ approach, I still find the end result worth sharing thus my forum post.&lt;/p&gt
     </item>
     <item>
       <title>Know your latencies</title>
-      <link>http://localhost:1313/post/2020-06-19-latencies/</link>
+      <link>https://shell.soiraspi.win/post/2020-06-19-latencies/</link>
       <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-06-19-latencies/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-06-19-latencies/</guid>
       <description>&lt;p&gt;I find it helpful to know the orders of magnitude by which certain computer
 operations differ. Certainly it is not worth the effort to pay attention to
 every digit or learn these by heart, especially since they differ (slightly)
@@ -73,9 +73,9 @@ whenever reasoning about systems performance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>25th DistSys Reading Group - Fair queuing</title>
-      <link>http://localhost:1313/post/2020-04-27-25th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-27-25th-paper-club/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-27-25th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-04-27-25th-paper-club/</guid>
       <description>&lt;p&gt;In the session today we covered Madhavapeddi Shreedhar and George Varghese paper
 &amp;ldquo;&lt;em&gt;Efficient fair queuing using deficit round-robin&lt;/em&gt;&amp;rdquo; [1]. While the session was
 not so much about the relatively simple algorithmic details of
@@ -94,9 +94,9 @@ as latency critical flows.&lt;/p&gt;</description>
     </item>
     <item>
       <title>24th DistSys Reading Group - BBR Congestion-Based Congestion Control</title>
-      <link>http://localhost:1313/post/2020-04-06-24th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-06-24th-paper-club/</link>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-06-24th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-04-06-24th-paper-club/</guid>
       <description>&lt;p&gt;After a bit of a break due to current pandemic we decided to carry on and
 continue our meetings as virtual calls. Ignoring the usual initial hiccups and
 the missing whiteboard the medium worked well for us.&lt;/p&gt;

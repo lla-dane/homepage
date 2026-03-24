@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Improve Floresta&#39;s testing - Part 2 | Abhinav Agarwalla</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -33,16 +33,16 @@ https://github.com/vinteumorg/Floresta/pull/214
 Floresta-wire :
 As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta&rsquo;s node infrastructure:">
 <meta name="author" content="Abhinav Agarwalla">
-<link rel="canonical" href="http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/">
+<link rel="canonical" href="https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://shell.soiraspi.win/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://shell.soiraspi.win/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://shell.soiraspi.win/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://shell.soiraspi.win/apple-touch-icon.png">
+<link rel="mask-icon" href="https://shell.soiraspi.win/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/">
+<link rel="alternate" hreflang="en" href="https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,13 +94,94 @@ As I discussed before in my previous blog about my progress, I discussed about 3
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/">
+  <meta property="og:site_name" content="Abhinav Agarwalla">
+  <meta property="og:title" content="Improve Floresta&#39;s testing - Part 2">
+  <meta property="og:description" content="This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta’s testing
+Floresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
+My progress : All my related PRs after mid-evaluation:
+https://github.com/vinteumorg/Floresta/pull/200
+https://github.com/vinteumorg/Floresta/pull/202
+https://github.com/vinteumorg/Floresta/pull/203
+https://github.com/vinteumorg/Floresta/pull/214
+Floresta-wire : As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta’s node infrastructure:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2024-08-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-30T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Improve Floresta&#39;s testing - Part 2">
+  <meta name="twitter:description" content="This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta’s testing
+Floresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
+My progress : All my related PRs after mid-evaluation:
+https://github.com/vinteumorg/Floresta/pull/200
+https://github.com/vinteumorg/Floresta/pull/202
+https://github.com/vinteumorg/Floresta/pull/203
+https://github.com/vinteumorg/Floresta/pull/214
+Floresta-wire : As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta’s node infrastructure:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://shell.soiraspi.win/blogs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Improve Floresta's testing - Part 2",
+      "item": "https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Improve Floresta's testing - Part 2",
+  "name": "Improve Floresta\u0027s testing - Part 2",
+  "description": " This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta\u0026rsquo;s testing\nFloresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.\nMy progress : All my related PRs after mid-evaluation:\nhttps://github.com/vinteumorg/Floresta/pull/200\nhttps://github.com/vinteumorg/Floresta/pull/202\nhttps://github.com/vinteumorg/Floresta/pull/203\nhttps://github.com/vinteumorg/Floresta/pull/214\nFloresta-wire : As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta\u0026rsquo;s node infrastructure:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta’s testing\nFloresta ? Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.\nMy progress : All my related PRs after mid-evaluation:\nhttps://github.com/vinteumorg/Floresta/pull/200\nhttps://github.com/vinteumorg/Floresta/pull/202\nhttps://github.com/vinteumorg/Floresta/pull/203\nhttps://github.com/vinteumorg/Floresta/pull/214\nFloresta-wire : As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta’s node infrastructure:\nchain_selector_node: Its job is to connect with multiple peers and decide the best chain in the network, on which we will build upon.\nsync_node: After chain selector decides the best chain, the sync node downloads and validates them\nrunning_nod: After the node caches-up with the network, we can start listening for new blocks, handling any request our user might make and keep our peers alive.\nAfter mid-evaluation my contribution was majorly around sync-node and running-node.\nTest-Utils: Since the basic functionality for setting up the simulation node, is about mostly same for the 3 nodes, setting up a common test utilities module seemed right.\nIt has all the basic functions to set up testing for the p2p-wire like:\nSetting up the peers\nFetching different types of Signet and Regtest block data from the test_data directories.\nSerializing the fetched data into an abstract form which would be accepted in the consensus.\nThe Peer-Messaging system for the NodeRequests, which would be same for all the nodes.\nPR related to this feature: https://github.com/vinteumorg/Floresta/pull/202\nSync-Node: So now that we set up the test-utils, only thing left to set up a simulated sync-node is setting up a test_node function:\nMost of the things in this function is same for all the nodes, apart from these two things:\npub async fn setup_node( peers: Vec\u003c( Vec\u003cHeader\u003e, HashMap\u003cBlockHash, UtreexoBlock\u003e, HashMap\u003cBlockHash, Vec\u003cu8\u003e\u003e, )\u003e, pow_fraud_proofs: bool, network: floresta_chain::Network, ) -\u003e Arc\u003cChainState\u003cKvChainStore\u003c'static\u003e\u003e\u003e { ... ... // Declaring the type of node we want to simulate. let mut node = UtreexoNode::\u003cSyncNode, Arc\u003cChainState\u003cKvChainStore\u003e\u003e\u003e::new( config, chain.clone(), mempool, None, ); ... ... // Setting up the \u0026'static mut referance of the node. let _node: \u0026'static mut UtreexoNode\u003cSyncNode, Arc\u003cChainState\u003cKvChainStore\u003e\u003e\u003e = unsafe { std::mem::transmute(\u0026mut **node) }; timeout(Duration::from_secs(10), _node.run(kill_signal, |_| {})) .await .unwrap(); } Did the following tests:\nSyncing valid blocks\nTest how it responds to a node sending a block without proof (this should ban the node)\nSending blocks out-of-order (it should handle them fine)\nHow it responds to a block with invalid proof (this should ban the node, but should not invalidate the block)\nPR related to this: https://github.com/vinteumorg/Floresta/pull/200\nWhile setting up this test, I found a disastrous bug.\nBug Fix: Suppose there is a lying peer and an honest peer, then all the blocks from which the invalid block was caught, should be requested again to the honest peer.\nBut previously the block requests to the lying peer got stuck in the inflight messages to the lying peer, even after the peer is banned. So we could never move forward to the next block.\nThen I fixed it by, removing the inflight requests related to the lying peer and sending those to a rendom_peer after the banniing.\nPR related to this fix: https://github.com/vinteumorg/Floresta/pull/203\nSeriously, I was stuck in the same error for about a day because of this bug. I feel fixing this bug and one before, were my most important contributions.\nRunning-node: Due to some address issues, I could not test the running node in the Signet Network. Instead I had to use Regtest Network, which I was avoiding as there is not a straight forward guide for how to use bitcoin-regtest in Utreexod, the full node which I was using to get raw SIgnet Utreexo Blocks.\nSo then after a lot of brain-racking, we figured out how to run regtest on utreexod with these two commands:\n./utreexod --datadir=. --logdir=. --regtest --flatutreexoproofindex --miningaddr= ./utreexoctl --regtest --datadir=. generate In this way we can generate UtreexoBlocks using utreexod. Sometimes –flatutreexoproofindex flag doesn’t work, so we can also use –utreexoproofofindex.\nOne of these two will absolutely work.\nNow I can set up tests with peers sending the blockchain with forks, using regtest in all 3 node instances.\nThis PR is still under development. PR related to this: https://github.com/vinteumorg/Floresta/pull/214\nFuture Idea: Integration tests for the wire-protocol were fairly straightforward and clearly help fixing and finding bugs and vulnerabilities in the codebase.\nI plan on implementing the following things in the codebase:\nPrometheus and Grafana toolkit support for continuous monitoring.\nImplementing regression and endurance tests and simulating Floresta in hardware limiting virtual environments.\nLearning: Through this journey, I learned a lot about how to use version control in fairly advanced levels in open-source projects, getting involved with the community, and contributing to the projects.\nThe major learning for me was getting fairly proficient in Rust programming and programming in Bitcoin-architecture applications.\nSpecial Thanks It was an awesome experience for me to work on this project. I learned a lot of new things, Davidson Souza helped me a lot whenever I got stuck.\nI would also like to thank Adi Shankara and Summer of Bitcoin for this amazing learning experience. I was able to develop great skills and valuable experience. I look forward to contributing to the Bitcoin space.\nConclusion Thank you for reading, hope you enjoyed it. I’ll continue to update my progress via the series of blogs ;)\nFollow me on Twitter | Linkedln for more blockchain-development tips and posts.\nThat’s all for today ! You have read the article till the end.\n",
+  "wordCount" : "918",
+  "inLanguage": "en",
+  "datePublished": "2024-08-30T00:00:00Z",
+  "dateModified": "2024-08-30T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Abhinav Agarwalla"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Abhinav Agarwalla",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shell.soiraspi.win/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <a href="https://shell.soiraspi.win/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -126,37 +207,37 @@ As I discussed before in my previous blog about my progress, I discussed about 3
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Home">
+                <a href="https://shell.soiraspi.win/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/resume" title="Resume">
+                <a href="https://shell.soiraspi.win/resume" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blogs/" title="Blogs">
+                <a href="https://shell.soiraspi.win/blogs/" title="Blogs">
                     <span>Blogs</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/post/" title="Archive">
+                <a href="https://shell.soiraspi.win/post/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/code" title="Builds">
+                <a href="https://shell.soiraspi.win/code" title="Builds">
                     <span>Builds</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://shell.soiraspi.win/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://shell.soiraspi.win/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -342,7 +423,7 @@ One of these two will absolutely work.</p>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+        <span>&copy; 2026 <a href="https://shell.soiraspi.win/">Abhinav Agarwalla</a></span> · 
 
     <span>
         Powered by

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Security on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/security/</link>
+    <link>https://shell.soiraspi.win/tags/security/</link>
     <description>Recent content in Security on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>35th DistSys Reading Group - Nym</title>
-      <link>http://localhost:1313/post/2021-06-29-35th-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-06-29-35th-reading-group/</link>
       <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-06-29-35th-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-06-29-35th-reading-group/</guid>
       <description>&lt;p&gt;In our previous session we looked into Mixnets, more specifically Loopix. With
 this session we stayed in the space, talking about a network adopting many
 concepts from Loopix, namely Nym.&lt;/p&gt;
@@ -28,9 +28,9 @@ concepts from Loopix, namely Nym.&lt;/p&gt;
     </item>
     <item>
       <title>34th DistSys Reading Group - Mixnets</title>
-      <link>http://localhost:1313/post/2021-05-10-34th-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-05-10-34th-reading-group/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-05-10-34th-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-05-10-34th-reading-group/</guid>
       <description>&lt;p&gt;34th session was on Mixnets as lots of people suggested in the past. As a
 preparation we read the Loopix paper.&lt;/p&gt;
 &lt;p&gt;Piotrowska, Ania M., et al. &amp;ldquo;The loopix anonymity system.&amp;rdquo; 26th {USENIX}
@@ -42,9 +42,9 @@ additional resource.&lt;/p&gt;
     </item>
     <item>
       <title>33rd DistSys Reading Group - BGP 3</title>
-      <link>http://localhost:1313/post/2021-04-12-33rd-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-04-12-33rd-reading-group/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-04-12-33rd-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-04-12-33rd-reading-group/</guid>
       <description>&lt;p&gt;In our third BGP session we focused on BGP security, more specifically we
 discussed how to perform hijack and interception attacks using BGP. The primary
 paper of the session was:&lt;/p&gt;

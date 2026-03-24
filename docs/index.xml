@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Abhinav Agarwalla</title>
-    <link>http://localhost:1313/</link>
+    <link>https://shell.soiraspi.win/</link>
     <description>Recent content on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://shell.soiraspi.win/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://shell.soiraspi.win/about/</guid>
       <description>&lt;p&gt;I am Max, a &lt;a href=&#34;https://en.wikipedia.org/wiki/Strange_loop&#34;&gt;&lt;em&gt;strange loop&lt;/em&gt;&lt;/a&gt; interested in networking, distributed systems and type theory. Welcome to my little island on this astounding thing called &lt;em&gt;The Internet&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;You might enjoy browsing through &lt;a href=&#34;http://localhost:1313/readings&#34;&gt;my list of resources I consider worth sharing&lt;/a&gt;, get some inspiration from the &lt;a href=&#34;http://localhost:1313/post&#34;&gt;numerous summaries of past reading group sessions&lt;/a&gt; that I organize or simply scroll through &lt;a href=&#34;http://localhost:1313/resume&#34;&gt;my resume&lt;/a&gt; to see what I am up to lately.&lt;/p&gt;
+&lt;p&gt;You might enjoy browsing through &lt;a href=&#34;https://shell.soiraspi.win/readings&#34;&gt;my list of resources I consider worth sharing&lt;/a&gt;, get some inspiration from the &lt;a href=&#34;https://shell.soiraspi.win/post&#34;&gt;numerous summaries of past reading group sessions&lt;/a&gt; that I organize or simply scroll through &lt;a href=&#34;https://shell.soiraspi.win/resume&#34;&gt;my resume&lt;/a&gt; to see what I am up to lately.&lt;/p&gt;
 &lt;p&gt;You can best reach me via e-mail: &lt;a href=&#34;mailto:mail@max-inden.de&#34;&gt;mail@max-inden.de&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk &#34;Intro to WebTransport - the next WebSocket?!&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</link>
+      <link>https://shell.soiraspi.win/post/intro-to-webtransport-the-next-websocket/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</guid>
+      <guid>https://shell.soiraspi.win/post/intro-to-webtransport-the-next-websocket/</guid>
       <description>&lt;p&gt;I gave a talk on the upcoming WebTransport protocol in the Browser Devroom at FOSDEM 2026.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;WebTransport is an upcoming protocol (standardized by the IETF) and Web API (standardized by the W3C) for bidirectional communication on the web. It provides multiplexed streams and unreliable datagrams on top of HTTP/3 and HTTP/2.&lt;/p&gt;
@@ -29,18 +29,18 @@
     </item>
     <item>
       <title>Talk &#34;Modern Network Protocols — What’s Next for Firefox and the Web?&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
+      <link>https://shell.soiraspi.win/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
+      <guid>https://shell.soiraspi.win/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
       <description>&lt;p&gt;Andrew, a colleague, and I presented an outlook for Firefox and the web.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The Web’s transport stack is changing rapidly, with QUIC, HTTP/3, and encrypted DNS seeing broad adoption. This talk gives an overview of the modern network protocols Firefox already deploys and invests in, including QUIC and HTTP/3’s growing share of Web traffic. It will highlight what Firefox actually sends on the wire today, what benefits we observe in practice, and where the Web’s protocol landscape stands in early 2026.&lt;/p&gt;</description>
     </item>
     <item>
       <title>netstack.fm - Modern networking in Firefox with Max Inden</title>
-      <link>http://localhost:1313/post/modern-networking-in-firefox-podcast/</link>
+      <link>https://shell.soiraspi.win/post/modern-networking-in-firefox-podcast/</link>
       <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/modern-networking-in-firefox-podcast/</guid>
+      <guid>https://shell.soiraspi.win/post/modern-networking-in-firefox-podcast/</guid>
       <description>&lt;p&gt;I joined Glen on the netstack.fm podcast to talk about modern networking in Firefox.&lt;/p&gt;
 &lt;p&gt;We discussed Mozilla &amp;rsquo;s work on Firefox&amp;rsquo;s QUIC and HTTP/3 stack — improving UDP I/O, congestion control, and overall performance — and why QUIC matters as a fast, encrypted, and evolvable transport for HTTP/3, WebTransport, and beyond.&lt;/p&gt;
 &lt;p&gt;Thanks for having me, Glen!&lt;/p&gt;
@@ -48,9 +48,9 @@
     </item>
     <item>
       <title>Fast UDP I/O for Firefox in Rust</title>
-      <link>http://localhost:1313/post/fast-udp-io-in-firefox/</link>
+      <link>https://shell.soiraspi.win/post/fast-udp-io-in-firefox/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/fast-udp-io-in-firefox/</guid>
+      <guid>https://shell.soiraspi.win/post/fast-udp-io-in-firefox/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Around 20% of Firefox&amp;rsquo;s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP.
 This translates to substantial UDP I/O activity.&lt;/p&gt;
@@ -60,9 +60,9 @@ The N in NSPR stands for Netscape, giving you a hint of its age.&lt;/p&gt;</desc
     </item>
     <item>
       <title>Contributions in libp2p(-py) in PLDG Cohort-3</title>
-      <link>http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</link>
+      <link>https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</link>
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Hey folks &lt;strong&gt;👋&lt;/strong&gt;,&lt;br&gt;
 Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.&lt;br&gt;
@@ -71,9 +71,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Building a Covert LAN - A Dockerized VPN Gateway using WireGuard and Nginx</title>
-      <link>http://localhost:1313/blogs/2025-04-06-building-a-covert-lan/</link>
+      <link>https://shell.soiraspi.win/blogs/2025-04-06-building-a-covert-lan/</link>
       <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2025-04-06-building-a-covert-lan/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2025-04-06-building-a-covert-lan/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Establishing a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted connections.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -82,9 +82,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Automated Firewall management usign Docker and Cron</title>
-      <link>http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</link>
+      <link>https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</link>
       <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Simulating automated firewall co&lt;strong&gt;nfiguration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -93,18 +93,18 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Talk &#34;Fast UDP makes QUIC quicker - optimizing Firefox’s HTTP3 IO stack&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/2025-02-02-fast-udp-makes-quic-quicker/</link>
+      <link>https://shell.soiraspi.win/post/2025-02-02-fast-udp-makes-quic-quicker/</link>
       <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2025-02-02-fast-udp-makes-quic-quicker/</guid>
+      <guid>https://shell.soiraspi.win/post/2025-02-02-fast-udp-makes-quic-quicker/</guid>
       <description>&lt;p&gt;I presented my recent work on Firefox&amp;rsquo;s HTTP3/QUIC stack in the Network Devroom at FOSDEM 2025.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;QUIC is a new transport protocol on top of UDP, transporting a large portion of the Internet traffic today. UDP I/O performance is crucial for QUIC implementations, where e.g. system call overhead can significantly impact throughput at high network speeds. To improve QUIC throughput, Firefox is switching to a modern UDP IO stack in Rust, using mechanisms like recvmmsg, and GRO across Linux, Windows, and Android.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Implementing Blind Computation using Nillion Protocol</title>
-      <link>http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/</link>
+      <link>https://shell.soiraspi.win/blogs/2024-10-24-blind-computations-using-nillion-protocol/</link>
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2024-10-24-blind-computations-using-nillion-protocol/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -116,9 +116,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Improve Floresta&#39;s testing - Part 2</title>
-      <link>http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/</link>
+      <link>https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/</link>
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2024-08-30-imporove-floresta-testing-part-2/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta&amp;rsquo;s testing&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -147,9 +147,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Improve Floresta&#39;s testing - Part 1</title>
-      <link>http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/</link>
+      <link>https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/</link>
       <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2024-07-18-improve-floresta-testing-part-1/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:&lt;br&gt;
 Improve the testing environment of Floresta.&lt;/p&gt;
@@ -160,18 +160,18 @@ Improve the testing environment of Floresta.&lt;/p&gt;
     </item>
     <item>
       <title>Getting selected in Summer of Bitcoin&#39;24</title>
-      <link>http://localhost:1313/blogs/2024-06-15-getting-selected-in-sob-2024/</link>
+      <link>https://shell.soiraspi.win/blogs/2024-06-15-getting-selected-in-sob-2024/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-06-15-getting-selected-in-sob-2024/</guid>
+      <guid>https://shell.soiraspi.win/blogs/2024-06-15-getting-selected-in-sob-2024/</guid>
       <description>&lt;h3 id=&#34;what-is-sob-&#34;&gt;What is SoB ?&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Summer of Bitcoin is a global program focused on bringing more student developers into the open source software development in the Bitcoin community. Students work with an open-source organisation on a 12 week programming project during their summer break from school.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This blog highlights &lt;strong&gt;journey&lt;/strong&gt; of getting selected into the program from the very beginning. I believe their is no defined path for getting selected in such open-source fellowships. Everyone has a unique journey, and you can take a few things from other journeys to write yours :) because the essence of each one is similar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stepping down as a (rust-) libp2p maintainer</title>
-      <link>http://localhost:1313/post/2024-02-29-stepping-down/</link>
+      <link>https://shell.soiraspi.win/post/2024-02-29-stepping-down/</link>
       <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2024-02-29-stepping-down/</guid>
+      <guid>https://shell.soiraspi.win/post/2024-02-29-stepping-down/</guid>
       <description>&lt;p&gt;I don&amp;rsquo;t see myself making major contributions to (rust-) libp2p in the near future and thus I am stepping down as a maintainer.&lt;/p&gt;
 &lt;p&gt;As announced before, &lt;a href=&#34;https://github.com/libp2p/rust-libp2p/discussions/5007&#34;&gt;I have left Protocol Labs in December 2023&lt;/a&gt;.
 After a 2 month re-orientation break, I have decided to move on entirely.&lt;/p&gt;
@@ -180,9 +180,9 @@ Since then lots happened. A couple of milestones I was involved in:&lt;/p&gt;</d
     </item>
     <item>
       <title>Talk &#34;Connecting everything, everywhere, all at once&#34; @IPFS-Thing</title>
-      <link>http://localhost:1313/post/2023-04-16-connecting-everything-everywhere-all-at-once/</link>
+      <link>https://shell.soiraspi.win/post/2023-04-16-connecting-everything-everywhere-all-at-once/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023-04-16-connecting-everything-everywhere-all-at-once/</guid>
+      <guid>https://shell.soiraspi.win/post/2023-04-16-connecting-everything-everywhere-all-at-once/</guid>
       <description>&lt;p&gt;How you can connect everything (browsers &amp;amp; non-browsers), everywhere (public or private), all at once (using libp2p).&lt;/p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
       &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube-nocookie.com/embed/4v-iIB0C9_8?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
@@ -192,9 +192,9 @@ Since then lots happened. A couple of milestones I was involved in:&lt;/p&gt;</d
     </item>
     <item>
       <title>Talk &#34;DOS Defense - Do’s and Don’ts&#34; @IPFS-Camp</title>
-      <link>http://localhost:1313/post/2022-11-02-dos-defense-dos-and-donts/</link>
+      <link>https://shell.soiraspi.win/post/2022-11-02-dos-defense-dos-and-donts/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-11-02-dos-defense-dos-and-donts/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-11-02-dos-defense-dos-and-donts/</guid>
       <description>&lt;p&gt;I presented at IPFS Camp 2022 on mitigating Denial-of-Service attacks in
 peer-to-peer networks. I discussed resource management strategies such as
 enforcing backpressure and provided examples of coding pitfalls to avoid in Rust
@@ -270,18 +270,18 @@ and Go. You can find the recording and slides of my talk below.&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Hole punching in the wild&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/2023-02-05-hole-punching-in-the-wild/</link>
+      <link>https://shell.soiraspi.win/post/2023-02-05-hole-punching-in-the-wild/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023-02-05-hole-punching-in-the-wild/</guid>
+      <guid>https://shell.soiraspi.win/post/2023-02-05-hole-punching-in-the-wild/</guid>
       <description>&lt;p&gt;Dennis and I presented &lt;em&gt;Hole punching in the wild&lt;/em&gt;, &lt;em&gt;learnings from running libp2p hole punching in production, measured from vantage points across the globe&lt;/em&gt; in the network devroom at FOSDEM 2023.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;At FOSDEM 2022 I presented libp2p&amp;rsquo;s hole punching mechanism, overcoming NATs and firewalls with no dependencies on central infrastructure. One year has passed since. We rolled it out to live networks. We launched a large measurement campaign with many volunteers deploying vantage points in their home network, punching holes across the globe.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk &#34;Peer-to-peer Browser Connectivity&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/2023-02-05-peer-to-peer-browser-connectivity/</link>
+      <link>https://shell.soiraspi.win/post/2023-02-05-peer-to-peer-browser-connectivity/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023-02-05-peer-to-peer-browser-connectivity/</guid>
+      <guid>https://shell.soiraspi.win/post/2023-02-05-peer-to-peer-browser-connectivity/</guid>
       <description>&lt;p&gt;I presented an overview on &lt;em&gt;Peer-to-peer Browser Connectivity&lt;/em&gt; options in the network devroom at FOSDEM 2023.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Connecting from the browser to a public server with a valid TLS certificate is easy. But what if the server has a self-signed certificate? What if it isn&amp;rsquo;t public? What if it is another browser?&lt;/p&gt;
@@ -289,9 +289,9 @@ and Go. You can find the recording and slides of my talk below.&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Hole punching with libp2p&#34; @p2p-paris</title>
-      <link>http://localhost:1313/post/2022-04-30-hole-punching-with-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/2022-04-30-hole-punching-with-libp2p/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-04-30-hole-punching-with-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-04-30-hole-punching-with-libp2p/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;We’ll take a closer look at the recently added decentralized hole punching
 feature, allowing NAT and firewall traversal without the need for any central
@@ -301,9 +301,9 @@ coordination servers (STUN and TURN).&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Introduction to and State of libp2p&#34; @p2p-paris</title>
-      <link>http://localhost:1313/post/2022-04-29-introduction-to-and-state-of-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/2022-04-29-introduction-to-and-state-of-libp2p/</link>
       <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-04-29-introduction-to-and-state-of-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-04-29-introduction-to-and-state-of-libp2p/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;We will discuss the current state of the project, eyeball the various language
 implementations, take a look at the many live networks running on top of
@@ -313,9 +313,9 @@ libp2p today and finally cover the project roadmap for the years to come.&lt;/p&
     </item>
     <item>
       <title>Hole punching in libp2p</title>
-      <link>http://localhost:1313/post/2022-03-06-libp2p-hole-punching/</link>
+      <link>https://shell.soiraspi.win/post/2022-03-06-libp2p-hole-punching/</link>
       <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-03-06-libp2p-hole-punching/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-03-06-libp2p-hole-punching/</guid>
       <description>&lt;p&gt;We have been working on hole punching support in libp2p for the last year. It
 finally landed in the Go and Rust libp2p implementation.&lt;/p&gt;
 &lt;p&gt;Read all about it on the IPFS blog:
@@ -323,9 +323,9 @@ finally landed in the Go and Rust libp2p implementation.&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Peer-to-peer hole punching without centralized infrastructure&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</link>
+      <link>https://shell.soiraspi.win/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</guid>
+      <guid>https://shell.soiraspi.win/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</guid>
       <description>&lt;p&gt;Gave a talk on hole punching in libp2p at FOSDEM 2022.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Peer-to-peer hole punching without centralized infrastructure&lt;/p&gt;
@@ -341,9 +341,9 @@ coordination servers (STUN and TURN).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk &#34;State of libp2p&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/state-of-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/state-of-libp2p/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/state-of-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/state-of-libp2p/</guid>
       <description>&lt;p&gt;Gave a talk on the state of libp2p at FOSDEM 2022.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;State of libp2p&lt;/p&gt;
@@ -357,21 +357,21 @@ libp2p today and finally cover the project roadmap for the years to come.&lt;/p&
     </item>
     <item>
       <title>Talk Intro to libp2p</title>
-      <link>http://localhost:1313/post/intro-to-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/intro-to-libp2p/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/intro-to-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/intro-to-libp2p/</guid>
       <description>&lt;p&gt;On Tuesday 20th of July I gave a talk introducing &lt;a href=&#34;https://libp2p.io/&#34;&gt;libp2p&lt;/a&gt;,
 a modular network stack.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://youtu.be/7OZLImVRvro&#34;&gt;Recording&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/static/introduction-to-libp2p.pdf&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shell.soiraspi.win/static/introduction-to-libp2p.pdf&#34;&gt;Slides&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     <item>
       <title>35th DistSys Reading Group - Nym</title>
-      <link>http://localhost:1313/post/2021-06-29-35th-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-06-29-35th-reading-group/</link>
       <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-06-29-35th-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-06-29-35th-reading-group/</guid>
       <description>&lt;p&gt;In our previous session we looked into Mixnets, more specifically Loopix. With
 this session we stayed in the space, talking about a network adopting many
 concepts from Loopix, namely Nym.&lt;/p&gt;
@@ -387,9 +387,9 @@ concepts from Loopix, namely Nym.&lt;/p&gt;
     </item>
     <item>
       <title>34th DistSys Reading Group - Mixnets</title>
-      <link>http://localhost:1313/post/2021-05-10-34th-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-05-10-34th-reading-group/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-05-10-34th-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-05-10-34th-reading-group/</guid>
       <description>&lt;p&gt;34th session was on Mixnets as lots of people suggested in the past. As a
 preparation we read the Loopix paper.&lt;/p&gt;
 &lt;p&gt;Piotrowska, Ania M., et al. &amp;ldquo;The loopix anonymity system.&amp;rdquo; 26th {USENIX}
@@ -401,9 +401,9 @@ additional resource.&lt;/p&gt;
     </item>
     <item>
       <title>33rd DistSys Reading Group - BGP 3</title>
-      <link>http://localhost:1313/post/2021-04-12-33rd-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-04-12-33rd-reading-group/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-04-12-33rd-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-04-12-33rd-reading-group/</guid>
       <description>&lt;p&gt;In our third BGP session we focused on BGP security, more specifically we
 discussed how to perform hijack and interception attacks using BGP. The primary
 paper of the session was:&lt;/p&gt;
@@ -415,9 +415,9 @@ Communications Security. 2019.&lt;/a&gt;&lt;/p&gt;
     </item>
     <item>
       <title>32nd DistSys Reading Group - BGP 2</title>
-      <link>http://localhost:1313/post/2021-03-18-32nd-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-03-18-32nd-reading-group/</link>
       <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-03-18-32nd-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-03-18-32nd-reading-group/</guid>
       <description>&lt;p&gt;After our first BGP session, introducing the protocol based on the convergence
 problem of BGP, our second session on BGP covered route propagation and tuning.
 The primary paper was:&lt;/p&gt;
@@ -428,9 +428,9 @@ Measurement Conference.
     </item>
     <item>
       <title>Optimizing Yamux Flow Control - Sending Window Update Frames Early</title>
-      <link>http://localhost:1313/post/2021-03-07-optimizing-yamux-flow-control/</link>
+      <link>https://shell.soiraspi.win/post/2021-03-07-optimizing-yamux-flow-control/</link>
       <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-03-07-optimizing-yamux-flow-control/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-03-07-optimizing-yamux-flow-control/</guid>
       <description>&lt;p&gt;Below is a summary of our efforts to optimize flow control in the &lt;a href=&#34;https://github.com/paritytech/yamux&#34;&gt;Rust Yamux
 implementation&lt;/a&gt;. While not a novel
 approach, I still find the end result worth sharing thus my forum post.&lt;/p&gt;
@@ -438,9 +438,9 @@ approach, I still find the end result worth sharing thus my forum post.&lt;/p&gt
     </item>
     <item>
       <title>31st DistSys Reading Group - BGP 1</title>
-      <link>http://localhost:1313/post/2021-02-24-31st-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2021-02-24-31st-paper-club/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-02-24-31st-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-02-24-31st-paper-club/</guid>
       <description>&lt;p&gt;We decided to turn our interest to BGP which we will devote 3 sessions to. In
 today&amp;rsquo;s session - the first one - we introduced BGP, looked at the convergence
 problem, as well as the solution suggested in the paper below.&lt;/p&gt;
@@ -451,9 +451,9 @@ coordination.&amp;rdquo; IEEE/ACM Transactions on networking 9.6 (2001):
     </item>
     <item>
       <title>New GPG Key</title>
-      <link>http://localhost:1313/post/2021-02-17-new-gpg-key/</link>
+      <link>https://shell.soiraspi.win/post/2021-02-17-new-gpg-key/</link>
       <pubDate>Wed, 17 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-02-17-new-gpg-key/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-02-17-new-gpg-key/</guid>
       <description>&lt;p&gt;I have created a new GPG key replacing my old GPG key. I did not loose access to
 the old one, nor was it, as far as I am able to tell, ever compromised. As I did
 with the old key, I will use the new key both for signing my open source work as
@@ -468,9 +468,9 @@ key&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>30th DistSys Reading Group - NTP</title>
-      <link>http://localhost:1313/post/2021-01-26-30th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2021-01-26-30th-paper-club/</link>
       <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-01-26-30th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-01-26-30th-paper-club/</guid>
       <description>&lt;p&gt;What better way to start a new year than with a paper discussing how to change
 time?&lt;/p&gt;
 &lt;p&gt;In the 30th session we discussed a paper which I think has much up its sleeves -
@@ -484,9 +484,9 @@ end is a small treasure trove.&lt;/p&gt;</description>
     </item>
     <item>
       <title>28th DistSys Reading Group - Hotstuff</title>
-      <link>http://localhost:1313/post/2020-09-08-28th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-09-08-28th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</guid>
       <description>&lt;p&gt;With the 28th session we jumped into the space of byzantine fault tolerant
 consensus protocols. We covered fault tolerant consensus with various Paxos
 variants in the past, but this session was the first one looking into how to
@@ -499,9 +499,9 @@ to compare other algorithms (e.g. PBFT) in the space.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Know your latencies</title>
-      <link>http://localhost:1313/post/2020-06-19-latencies/</link>
+      <link>https://shell.soiraspi.win/post/2020-06-19-latencies/</link>
       <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-06-19-latencies/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-06-19-latencies/</guid>
       <description>&lt;p&gt;I find it helpful to know the orders of magnitude by which certain computer
 operations differ. Certainly it is not worth the effort to pay attention to
 every digit or learn these by heart, especially since they differ (slightly)
@@ -511,9 +511,9 @@ whenever reasoning about systems performance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>26th DistSys Reading Group - Cache coherence</title>
-      <link>http://localhost:1313/post/2020-05-18-26th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-05-18-26th-paper-club/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-05-18-26th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-05-18-26th-paper-club/</guid>
       <description>&lt;p&gt;We have long been planning to cover the caching mechanisms in CPUs. As a shared
 knowledge base for the discussions in this session we chose the following two
 articles by Martin Thompson among other things known for his work on the &lt;a href=&#34;https://lmax-exchange.github.io/disruptor/&#34;&gt;LMAX
@@ -532,9 +532,9 @@ can make use of them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>25th DistSys Reading Group - Fair queuing</title>
-      <link>http://localhost:1313/post/2020-04-27-25th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-27-25th-paper-club/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-27-25th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-04-27-25th-paper-club/</guid>
       <description>&lt;p&gt;In the session today we covered Madhavapeddi Shreedhar and George Varghese paper
 &amp;ldquo;&lt;em&gt;Efficient fair queuing using deficit round-robin&lt;/em&gt;&amp;rdquo; [1]. While the session was
 not so much about the relatively simple algorithmic details of
@@ -553,9 +553,9 @@ as latency critical flows.&lt;/p&gt;</description>
     </item>
     <item>
       <title>24th DistSys Reading Group - BBR Congestion-Based Congestion Control</title>
-      <link>http://localhost:1313/post/2020-04-06-24th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-06-24th-paper-club/</link>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-06-24th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-04-06-24th-paper-club/</guid>
       <description>&lt;p&gt;After a bit of a break due to current pandemic we decided to carry on and
 continue our meetings as virtual calls. Ignoring the usual initial hiccups and
 the missing whiteboard the medium worked well for us.&lt;/p&gt;
@@ -573,13 +573,13 @@ due to congestion control.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elimination back-off stack performance</title>
-      <link>http://localhost:1313/post/2020-04-01-elimination-backoff-stack-performance/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-01-elimination-backoff-stack-performance/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-01-elimination-backoff-stack-performance/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;All stacks from 1 thread to up to 128&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/static/elimination-back-off-stack/lines.svg&#34;&gt;&lt;/p&gt;
+      <guid>https://shell.soiraspi.win/post/2020-04-01-elimination-backoff-stack-performance/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;All stacks from 1 thread to up to 128&#34; loading=&#34;lazy&#34; src=&#34;https://shell.soiraspi.win/static/elimination-back-off-stack/lines.svg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I recently stumbled upon the idea of an &lt;em&gt;Elimination Back-off Stack&lt;/em&gt; promising
 to be a &lt;strong&gt;parallel&lt;/strong&gt;, linearizable and lock-free stack. In case you are not
-familiar with it, I would suggest either reading my &lt;a href=&#34;http://localhost:1313/blog/2020-03-28-elimination-backoff-stack/&#34;&gt;previous
+familiar with it, I would suggest either reading my &lt;a href=&#34;https://shell.soiraspi.win/blog/2020-03-28-elimination-backoff-stack/&#34;&gt;previous
 post&lt;/a&gt; or the corresponding paper
 [1] itself. Being quite intrigued by the ideas of the above stack I wrote &lt;a href=&#34;https://github.com/mxinden/elimination-backoff-stack/&#34;&gt;my
 own implementation&lt;/a&gt; in
@@ -588,9 +588,9 @@ Rust with a &lt;em&gt;little&lt;/em&gt; help from
     </item>
     <item>
       <title>Elimination back-off stack</title>
-      <link>http://localhost:1313/post/2020-03-28-elimination-backoff-stack/</link>
+      <link>https://shell.soiraspi.win/post/2020-03-28-elimination-backoff-stack/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-03-28-elimination-backoff-stack/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-03-28-elimination-backoff-stack/</guid>
       <description>&lt;p&gt;Reading &lt;em&gt;The Art of Multiprocessor Programming&lt;/em&gt; [1] I came across the
 &lt;em&gt;Elimination Back-off Stack&lt;/em&gt; [2] datastructure introduced in 2004 by Danny
 Hendler, Nir Shavit, and Lena Yerushalmi. It promises to be a &lt;strong&gt;parallel&lt;/strong&gt;
@@ -605,9 +605,9 @@ of the stack or is &lt;code&gt;null&lt;/code&gt; in case of an empty stack.&lt;/
     </item>
     <item>
       <title>Leaving the Prometheus team</title>
-      <link>http://localhost:1313/post/2020-03-14-leaving-prometheus-team/</link>
+      <link>https://shell.soiraspi.win/post/2020-03-14-leaving-prometheus-team/</link>
       <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-03-14-leaving-prometheus-team/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-03-14-leaving-prometheus-team/</guid>
       <description>&lt;p&gt;In January 2017 I joined the company CoreOS as a test-engineer helping the
 monitoring team and the &lt;a href=&#34;https://github.com/rkt/rkt&#34;&gt;rkt container engine team&lt;/a&gt;
 write reliable software. Eventually I joined the CoreOS&amp;rsquo; monitoring team
@@ -626,9 +626,9 @@ In addition being part of the open source project enabled me to speak at many
     </item>
     <item>
       <title>23rd Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2020-02-18-23rd-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-02-18-23rd-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/</guid>
       <description>&lt;p&gt;At the end of the previous session one of us suggested to dive into congestion
 control algorithms. This has found a greater echo, thus the 23rd session covered
 congestion control algorithms in general and TCP&amp;rsquo;s Reno as well as TCP&amp;rsquo;s Tahoe
@@ -642,9 +642,9 @@ Chicago.&lt;/p&gt;</description>
     </item>
     <item>
       <title>22nd Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2020-01-28-22nd-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-01-28-22nd-paper-club/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-01-28-22nd-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-01-28-22nd-paper-club/</guid>
       <description>&lt;p&gt;In the 22nd session we took a look at &lt;code&gt;io_uring&lt;/code&gt; - a new Kernel interface for
 asynchronous I/O. Tyler, who is currently implementing an &lt;code&gt;io_uring&lt;/code&gt; library in
 Rust [4] for his database sled [7] guided us through the concepts as well as a
@@ -657,9 +657,9 @@ slides from a Kernel Recipes 2019 talk [1].&lt;/p&gt;</description>
     </item>
     <item>
       <title>21st Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2020-01-24-21st-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-01-24-21st-paper-club/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-01-24-21st-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-01-24-21st-paper-club/</guid>
       <description>&lt;p&gt;We started the new year with a session on &lt;em&gt;epidemic&lt;/em&gt; / &lt;em&gt;gossip&lt;/em&gt; protocols. To
 decide what to read I compiled the following list of papers that I either
 enjoyed reading in the past, or that were recommended to me. The &lt;em&gt;Swim (Scalable
@@ -672,9 +672,9 @@ Proceedings International Conference on Dependable Systems and Networks. IEEE,
     </item>
     <item>
       <title>20th Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2019-11-28-20th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2019-11-28-20th-paper-club/</link>
       <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-11-28-20th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-11-28-20th-paper-club/</guid>
       <description>&lt;p&gt;Last Tuesday we meet again to discuss different attacks and possible
 countermeasures for distributed hash tables. More in particular we looked at
 Kademlia and its security extension S/Kademlia [1], possible eclipse attacks on
@@ -685,9 +685,9 @@ different security techniques for DHTs [5].&lt;/p&gt;</description>
     </item>
     <item>
       <title>19th Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2019-10-27-19th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2019-10-27-19th-paper-club/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-10-27-19th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-10-27-19th-paper-club/</guid>
       <description>&lt;p&gt;I have been organizing a distributed systems paper reading group in Berlin for
 the last year. We meet every other week discussing a paper in the distributed
 systems space. This could be anything from &lt;em&gt;Chandy–Lamport&amp;rsquo;s algorithm for
@@ -701,9 +701,9 @@ management protocols.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Metric driven performance optimization</title>
-      <link>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</link>
+      <link>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</guid>
       <description>&lt;p&gt;Within my work at Red Hat and Kubernetes &lt;a href=&#34;https://github.com/kubernetes/community/tree/master/sig-instrumentation&#34;&gt; SIG instrumentation
 &lt;/a&gt; I
 have been working on &lt;a href=&#34;https://github.com/kubernetes/kube-state-metrics/&#34;&gt; kube-state-metrics
@@ -717,9 +717,9 @@ Kubernetes, which in itself enables Prometheus to monitor Kubernetes.&lt;/p&gt;<
     </item>
     <item>
       <title>Talk Optimizing Metric Rendering in kube-state-metrics</title>
-      <link>http://localhost:1313/post/optimizing-metric-rendering-in-kube-state-metrics/</link>
+      <link>https://shell.soiraspi.win/post/optimizing-metric-rendering-in-kube-state-metrics/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/optimizing-metric-rendering-in-kube-state-metrics/</guid>
+      <guid>https://shell.soiraspi.win/post/optimizing-metric-rendering-in-kube-state-metrics/</guid>
       <description>&lt;p&gt;Kube-state-metrics exposes Prometheus metrics of the state of a given Kubernetes
 cluster. The project uses the standard Prometheus client Golang library, which
 is not optimized for the very specific use case of kube-state-metrics.&lt;/p&gt;
@@ -730,9 +730,9 @@ code hot path and optimizing memory allocations during response generation.&lt;/
     </item>
     <item>
       <title>Talk Self-Service Monitoring</title>
-      <link>http://localhost:1313/post/self-service-monitoring/</link>
+      <link>https://shell.soiraspi.win/post/self-service-monitoring/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/self-service-monitoring/</guid>
+      <guid>https://shell.soiraspi.win/post/self-service-monitoring/</guid>
       <description>&lt;p&gt;Monitoring plays a crucial role in a microservice architecture. Restricting the
 management and configuration of the monitoring stack to the operations team
 results in workflow bottlenecks. Instead one could provide a self-service
@@ -743,9 +743,9 @@ failures on their own.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk Self-healing Kubernetes</title>
-      <link>http://localhost:1313/post/self-healing-k8s/</link>
+      <link>https://shell.soiraspi.win/post/self-healing-k8s/</link>
       <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/self-healing-k8s/</guid>
+      <guid>https://shell.soiraspi.win/post/self-healing-k8s/</guid>
       <description>&lt;p&gt;What If Component xxx Dies? Introducing Self-Healing Kubernetes&lt;/p&gt;
 &lt;p&gt;Kubernetes promises healing your application on all kinds of failure scenarios,
 but why not self-heal Kubernetes itself?&lt;/p&gt;
@@ -758,16 +758,16 @@ see how well Kubernetes recovers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk End-to-end monitoring with the Prometheus Operator</title>
-      <link>http://localhost:1313/post/end-to-end-monitoring-with-the-prometheus-operator/</link>
+      <link>https://shell.soiraspi.win/post/end-to-end-monitoring-with-the-prometheus-operator/</link>
       <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/end-to-end-monitoring-with-the-prometheus-operator/</guid>
+      <guid>https://shell.soiraspi.win/post/end-to-end-monitoring-with-the-prometheus-operator/</guid>
       <description>&lt;p&gt;Kubernetes is a powerful system to build and operate a modern cloud-native infrastructure. Monitoring with Prometheus ensures that Kubernetes stays healthy. Prometheus is a stateful application, so operating it in a cloud native environment can be a challenging task. The Prometheus Operator makes running highly available Prometheus clusters, and even an entire end to end monitoring pipeline, easily manageable. Max will explain the functionality of the Prometheus Operator and describe a desirable end-to-end monitoring stack, including alerts and dashboards.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk Intro to Kubernetes</title>
-      <link>http://localhost:1313/post/introduction-to-k8s/</link>
+      <link>https://shell.soiraspi.win/post/introduction-to-k8s/</link>
       <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/introduction-to-k8s/</guid>
+      <guid>https://shell.soiraspi.win/post/introduction-to-k8s/</guid>
       <description>&lt;p&gt;Distributing and deploying software inside (Docker-) containers for security,
 isolation and ease of use is the new big thing. But once you got all your
 services nicely wrapped - who takes care of all these containers?&lt;/p&gt;
@@ -779,74 +779,74 @@ idea of how Google controls parts of their gigantic infrastructure.&lt;/p&gt;</d
     </item>
     <item>
       <title>Talk Improving user and developer experience of the Alertmanager UI</title>
-      <link>http://localhost:1313/post/improving-user-and-developer-experience-of-the-alertmanager-ui/</link>
+      <link>https://shell.soiraspi.win/post/improving-user-and-developer-experience-of-the-alertmanager-ui/</link>
       <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/improving-user-and-developer-experience-of-the-alertmanager-ui/</guid>
+      <guid>https://shell.soiraspi.win/post/improving-user-and-developer-experience-of-the-alertmanager-ui/</guid>
       <description>&lt;p&gt;Alertmanager deduplicates, groups, and routes alerts from Prometheus to all kinds of paging services. With it comes a dated UI which does not live up to the expectations of the users, nor does it attract new contributors.&lt;/p&gt;
 &lt;p&gt;From this talk, you will learn how we addressed these issues when building the new UI from scratch. We made it friendlier to users by removing unnecessary domain language noise. In addition we added new power features such as filtering and grouping. As a result, it is now much easier to navigate through thousands of alerts.&lt;/p&gt;</description>
     </item>
     <item>
       <title>First Triathlon</title>
-      <link>http://localhost:1313/post/2017-06-11-triathlon/</link>
+      <link>https://shell.soiraspi.win/post/2017-06-11-triathlon/</link>
       <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2017-06-11-triathlon/</guid>
+      <guid>https://shell.soiraspi.win/post/2017-06-11-triathlon/</guid>
       <description>&lt;p&gt;Finished my very
 first &lt;a href=&#34;https://connect.garmin.com/modern/activity/1792046557&#34;&gt;Triathlon&lt;/a&gt; today
 here in Berlin. I survived the swimming way better than I thougt, biking wasn&amp;rsquo;t
 a big problem, but the 10 k at the end were more of a stumbling then a running.&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/assets/17-06-11.jpg&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://shell.soiraspi.win/assets/17-06-11.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Angels Island</title>
-      <link>http://localhost:1313/post/2017-02-12-angels-island/</link>
+      <link>https://shell.soiraspi.win/post/2017-02-12-angels-island/</link>
       <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2017-02-12-angels-island/</guid>
+      <guid>https://shell.soiraspi.win/post/2017-02-12-angels-island/</guid>
       <description>&lt;p&gt;Sunday five mile hike around Angels Island. Great to get out of the city from time to time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quick run through SF</title>
-      <link>http://localhost:1313/post/2017-02-11-quick-run-through-sf/</link>
+      <link>https://shell.soiraspi.win/post/2017-02-11-quick-run-through-sf/</link>
       <pubDate>Sat, 11 Feb 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2017-02-11-quick-run-through-sf/</guid>
+      <guid>https://shell.soiraspi.win/post/2017-02-11-quick-run-through-sf/</guid>
       <description>&lt;p&gt;My first 16 miles run. Nearly blacked out at the end. Amazing route!&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/assets/17-02-11.png&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://shell.soiraspi.win/assets/17-02-11.png&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Back in Germany</title>
-      <link>http://localhost:1313/post/2016-12-17-back-in-germany/</link>
+      <link>https://shell.soiraspi.win/post/2016-12-17-back-in-germany/</link>
       <pubDate>Sat, 17 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-12-17-back-in-germany/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-12-17-back-in-germany/</guid>
       <description>&lt;p&gt;After two delayed flights, one canceled flight and two lost bags I made it back
 home to Germany.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Back in San Francisco</title>
-      <link>http://localhost:1313/post/2016-12-08-back-in-san-francisco/</link>
+      <link>https://shell.soiraspi.win/post/2016-12-08-back-in-san-francisco/</link>
       <pubDate>Thu, 08 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-12-08-back-in-san-francisco/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-12-08-back-in-san-francisco/</guid>
       <description>&lt;p&gt;Made it back to San Francisco. Crashed on a good friends couch.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Flying to Las Vegas</title>
-      <link>http://localhost:1313/post/2016-12-06-flying-to-las-vegas/</link>
+      <link>https://shell.soiraspi.win/post/2016-12-06-flying-to-las-vegas/</link>
       <pubDate>Tue, 06 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-12-06-flying-to-las-vegas/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-12-06-flying-to-las-vegas/</guid>
       <description>&lt;p&gt;On my way back to San Francisco I made a quick stop in Las Vegas. A friend I
 met in Austin showed me around. Visited Downtwon, the strip and the Red Rocks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Tourist Tour through Austin</title>
-      <link>http://localhost:1313/post/2016-12-04-tourist-tour-through-austin/</link>
+      <link>https://shell.soiraspi.win/post/2016-12-04-tourist-tour-through-austin/</link>
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-12-04-tourist-tour-through-austin/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-12-04-tourist-tour-through-austin/</guid>
       <description>&lt;p&gt;I went to the Texas State Capitol, learned a bunch about Texas history gaining
 independence, joined a local hiking &lt;em&gt;Meetup&lt;/em&gt; and looked at the graffiti park.&lt;/p&gt;</description>
     </item>
     <item>
       <title>First Yoga Class</title>
-      <link>http://localhost:1313/post/2016-12-01-first-yoga-class/</link>
+      <link>https://shell.soiraspi.win/post/2016-12-01-first-yoga-class/</link>
       <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-12-01-first-yoga-class/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-12-01-first-yoga-class/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;20:20 - Hi Max, wanna join Yoga Class tonight?&lt;/li&gt;
 &lt;li&gt;20:21 - Sure, never tried though.&lt;/li&gt;
@@ -856,34 +856,34 @@ independence, joined a local hiking &lt;em&gt;Meetup&lt;/em&gt; and looked at th
     </item>
     <item>
       <title>Accomodation at Barton Springs Road</title>
-      <link>http://localhost:1313/post/2016-11-30-accomodation-at-barton-springs-road/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-30-accomodation-at-barton-springs-road/</link>
       <pubDate>Wed, 30 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-30-accomodation-at-barton-springs-road/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-30-accomodation-at-barton-springs-road/</guid>
       <description>&lt;p&gt;I got an &lt;em&gt;AirBnB&lt;/em&gt; across the Colorado River fairly close to downtown. My hosts
 are great. Looking forward to the next days. Surrounded by great restaurants.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Flight to Austin</title>
-      <link>http://localhost:1313/post/2016-11-28-flight-to-austin/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-28-flight-to-austin/</link>
       <pubDate>Mon, 28 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-28-flight-to-austin/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-28-flight-to-austin/</guid>
       <description>&lt;p&gt;I am going to Austin Texas for the &lt;em&gt;NodeJS Interactive&lt;/em&gt; conference. Am looking
 forward to some great talks both on &lt;em&gt;NodeJS&lt;/em&gt; itself and microservice
 architectures. Flying over night - saving one night of accomodation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pierce Point</title>
-      <link>http://localhost:1313/post/2016-11-27-pierce-point/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-27-pierce-point/</link>
       <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-27-pierce-point/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-27-pierce-point/</guid>
       <description>&lt;p&gt;Hiking to the &lt;em&gt;Pierce Point&lt;/em&gt;. We have seen something that looked like a fox and
 plenty of Elks. It is a scenic view along the coast.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Visiting Berkeley</title>
-      <link>http://localhost:1313/post/2016-11-26-visiting-berkeley/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-26-visiting-berkeley/</link>
       <pubDate>Sat, 26 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-26-visiting-berkeley/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-26-visiting-berkeley/</guid>
       <description>&lt;p&gt;With two friends of mine I wen to
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Berkeley,_California&#34;&gt;&lt;em&gt;Berkeley&lt;/em&gt;&lt;/a&gt;. We started
 with downtown &lt;em&gt;Berkeley&lt;/em&gt; and then made our way up to the &lt;a href=&#34;https://en.wikipedia.org/wiki/University_of_California,_Berkeley&#34;&gt;university
@@ -894,9 +894,9 @@ had an amazing view over the entire bay.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Thanksgiving</title>
-      <link>http://localhost:1313/post/2016-11-24-thanksgiving/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-24-thanksgiving/</link>
       <pubDate>Thu, 24 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-24-thanksgiving/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-24-thanksgiving/</guid>
       <description>&lt;p&gt;A very fun friend of mine from &lt;em&gt;Covo&lt;/em&gt; with whom I shared a lot of great
 discussions on coding and code quality in particular invited me over for
 Thanksgiving. I felt &lt;strong&gt;very&lt;/strong&gt; welcome. We talked a lot about politics. It is
@@ -904,35 +904,35 @@ super interesting to see an American point of view on it.&lt;/p&gt;</description
     </item>
     <item>
       <title>Alcatraz</title>
-      <link>http://localhost:1313/post/2016-11-19-alcatraz/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-19-alcatraz/</link>
       <pubDate>Sat, 19 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-19-alcatraz/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-19-alcatraz/</guid>
       <description>&lt;p&gt;I booked a tour for Alcatraz. My first time on a boat in the &lt;em&gt;Bay Area&lt;/em&gt;. The
 weather was horrible - setting the perfect mood for visiting a prison.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Friday Evening Friendsgiving</title>
-      <link>http://localhost:1313/post/2016-11-18-friday-evening-friendsgiving/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-18-friday-evening-friendsgiving/</link>
       <pubDate>Fri, 18 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-18-friday-evening-friendsgiving/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-18-friday-evening-friendsgiving/</guid>
       <description>&lt;p&gt;A cowoker / great friend of mine from &lt;em&gt;Covo&lt;/em&gt; invited me over for a
 friendsgiving at his place. Like the day before, great food and a great party
 in a beautiful house in &lt;em&gt;Potrero Hill&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Friendsgiving at Covo</title>
-      <link>http://localhost:1313/post/2016-11-17-friendsgiving-at-covo/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-17-friendsgiving-at-covo/</link>
       <pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-17-friendsgiving-at-covo/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-17-friendsgiving-at-covo/</guid>
       <description>&lt;p&gt;The coworking space I currently work at, &lt;em&gt;Covo&lt;/em&gt;, arranged a friendsgiving for
 lunch. Everybody contributed to the dinner. We had plenty of food and a great
 time. My first friendsgiving.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Visiting the Google Campus</title>
-      <link>http://localhost:1313/post/2016-11-13-visiting-the-google-campus/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-13-visiting-the-google-campus/</link>
       <pubDate>Sun, 13 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-13-visiting-the-google-campus/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-13-visiting-the-google-campus/</guid>
       <description>&lt;p&gt;There was a conference at the &lt;a href=&#34;https://en.wikipedia.org/wiki/Googleplex&#34;&gt;&lt;em&gt;Google&lt;/em&gt;
 campus&lt;/a&gt; on Sunday. I really enjoyed
 the talks. I was especially interested in the topics architecture and
@@ -940,16 +940,16 @@ artificial intelligence.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Golden Gate Bridge</title>
-      <link>http://localhost:1313/post/2016-11-12-golden-gate-bridge/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-12-golden-gate-bridge/</link>
       <pubDate>Sat, 12 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-12-golden-gate-bridge/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-12-golden-gate-bridge/</guid>
       <description>&lt;p&gt;I woke up reasonably early on Saturday to go to the Golden Gaten Bridge. The bus ride from Ingleside took me an hour. I started my hike in the &lt;a href=&#34;https://en.wikipedia.org/wiki/Presidio_of_San_Francisco&#34;&gt;Presidio&lt;/a&gt; park along the west coast. I found some lonely beaches. I felt nothing like being in a city. Afterwards I walked over the Golden Gate Bridge where two friends of mine, Simon and Marc, picked me up. We drove to &lt;a href=&#34;https://en.wikipedia.org/wiki/Muir_Beach,_California&#34;&gt;Muir Beach&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Stinson_Beach,_California&#34;&gt;Stinson Beach&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Tiburon,_California&#34;&gt;Tiboron&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Sausalito,_California&#34;&gt;Sausalito&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Finding the Perfect Coworking Space</title>
-      <link>http://localhost:1313/post/2016-11-02-finding-the-perfect-coworking-space/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-02-finding-the-perfect-coworking-space/</link>
       <pubDate>Wed, 02 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-02-finding-the-perfect-coworking-space/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-02-finding-the-perfect-coworking-space/</guid>
       <description>&lt;p&gt;As we are working from San Francisco for the rest of the month, we were looking
 for a coworking space. Well, &amp;hellip; not just one coworking space, but the
 coworking space. We started our search on Wednesday with the &lt;a href=&#34;href=%22http://www.parisoma.com/%22&#34;&gt;coworking
@@ -964,9 +964,9 @@ us.&lt;/p&gt;</description>
     </item>
     <item>
       <title>MongoDB Launchpad</title>
-      <link>http://localhost:1313/post/2016-11-01-mongodb-launchpad/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-01-mongodb-launchpad/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-01-mongodb-launchpad/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-01-mongodb-launchpad/</guid>
       <description>&lt;p&gt;Been to the MongoDB Launchpad event, a release event for their
 new version. Sadly it was more of a marketing event than a nerd
 event. But the location was really nice with a view on the Golden
@@ -974,25 +974,25 @@ Gate Bridge (Fort Mason 2 Marina Blvd San Francisco, CA).&lt;/p&gt;</description
     </item>
     <item>
       <title>Moving to San Francisco</title>
-      <link>http://localhost:1313/post/2016-11-01-moving-to-san-francisco/</link>
+      <link>https://shell.soiraspi.win/post/2016-11-01-moving-to-san-francisco/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-11-01-moving-to-san-francisco/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-11-01-moving-to-san-francisco/</guid>
       <description>&lt;p&gt;I moved to San Francisco to the &lt;a href=&#34;http://www.coliving.club/&#34;&gt;Coliving Club&lt;/a&gt;. I
 will miss Palo Alto.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pub Crawl</title>
-      <link>http://localhost:1313/post/2016-10-30-pub-crawl/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-30-pub-crawl/</link>
       <pubDate>Sun, 30 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-30-pub-crawl/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-30-pub-crawl/</guid>
       <description>&lt;p&gt;I went out with my roommates again - this time a pub crawl mostly
 in the city center.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Halloween Party or Art Event in San Francisco</title>
-      <link>http://localhost:1313/post/2016-10-29-halloween-party-or-art-event-in-san-francisco/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-29-halloween-party-or-art-event-in-san-francisco/</link>
       <pubDate>Sat, 29 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-29-halloween-party-or-art-event-in-san-francisco/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-29-halloween-party-or-art-event-in-san-francisco/</guid>
       <description>&lt;p&gt;We, my roommates and I, went to a crazy Halloween Party at&lt;a href=&#34;https://en.wikipedia.org/wiki/Pier_70,_San_Francisco&#34;&gt;Pier
 70&lt;/a&gt; in San Francisco, an
 old industrial complex. The costumes of the other guests were amazing. They
@@ -1001,26 +1001,26 @@ Man&lt;/a&gt; festival.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JS Meetup in San Francisco</title>
-      <link>http://localhost:1313/post/2016-10-27-js-meetup-in-san-francisco/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-27-js-meetup-in-san-francisco/</link>
       <pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-27-js-meetup-in-san-francisco/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-27-js-meetup-in-san-francisco/</guid>
       <description>&lt;p&gt;I have been to a JS meetup in San Francisco in the Yelp HQ. It is an impressiv
 &lt;a href=&#34;https://en.wikipedia.org/wiki/140_New_Montgomery&#34;&gt;building&lt;/a&gt; from 1925 known as
 the &lt;em&gt;Pacific Bell Building&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rooftop apartment office</title>
-      <link>http://localhost:1313/post/2016-10-25-rooftop-apartment-office/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-25-rooftop-apartment-office/</link>
       <pubDate>Tue, 25 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-25-rooftop-apartment-office/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-25-rooftop-apartment-office/</guid>
       <description>&lt;p&gt;Worked in a rooftop apartment today with a view over entire Palo Alto and parts
 of the bay area. Sadly I can&amp;rsquo;t work from there every day.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hacker House One</title>
-      <link>http://localhost:1313/post/2016-10-24-hacker-house-one/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-24-hacker-house-one/</link>
       <pubDate>Mon, 24 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-24-hacker-house-one/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-24-hacker-house-one/</guid>
       <description>&lt;p&gt;My first day at the first Hacker House in Palo Alto. House cleaning
 is every Tuesday. I arrived on Monday. The people here are amazing.
 Many startup founders - smart people all over the place. The
@@ -1030,18 +1030,18 @@ living in an apartment with 21 guys with two bathrooms.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hearst Castle</title>
-      <link>http://localhost:1313/post/2016-10-23-hearst-castle/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-23-hearst-castle/</link>
       <pubDate>Sun, 23 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-23-hearst-castle/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-23-hearst-castle/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Hearst_Castle&#34;&gt;Hearst Castle&lt;/a&gt; is a huge
 Landmark. We did a tour with an amazing tour guide, it was like Mr. Hearst
 showed us around himself.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Los Angeles and Santa Monica</title>
-      <link>http://localhost:1313/post/2016-10-22-los-angeles-and-santa-monica/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-22-los-angeles-and-santa-monica/</link>
       <pubDate>Sat, 22 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-22-los-angeles-and-santa-monica/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-22-los-angeles-and-santa-monica/</guid>
       <description>&lt;p&gt;We did a very short walk through Los Angeles and I took a longer walk around
 &lt;a href=&#34;https://de.wikipedia.org/wiki/Santa_Monica&#34;&gt;Santa Monica&lt;/a&gt; and
 (&lt;a href=&#34;https://en.wikipedia.org/wiki/Venice,_Los_Angeles)%5BVenice&#34;&gt;https://en.wikipedia.org/wiki/Venice,_Los_Angeles)[Venice&lt;/a&gt; beach]. I liked the
@@ -1050,9 +1050,9 @@ bay area.&lt;/p&gt;</description>
     </item>
     <item>
       <title>San Diego</title>
-      <link>http://localhost:1313/post/2016-10-19-san-diego/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-19-san-diego/</link>
       <pubDate>Wed, 19 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-19-san-diego/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-19-san-diego/</guid>
       <description>&lt;p&gt;We started of at the&lt;a href=&#34;https://en.wikipedia.org/wiki/Balboa_Park_(San_Diego)&#34;&gt;Balboa
 Park&lt;/a&gt;&lt;/a&gt;, walked down
 to &lt;a href=&#34;https://en.wikipedia.org/wiki/Little_Italy,_San_Diego&#34;&gt;Little Italy&lt;/a&gt;,
@@ -1063,9 +1063,9 @@ things are huge.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Last Man Standing</title>
-      <link>http://localhost:1313/post/2016-10-18-last-man-standing/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-18-last-man-standing/</link>
       <pubDate>Tue, 18 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-18-last-man-standing/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-18-last-man-standing/</guid>
       <description>&lt;p&gt;Signed up for audience seats at the sitcom &lt;a href=&#34;https://en.wikipedia.org/wiki/Last_Man_Standing_(U.S._TV_series)&#34;&gt;Last Man
 Standing&lt;/a&gt;. We
 had to arrive at 3 for the show to start at 6. They hired a comedian just to
@@ -1075,36 +1075,36 @@ tries for one scene - extremly professional.&lt;/p&gt;</description>
     </item>
     <item>
       <title>University of California Riverside</title>
-      <link>http://localhost:1313/post/2016-10-17-university-of-california-riverside/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-17-university-of-california-riverside/</link>
       <pubDate>Mon, 17 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-17-university-of-california-riverside/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-17-university-of-california-riverside/</guid>
       <description>&lt;p&gt;We walked over the campus of the
 &lt;a href=&#34;https://en.wikipedia.org/wiki/University_of_California,_Riverside&#34;&gt;University&lt;/a&gt;,
 ate in the canteen and worked outside at desks with solar powered outlets.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Palm Springs</title>
-      <link>http://localhost:1313/post/2016-10-16-palm-springs/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-16-palm-springs/</link>
       <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-16-palm-springs/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-16-palm-springs/</guid>
       <description>&lt;p&gt;First night in the Los Angeles area mostly for the mexican restaurant
 &lt;em&gt;El Mirasol Cocina Mexicana&lt;/em&gt; across the street. There are many
 huge beautiful villas like little oasis in Palm Springs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kings Canyon National Park</title>
-      <link>http://localhost:1313/post/2016-10-15-kings-canyon-national-park/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-15-kings-canyon-national-park/</link>
       <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-15-kings-canyon-national-park/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-15-kings-canyon-national-park/</guid>
       <description>&lt;p&gt;We did a 10 Miles hike in the &lt;i&gt;Kings Canyon National Park&lt;/i&gt; up to
 the &lt;i&gt;Mist Falls&lt;/i&gt;. This has been my favourite National Park so far
 because of the very untouched nature.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hana Haus</title>
-      <link>http://localhost:1313/post/2016-10-13-hana-haus/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-13-hana-haus/</link>
       <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-13-hana-haus/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-13-hana-haus/</guid>
       <description>&lt;p&gt;During the day we worked in the fancy &lt;a href=&#34;http://www.hanahaus.com&#34;&gt;Hana Haus&lt;/a&gt;, a
 coworking space by SAP. Afterwards we stayed for a Design Thinking Talk at the
 same place and finished the evening at a steake house close to the Apple
@@ -1112,39 +1112,39 @@ offices.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Docker HQ</title>
-      <link>http://localhost:1313/post/2016-10-12-docker-hq/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-12-docker-hq/</link>
       <pubDate>Wed, 12 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-12-docker-hq/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-12-docker-hq/</guid>
       <description>&lt;p&gt;We visited the &lt;a href=&#34;http://docker.com&#34;&gt;Docker&lt;/a&gt; HQ for a meetup.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pinnacles National Park</title>
-      <link>http://localhost:1313/post/2016-10-11-pinnacles-national-park/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-11-pinnacles-national-park/</link>
       <pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-11-pinnacles-national-park/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-11-pinnacles-national-park/</guid>
       <description>&lt;p&gt;We did two hikes, including a cave and three scary tarantulas.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fleet Week</title>
-      <link>http://localhost:1313/post/2016-10-09-fleet-week/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-09-fleet-week/</link>
       <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-09-fleet-week/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-09-fleet-week/</guid>
       <description>&lt;p&gt;We went to the San Francisco &lt;a href=&#34;http://fleetweeksf.org/&#34;&gt;Fleet Week&lt;/a&gt;.  My first
 time to see SF downtown during daylight and the Golden Gate Bridge. Perfect
 weather in a very crowded town.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Santa Cruz</title>
-      <link>http://localhost:1313/post/2016-10-09-santa-cruz/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-09-santa-cruz/</link>
       <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-09-santa-cruz/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-09-santa-cruz/</guid>
       <description>&lt;p&gt;Exploring the beach area with all the surfers, working in a cafe and the hotel.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Computer History Museum</title>
-      <link>http://localhost:1313/post/2016-10-07-the-computer-history-museum/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-07-the-computer-history-museum/</link>
       <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-07-the-computer-history-museum/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-07-the-computer-history-museum/</guid>
       <description>&lt;p&gt;First thing to do in Silicon Valley- the &lt;a href=&#34;http://www.computerhistory.org/&#34;&gt;computer history
 museum&lt;/a&gt;.  It is an amazing museum with all the
 hardware I have ever dreamed of.  Showed me how much I don&amp;rsquo;t know about
@@ -1152,16 +1152,16 @@ computers, especially anything below logic gates.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Flying to San Francisco</title>
-      <link>http://localhost:1313/post/2016-10-06-flying-to-san-francisco/</link>
+      <link>https://shell.soiraspi.win/post/2016-10-06-flying-to-san-francisco/</link>
       <pubDate>Thu, 06 Oct 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2016-10-06-flying-to-san-francisco/</guid>
+      <guid>https://shell.soiraspi.win/post/2016-10-06-flying-to-san-francisco/</guid>
       <description>&lt;p&gt;Düsseldorf &amp;mdash;-&amp;gt; London &amp;ndash;&lt;small&gt;A380&lt;/small&gt;&amp;ndash;&amp;gt; San Francisco&lt;/p&gt;</description>
     </item>
     <item>
       <title>Build Logs</title>
-      <link>http://localhost:1313/code/</link>
+      <link>https://shell.soiraspi.win/code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/code/</guid>
+      <guid>https://shell.soiraspi.win/code/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://**github**.com/lla-dane&#34;&gt;&lt;strong&gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&#34;https://www.linkedin.com/in/abhinav-agarwalla-a80425258/&#34;&gt;&lt;strong&gt;&lt;strong&gt;Linkedln&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&#34;https://x.com/lla_dane&#34;&gt;&lt;strong&gt;&lt;strong&gt;Twitter&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;open-source&#34;&gt;Open Source:&lt;/h2&gt;
 &lt;ul&gt;
@@ -1213,9 +1213,9 @@ computers, especially anything below logic gates.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Resume</title>
-      <link>http://localhost:1313/resume/</link>
+      <link>https://shell.soiraspi.win/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/resume/</guid>
+      <guid>https://shell.soiraspi.win/resume/</guid>
       <description>&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
 &lt;h3 id=&#34;contributor-to-libp2p-py-networking-stack&#34;&gt;Contributor to Libp2p(-py) networking stack&lt;/h3&gt;
 &lt;p&gt;May 2025 - now&lt;/p&gt;

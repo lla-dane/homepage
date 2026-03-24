@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tech on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/tech/</link>
+    <link>https://shell.soiraspi.win/tags/tech/</link>
     <description>Recent content in Tech on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Talk &#34;Intro to WebTransport - the next WebSocket?!&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</link>
+      <link>https://shell.soiraspi.win/post/intro-to-webtransport-the-next-websocket/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/intro-to-webtransport-the-next-websocket/</guid>
+      <guid>https://shell.soiraspi.win/post/intro-to-webtransport-the-next-websocket/</guid>
       <description>&lt;p&gt;I gave a talk on the upcoming WebTransport protocol in the Browser Devroom at FOSDEM 2026.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;WebTransport is an upcoming protocol (standardized by the IETF) and Web API (standardized by the W3C) for bidirectional communication on the web. It provides multiplexed streams and unreliable datagrams on top of HTTP/3 and HTTP/2.&lt;/p&gt;
@@ -20,18 +20,18 @@
     </item>
     <item>
       <title>Talk &#34;Modern Network Protocols — What’s Next for Firefox and the Web?&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
+      <link>https://shell.soiraspi.win/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</link>
       <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
+      <guid>https://shell.soiraspi.win/post/modern-network-protocols-whats-next-for-firefox-and-the-web/</guid>
       <description>&lt;p&gt;Andrew, a colleague, and I presented an outlook for Firefox and the web.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The Web’s transport stack is changing rapidly, with QUIC, HTTP/3, and encrypted DNS seeing broad adoption. This talk gives an overview of the modern network protocols Firefox already deploys and invests in, including QUIC and HTTP/3’s growing share of Web traffic. It will highlight what Firefox actually sends on the wire today, what benefits we observe in practice, and where the Web’s protocol landscape stands in early 2026.&lt;/p&gt;</description>
     </item>
     <item>
       <title>netstack.fm - Modern networking in Firefox with Max Inden</title>
-      <link>http://localhost:1313/post/modern-networking-in-firefox-podcast/</link>
+      <link>https://shell.soiraspi.win/post/modern-networking-in-firefox-podcast/</link>
       <pubDate>Wed, 29 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/modern-networking-in-firefox-podcast/</guid>
+      <guid>https://shell.soiraspi.win/post/modern-networking-in-firefox-podcast/</guid>
       <description>&lt;p&gt;I joined Glen on the netstack.fm podcast to talk about modern networking in Firefox.&lt;/p&gt;
 &lt;p&gt;We discussed Mozilla &amp;rsquo;s work on Firefox&amp;rsquo;s QUIC and HTTP/3 stack — improving UDP I/O, congestion control, and overall performance — and why QUIC matters as a fast, encrypted, and evolvable transport for HTTP/3, WebTransport, and beyond.&lt;/p&gt;
 &lt;p&gt;Thanks for having me, Glen!&lt;/p&gt;
@@ -39,9 +39,9 @@
     </item>
     <item>
       <title>Fast UDP I/O for Firefox in Rust</title>
-      <link>http://localhost:1313/post/fast-udp-io-in-firefox/</link>
+      <link>https://shell.soiraspi.win/post/fast-udp-io-in-firefox/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/fast-udp-io-in-firefox/</guid>
+      <guid>https://shell.soiraspi.win/post/fast-udp-io-in-firefox/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;Around 20% of Firefox&amp;rsquo;s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP.
 This translates to substantial UDP I/O activity.&lt;/p&gt;
@@ -51,18 +51,18 @@ The N in NSPR stands for Netscape, giving you a hint of its age.&lt;/p&gt;</desc
     </item>
     <item>
       <title>Talk &#34;Fast UDP makes QUIC quicker - optimizing Firefox’s HTTP3 IO stack&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/2025-02-02-fast-udp-makes-quic-quicker/</link>
+      <link>https://shell.soiraspi.win/post/2025-02-02-fast-udp-makes-quic-quicker/</link>
       <pubDate>Sun, 02 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2025-02-02-fast-udp-makes-quic-quicker/</guid>
+      <guid>https://shell.soiraspi.win/post/2025-02-02-fast-udp-makes-quic-quicker/</guid>
       <description>&lt;p&gt;I presented my recent work on Firefox&amp;rsquo;s HTTP3/QUIC stack in the Network Devroom at FOSDEM 2025.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;QUIC is a new transport protocol on top of UDP, transporting a large portion of the Internet traffic today. UDP I/O performance is crucial for QUIC implementations, where e.g. system call overhead can significantly impact throughput at high network speeds. To improve QUIC throughput, Firefox is switching to a modern UDP IO stack in Rust, using mechanisms like recvmmsg, and GRO across Linux, Windows, and Android.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stepping down as a (rust-) libp2p maintainer</title>
-      <link>http://localhost:1313/post/2024-02-29-stepping-down/</link>
+      <link>https://shell.soiraspi.win/post/2024-02-29-stepping-down/</link>
       <pubDate>Thu, 29 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2024-02-29-stepping-down/</guid>
+      <guid>https://shell.soiraspi.win/post/2024-02-29-stepping-down/</guid>
       <description>&lt;p&gt;I don&amp;rsquo;t see myself making major contributions to (rust-) libp2p in the near future and thus I am stepping down as a maintainer.&lt;/p&gt;
 &lt;p&gt;As announced before, &lt;a href=&#34;https://github.com/libp2p/rust-libp2p/discussions/5007&#34;&gt;I have left Protocol Labs in December 2023&lt;/a&gt;.
 After a 2 month re-orientation break, I have decided to move on entirely.&lt;/p&gt;
@@ -71,9 +71,9 @@ Since then lots happened. A couple of milestones I was involved in:&lt;/p&gt;</d
     </item>
     <item>
       <title>Talk &#34;Connecting everything, everywhere, all at once&#34; @IPFS-Thing</title>
-      <link>http://localhost:1313/post/2023-04-16-connecting-everything-everywhere-all-at-once/</link>
+      <link>https://shell.soiraspi.win/post/2023-04-16-connecting-everything-everywhere-all-at-once/</link>
       <pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023-04-16-connecting-everything-everywhere-all-at-once/</guid>
+      <guid>https://shell.soiraspi.win/post/2023-04-16-connecting-everything-everywhere-all-at-once/</guid>
       <description>&lt;p&gt;How you can connect everything (browsers &amp;amp; non-browsers), everywhere (public or private), all at once (using libp2p).&lt;/p&gt;
 &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
       &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube-nocookie.com/embed/4v-iIB0C9_8?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
@@ -83,9 +83,9 @@ Since then lots happened. A couple of milestones I was involved in:&lt;/p&gt;</d
     </item>
     <item>
       <title>Talk &#34;DOS Defense - Do’s and Don’ts&#34; @IPFS-Camp</title>
-      <link>http://localhost:1313/post/2022-11-02-dos-defense-dos-and-donts/</link>
+      <link>https://shell.soiraspi.win/post/2022-11-02-dos-defense-dos-and-donts/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-11-02-dos-defense-dos-and-donts/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-11-02-dos-defense-dos-and-donts/</guid>
       <description>&lt;p&gt;I presented at IPFS Camp 2022 on mitigating Denial-of-Service attacks in
 peer-to-peer networks. I discussed resource management strategies such as
 enforcing backpressure and provided examples of coding pitfalls to avoid in Rust
@@ -161,18 +161,18 @@ and Go. You can find the recording and slides of my talk below.&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Hole punching in the wild&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/2023-02-05-hole-punching-in-the-wild/</link>
+      <link>https://shell.soiraspi.win/post/2023-02-05-hole-punching-in-the-wild/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023-02-05-hole-punching-in-the-wild/</guid>
+      <guid>https://shell.soiraspi.win/post/2023-02-05-hole-punching-in-the-wild/</guid>
       <description>&lt;p&gt;Dennis and I presented &lt;em&gt;Hole punching in the wild&lt;/em&gt;, &lt;em&gt;learnings from running libp2p hole punching in production, measured from vantage points across the globe&lt;/em&gt; in the network devroom at FOSDEM 2023.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;At FOSDEM 2022 I presented libp2p&amp;rsquo;s hole punching mechanism, overcoming NATs and firewalls with no dependencies on central infrastructure. One year has passed since. We rolled it out to live networks. We launched a large measurement campaign with many volunteers deploying vantage points in their home network, punching holes across the globe.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk &#34;Peer-to-peer Browser Connectivity&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/2023-02-05-peer-to-peer-browser-connectivity/</link>
+      <link>https://shell.soiraspi.win/post/2023-02-05-peer-to-peer-browser-connectivity/</link>
       <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2023-02-05-peer-to-peer-browser-connectivity/</guid>
+      <guid>https://shell.soiraspi.win/post/2023-02-05-peer-to-peer-browser-connectivity/</guid>
       <description>&lt;p&gt;I presented an overview on &lt;em&gt;Peer-to-peer Browser Connectivity&lt;/em&gt; options in the network devroom at FOSDEM 2023.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Connecting from the browser to a public server with a valid TLS certificate is easy. But what if the server has a self-signed certificate? What if it isn&amp;rsquo;t public? What if it is another browser?&lt;/p&gt;
@@ -180,9 +180,9 @@ and Go. You can find the recording and slides of my talk below.&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Hole punching with libp2p&#34; @p2p-paris</title>
-      <link>http://localhost:1313/post/2022-04-30-hole-punching-with-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/2022-04-30-hole-punching-with-libp2p/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-04-30-hole-punching-with-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-04-30-hole-punching-with-libp2p/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;We’ll take a closer look at the recently added decentralized hole punching
 feature, allowing NAT and firewall traversal without the need for any central
@@ -192,9 +192,9 @@ coordination servers (STUN and TURN).&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Introduction to and State of libp2p&#34; @p2p-paris</title>
-      <link>http://localhost:1313/post/2022-04-29-introduction-to-and-state-of-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/2022-04-29-introduction-to-and-state-of-libp2p/</link>
       <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-04-29-introduction-to-and-state-of-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-04-29-introduction-to-and-state-of-libp2p/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;We will discuss the current state of the project, eyeball the various language
 implementations, take a look at the many live networks running on top of
@@ -204,9 +204,9 @@ libp2p today and finally cover the project roadmap for the years to come.&lt;/p&
     </item>
     <item>
       <title>Hole punching in libp2p</title>
-      <link>http://localhost:1313/post/2022-03-06-libp2p-hole-punching/</link>
+      <link>https://shell.soiraspi.win/post/2022-03-06-libp2p-hole-punching/</link>
       <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2022-03-06-libp2p-hole-punching/</guid>
+      <guid>https://shell.soiraspi.win/post/2022-03-06-libp2p-hole-punching/</guid>
       <description>&lt;p&gt;We have been working on hole punching support in libp2p for the last year. It
 finally landed in the Go and Rust libp2p implementation.&lt;/p&gt;
 &lt;p&gt;Read all about it on the IPFS blog:
@@ -214,9 +214,9 @@ finally landed in the Go and Rust libp2p implementation.&lt;/p&gt;
     </item>
     <item>
       <title>Talk &#34;Peer-to-peer hole punching without centralized infrastructure&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</link>
+      <link>https://shell.soiraspi.win/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</guid>
+      <guid>https://shell.soiraspi.win/post/peer-to-peer-hole-punching-without-centralized-infrastructure/</guid>
       <description>&lt;p&gt;Gave a talk on hole punching in libp2p at FOSDEM 2022.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Peer-to-peer hole punching without centralized infrastructure&lt;/p&gt;
@@ -232,9 +232,9 @@ coordination servers (STUN and TURN).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Talk &#34;State of libp2p&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/state-of-libp2p/</link>
+      <link>https://shell.soiraspi.win/post/state-of-libp2p/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/state-of-libp2p/</guid>
+      <guid>https://shell.soiraspi.win/post/state-of-libp2p/</guid>
       <description>&lt;p&gt;Gave a talk on the state of libp2p at FOSDEM 2022.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;State of libp2p&lt;/p&gt;
@@ -248,9 +248,9 @@ libp2p today and finally cover the project roadmap for the years to come.&lt;/p&
     </item>
     <item>
       <title>35th DistSys Reading Group - Nym</title>
-      <link>http://localhost:1313/post/2021-06-29-35th-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-06-29-35th-reading-group/</link>
       <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-06-29-35th-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-06-29-35th-reading-group/</guid>
       <description>&lt;p&gt;In our previous session we looked into Mixnets, more specifically Loopix. With
 this session we stayed in the space, talking about a network adopting many
 concepts from Loopix, namely Nym.&lt;/p&gt;
@@ -266,9 +266,9 @@ concepts from Loopix, namely Nym.&lt;/p&gt;
     </item>
     <item>
       <title>34th DistSys Reading Group - Mixnets</title>
-      <link>http://localhost:1313/post/2021-05-10-34th-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-05-10-34th-reading-group/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-05-10-34th-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-05-10-34th-reading-group/</guid>
       <description>&lt;p&gt;34th session was on Mixnets as lots of people suggested in the past. As a
 preparation we read the Loopix paper.&lt;/p&gt;
 &lt;p&gt;Piotrowska, Ania M., et al. &amp;ldquo;The loopix anonymity system.&amp;rdquo; 26th {USENIX}
@@ -280,9 +280,9 @@ additional resource.&lt;/p&gt;
     </item>
     <item>
       <title>33rd DistSys Reading Group - BGP 3</title>
-      <link>http://localhost:1313/post/2021-04-12-33rd-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-04-12-33rd-reading-group/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-04-12-33rd-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-04-12-33rd-reading-group/</guid>
       <description>&lt;p&gt;In our third BGP session we focused on BGP security, more specifically we
 discussed how to perform hijack and interception attacks using BGP. The primary
 paper of the session was:&lt;/p&gt;
@@ -294,9 +294,9 @@ Communications Security. 2019.&lt;/a&gt;&lt;/p&gt;
     </item>
     <item>
       <title>32nd DistSys Reading Group - BGP 2</title>
-      <link>http://localhost:1313/post/2021-03-18-32nd-reading-group/</link>
+      <link>https://shell.soiraspi.win/post/2021-03-18-32nd-reading-group/</link>
       <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-03-18-32nd-reading-group/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-03-18-32nd-reading-group/</guid>
       <description>&lt;p&gt;After our first BGP session, introducing the protocol based on the convergence
 problem of BGP, our second session on BGP covered route propagation and tuning.
 The primary paper was:&lt;/p&gt;
@@ -307,9 +307,9 @@ Measurement Conference.
     </item>
     <item>
       <title>Optimizing Yamux Flow Control - Sending Window Update Frames Early</title>
-      <link>http://localhost:1313/post/2021-03-07-optimizing-yamux-flow-control/</link>
+      <link>https://shell.soiraspi.win/post/2021-03-07-optimizing-yamux-flow-control/</link>
       <pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-03-07-optimizing-yamux-flow-control/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-03-07-optimizing-yamux-flow-control/</guid>
       <description>&lt;p&gt;Below is a summary of our efforts to optimize flow control in the &lt;a href=&#34;https://github.com/paritytech/yamux&#34;&gt;Rust Yamux
 implementation&lt;/a&gt;. While not a novel
 approach, I still find the end result worth sharing thus my forum post.&lt;/p&gt;
@@ -317,9 +317,9 @@ approach, I still find the end result worth sharing thus my forum post.&lt;/p&gt
     </item>
     <item>
       <title>31st DistSys Reading Group - BGP 1</title>
-      <link>http://localhost:1313/post/2021-02-24-31st-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2021-02-24-31st-paper-club/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-02-24-31st-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-02-24-31st-paper-club/</guid>
       <description>&lt;p&gt;We decided to turn our interest to BGP which we will devote 3 sessions to. In
 today&amp;rsquo;s session - the first one - we introduced BGP, looked at the convergence
 problem, as well as the solution suggested in the paper below.&lt;/p&gt;
@@ -330,9 +330,9 @@ coordination.&amp;rdquo; IEEE/ACM Transactions on networking 9.6 (2001):
     </item>
     <item>
       <title>30th DistSys Reading Group - NTP</title>
-      <link>http://localhost:1313/post/2021-01-26-30th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2021-01-26-30th-paper-club/</link>
       <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-01-26-30th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-01-26-30th-paper-club/</guid>
       <description>&lt;p&gt;What better way to start a new year than with a paper discussing how to change
 time?&lt;/p&gt;
 &lt;p&gt;In the 30th session we discussed a paper which I think has much up its sleeves -
@@ -346,9 +346,9 @@ end is a small treasure trove.&lt;/p&gt;</description>
     </item>
     <item>
       <title>28th DistSys Reading Group - Hotstuff</title>
-      <link>http://localhost:1313/post/2020-09-08-28th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</link>
       <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-09-08-28th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</guid>
       <description>&lt;p&gt;With the 28th session we jumped into the space of byzantine fault tolerant
 consensus protocols. We covered fault tolerant consensus with various Paxos
 variants in the past, but this session was the first one looking into how to
@@ -361,9 +361,9 @@ to compare other algorithms (e.g. PBFT) in the space.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Know your latencies</title>
-      <link>http://localhost:1313/post/2020-06-19-latencies/</link>
+      <link>https://shell.soiraspi.win/post/2020-06-19-latencies/</link>
       <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-06-19-latencies/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-06-19-latencies/</guid>
       <description>&lt;p&gt;I find it helpful to know the orders of magnitude by which certain computer
 operations differ. Certainly it is not worth the effort to pay attention to
 every digit or learn these by heart, especially since they differ (slightly)
@@ -373,9 +373,9 @@ whenever reasoning about systems performance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>26th DistSys Reading Group - Cache coherence</title>
-      <link>http://localhost:1313/post/2020-05-18-26th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-05-18-26th-paper-club/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-05-18-26th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-05-18-26th-paper-club/</guid>
       <description>&lt;p&gt;We have long been planning to cover the caching mechanisms in CPUs. As a shared
 knowledge base for the discussions in this session we chose the following two
 articles by Martin Thompson among other things known for his work on the &lt;a href=&#34;https://lmax-exchange.github.io/disruptor/&#34;&gt;LMAX
@@ -394,9 +394,9 @@ can make use of them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>25th DistSys Reading Group - Fair queuing</title>
-      <link>http://localhost:1313/post/2020-04-27-25th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-27-25th-paper-club/</link>
       <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-27-25th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-04-27-25th-paper-club/</guid>
       <description>&lt;p&gt;In the session today we covered Madhavapeddi Shreedhar and George Varghese paper
 &amp;ldquo;&lt;em&gt;Efficient fair queuing using deficit round-robin&lt;/em&gt;&amp;rdquo; [1]. While the session was
 not so much about the relatively simple algorithmic details of
@@ -415,9 +415,9 @@ as latency critical flows.&lt;/p&gt;</description>
     </item>
     <item>
       <title>24th DistSys Reading Group - BBR Congestion-Based Congestion Control</title>
-      <link>http://localhost:1313/post/2020-04-06-24th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-06-24th-paper-club/</link>
       <pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-06-24th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-04-06-24th-paper-club/</guid>
       <description>&lt;p&gt;After a bit of a break due to current pandemic we decided to carry on and
 continue our meetings as virtual calls. Ignoring the usual initial hiccups and
 the missing whiteboard the medium worked well for us.&lt;/p&gt;
@@ -435,13 +435,13 @@ due to congestion control.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Elimination back-off stack performance</title>
-      <link>http://localhost:1313/post/2020-04-01-elimination-backoff-stack-performance/</link>
+      <link>https://shell.soiraspi.win/post/2020-04-01-elimination-backoff-stack-performance/</link>
       <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-04-01-elimination-backoff-stack-performance/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;All stacks from 1 thread to up to 128&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/static/elimination-back-off-stack/lines.svg&#34;&gt;&lt;/p&gt;
+      <guid>https://shell.soiraspi.win/post/2020-04-01-elimination-backoff-stack-performance/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;All stacks from 1 thread to up to 128&#34; loading=&#34;lazy&#34; src=&#34;https://shell.soiraspi.win/static/elimination-back-off-stack/lines.svg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I recently stumbled upon the idea of an &lt;em&gt;Elimination Back-off Stack&lt;/em&gt; promising
 to be a &lt;strong&gt;parallel&lt;/strong&gt;, linearizable and lock-free stack. In case you are not
-familiar with it, I would suggest either reading my &lt;a href=&#34;http://localhost:1313/blog/2020-03-28-elimination-backoff-stack/&#34;&gt;previous
+familiar with it, I would suggest either reading my &lt;a href=&#34;https://shell.soiraspi.win/blog/2020-03-28-elimination-backoff-stack/&#34;&gt;previous
 post&lt;/a&gt; or the corresponding paper
 [1] itself. Being quite intrigued by the ideas of the above stack I wrote &lt;a href=&#34;https://github.com/mxinden/elimination-backoff-stack/&#34;&gt;my
 own implementation&lt;/a&gt; in
@@ -450,9 +450,9 @@ Rust with a &lt;em&gt;little&lt;/em&gt; help from
     </item>
     <item>
       <title>Elimination back-off stack</title>
-      <link>http://localhost:1313/post/2020-03-28-elimination-backoff-stack/</link>
+      <link>https://shell.soiraspi.win/post/2020-03-28-elimination-backoff-stack/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-03-28-elimination-backoff-stack/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-03-28-elimination-backoff-stack/</guid>
       <description>&lt;p&gt;Reading &lt;em&gt;The Art of Multiprocessor Programming&lt;/em&gt; [1] I came across the
 &lt;em&gt;Elimination Back-off Stack&lt;/em&gt; [2] datastructure introduced in 2004 by Danny
 Hendler, Nir Shavit, and Lena Yerushalmi. It promises to be a &lt;strong&gt;parallel&lt;/strong&gt;
@@ -467,9 +467,9 @@ of the stack or is &lt;code&gt;null&lt;/code&gt; in case of an empty stack.&lt;/
     </item>
     <item>
       <title>23rd Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2020-02-18-23rd-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-02-18-23rd-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/</guid>
       <description>&lt;p&gt;At the end of the previous session one of us suggested to dive into congestion
 control algorithms. This has found a greater echo, thus the 23rd session covered
 congestion control algorithms in general and TCP&amp;rsquo;s Reno as well as TCP&amp;rsquo;s Tahoe
@@ -483,9 +483,9 @@ Chicago.&lt;/p&gt;</description>
     </item>
     <item>
       <title>22nd Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2020-01-28-22nd-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-01-28-22nd-paper-club/</link>
       <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-01-28-22nd-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-01-28-22nd-paper-club/</guid>
       <description>&lt;p&gt;In the 22nd session we took a look at &lt;code&gt;io_uring&lt;/code&gt; - a new Kernel interface for
 asynchronous I/O. Tyler, who is currently implementing an &lt;code&gt;io_uring&lt;/code&gt; library in
 Rust [4] for his database sled [7] guided us through the concepts as well as a
@@ -498,9 +498,9 @@ slides from a Kernel Recipes 2019 talk [1].&lt;/p&gt;</description>
     </item>
     <item>
       <title>21st Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2020-01-24-21st-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2020-01-24-21st-paper-club/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-01-24-21st-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-01-24-21st-paper-club/</guid>
       <description>&lt;p&gt;We started the new year with a session on &lt;em&gt;epidemic&lt;/em&gt; / &lt;em&gt;gossip&lt;/em&gt; protocols. To
 decide what to read I compiled the following list of papers that I either
 enjoyed reading in the past, or that were recommended to me. The &lt;em&gt;Swim (Scalable
@@ -513,9 +513,9 @@ Proceedings International Conference on Dependable Systems and Networks. IEEE,
     </item>
     <item>
       <title>20th Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2019-11-28-20th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2019-11-28-20th-paper-club/</link>
       <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-11-28-20th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-11-28-20th-paper-club/</guid>
       <description>&lt;p&gt;Last Tuesday we meet again to discuss different attacks and possible
 countermeasures for distributed hash tables. More in particular we looked at
 Kademlia and its security extension S/Kademlia [1], possible eclipse attacks on
@@ -526,9 +526,9 @@ different security techniques for DHTs [5].&lt;/p&gt;</description>
     </item>
     <item>
       <title>19th Distributed Systems Paper Club</title>
-      <link>http://localhost:1313/post/2019-10-27-19th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2019-10-27-19th-paper-club/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-10-27-19th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-10-27-19th-paper-club/</guid>
       <description>&lt;p&gt;I have been organizing a distributed systems paper reading group in Berlin for
 the last year. We meet every other week discussing a paper in the distributed
 systems space. This could be anything from &lt;em&gt;Chandy–Lamport&amp;rsquo;s algorithm for
@@ -542,9 +542,9 @@ management protocols.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Metric driven performance optimization</title>
-      <link>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</link>
+      <link>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</guid>
       <description>&lt;p&gt;Within my work at Red Hat and Kubernetes &lt;a href=&#34;https://github.com/kubernetes/community/tree/master/sig-instrumentation&#34;&gt; SIG instrumentation
 &lt;/a&gt; I
 have been working on &lt;a href=&#34;https://github.com/kubernetes/kube-state-metrics/&#34;&gt; kube-state-metrics
@@ -558,9 +558,9 @@ Kubernetes, which in itself enables Prometheus to monitor Kubernetes.&lt;/p&gt;<
     </item>
     <item>
       <title>Talk Self-healing Kubernetes</title>
-      <link>http://localhost:1313/post/self-healing-k8s/</link>
+      <link>https://shell.soiraspi.win/post/self-healing-k8s/</link>
       <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/self-healing-k8s/</guid>
+      <guid>https://shell.soiraspi.win/post/self-healing-k8s/</guid>
       <description>&lt;p&gt;What If Component xxx Dies? Introducing Self-Healing Kubernetes&lt;/p&gt;
 &lt;p&gt;Kubernetes promises healing your application on all kinds of failure scenarios,
 but why not self-heal Kubernetes itself?&lt;/p&gt;

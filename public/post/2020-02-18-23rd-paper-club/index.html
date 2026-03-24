@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>23rd Distributed Systems Paper Club | Abhinav Agarwalla</title>
 <meta name="keywords" content="tech, paper, distributed-systems">
 <meta name="description" content="At the end of the previous session one of us suggested to dive into congestion
@@ -18,16 +18,16 @@ Chapter 13 &ldquo;TCP Reno and Congestion Management&rdquo; from the comprehensi
 book &ldquo;An Introduction to Computer Networks&rdquo; [1] from the Loyola University
 Chicago.">
 <meta name="author" content="Abhinav Agarwalla">
-<link rel="canonical" href="http://localhost:1313/post/2020-02-18-23rd-paper-club/">
+<link rel="canonical" href="https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://shell.soiraspi.win/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://shell.soiraspi.win/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://shell.soiraspi.win/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://shell.soiraspi.win/apple-touch-icon.png">
+<link rel="mask-icon" href="https://shell.soiraspi.win/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/post/2020-02-18-23rd-paper-club/">
+<link rel="alternate" hreflang="en" href="https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/">
 <noscript>
     <style>
         #theme-toggle,
@@ -79,13 +79,87 @@ Chicago.">
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/">
+  <meta property="og:site_name" content="Abhinav Agarwalla">
+  <meta property="og:title" content="23rd Distributed Systems Paper Club">
+  <meta property="og:description" content="At the end of the previous session one of us suggested to dive into congestion control algorithms. This has found a greater echo, thus the 23rd session covered congestion control algorithms in general and TCP’s Reno as well as TCP’s Tahoe in particular.
+This weeks reading was:
+Chapter 13 “TCP Reno and Congestion Management” from the comprehensive online book “An Introduction to Computer Networks” [1] from the Loyola University Chicago.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2020-02-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2020-02-18T00:00:00+00:00">
+    <meta property="article:tag" content="Tech">
+    <meta property="article:tag" content="Paper">
+    <meta property="article:tag" content="Distributed-Systems">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="23rd Distributed Systems Paper Club">
+  <meta name="twitter:description" content="At the end of the previous session one of us suggested to dive into congestion control algorithms. This has found a greater echo, thus the 23rd session covered congestion control algorithms in general and TCP’s Reno as well as TCP’s Tahoe in particular.
+This weeks reading was:
+Chapter 13 “TCP Reno and Congestion Management” from the comprehensive online book “An Introduction to Computer Networks” [1] from the Loyola University Chicago.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://shell.soiraspi.win/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "23rd Distributed Systems Paper Club",
+      "item": "https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "23rd Distributed Systems Paper Club",
+  "name": "23rd Distributed Systems Paper Club",
+  "description": "At the end of the previous session one of us suggested to dive into congestion control algorithms. This has found a greater echo, thus the 23rd session covered congestion control algorithms in general and TCP\u0026rsquo;s Reno as well as TCP\u0026rsquo;s Tahoe in particular.\nThis weeks reading was:\nChapter 13 \u0026ldquo;TCP Reno and Congestion Management\u0026rdquo; from the comprehensive online book \u0026ldquo;An Introduction to Computer Networks\u0026rdquo; [1] from the Loyola University Chicago.\n",
+  "keywords": [
+    "tech", "paper", "distributed-systems"
+  ],
+  "articleBody": "At the end of the previous session one of us suggested to dive into congestion control algorithms. This has found a greater echo, thus the 23rd session covered congestion control algorithms in general and TCP’s Reno as well as TCP’s Tahoe in particular.\nThis weeks reading was:\nChapter 13 “TCP Reno and Congestion Management” from the comprehensive online book “An Introduction to Computer Networks” [1] from the Loyola University Chicago.\nRFC #5166 “Metrics for the Evaluation of Congestion Control Mechanisms” [2]\nChapter 13 [1] gives a great introduction to knee and cliff, round-trip-time, the optimal congestion window of /round-trip-time/ with no load multiplied with the bandwidth, … of a TCP connection. I doubt I could summarize it any better than the online book does.\nI have never considered the fact that a network cable could have a non-negligible capacity until I read:\nOn a 5,000 km fiber-optic link with a bandwidth of 10 Gbps, the round-trip transit capacity would be about 60 MB, or 60,000 1kB packets. [1]\nWe played through a sample scenario building up to a congested connection from A to B via router R, keeping track of the packets send, the inflight packets, the congestion-window size and the packets within R’s queue at each time t. This is definitely worth doing for both TCP Reno as well as well as Tahoe showing the benefits of its fast retransmit feature.\nWe finished with a quick introduction to IP’s ECN [3] and its interworking with TCP. Next up we will talk about the congestion control algorithms CoDel [4] and BBR.\nReferences [1] http://intronetworks.cs.luc.edu/current/html/reno.html\n[2] https://tools.ietf.org/html/rfc5166\n[3] https://en.wikipedia.org/wiki/Explicit_Congestion_Notification\n[4] https://en.wikipedia.org/wiki/CoDel\n",
+  "wordCount" : "270",
+  "inLanguage": "en",
+  "datePublished": "2020-02-18T00:00:00Z",
+  "dateModified": "2020-02-18T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Abhinav Agarwalla"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shell.soiraspi.win/post/2020-02-18-23rd-paper-club/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Abhinav Agarwalla",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shell.soiraspi.win/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <a href="https://shell.soiraspi.win/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -111,37 +185,37 @@ Chicago.">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Home">
+                <a href="https://shell.soiraspi.win/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/resume" title="Resume">
+                <a href="https://shell.soiraspi.win/resume" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blogs/" title="Blogs">
+                <a href="https://shell.soiraspi.win/blogs/" title="Blogs">
                     <span>Blogs</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/post/" title="Archive">
+                <a href="https://shell.soiraspi.win/post/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/code" title="Builds">
+                <a href="https://shell.soiraspi.win/code" title="Builds">
                     <span>Builds</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://shell.soiraspi.win/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://shell.soiraspi.win/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -205,16 +279,16 @@ BBR.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/tech/">Tech</a></li>
-      <li><a href="http://localhost:1313/tags/paper/">Paper</a></li>
-      <li><a href="http://localhost:1313/tags/distributed-systems/">Distributed-Systems</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/tech/">Tech</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/paper/">Paper</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/distributed-systems/">Distributed-Systems</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+        <span>&copy; 2026 <a href="https://shell.soiraspi.win/">Abhinav Agarwalla</a></span> · 
 
     <span>
         Powered by

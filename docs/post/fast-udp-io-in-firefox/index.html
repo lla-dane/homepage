@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Fast UDP I/O for Firefox in Rust | Abhinav Agarwalla</title>
 <meta name="keywords" content="tech, quic, firefox, rust, networking">
 <meta name="description" content="Motivation
@@ -14,16 +14,16 @@ Firefox uses NSPR for most of its network I/O.
 When it comes to UDP I/O, NSPR only offers a limited set of dated APIs, most relevant here PR_SendTo and PR_RecvFrom, wrappers around POSIX&rsquo;s sendto and recvfrom.
 The N in NSPR stands for Netscape, giving you a hint of its age.">
 <meta name="author" content="Abhinav Agarwalla">
-<link rel="canonical" href="http://localhost:1313/post/fast-udp-io-in-firefox/">
+<link rel="canonical" href="https://shell.soiraspi.win/post/fast-udp-io-in-firefox/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://shell.soiraspi.win/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://shell.soiraspi.win/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://shell.soiraspi.win/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://shell.soiraspi.win/apple-touch-icon.png">
+<link rel="mask-icon" href="https://shell.soiraspi.win/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/post/fast-udp-io-in-firefox/">
+<link rel="alternate" hreflang="en" href="https://shell.soiraspi.win/post/fast-udp-io-in-firefox/">
 <noscript>
     <style>
         #theme-toggle,
@@ -75,13 +75,87 @@ The N in NSPR stands for Netscape, giving you a hint of its age.">
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://shell.soiraspi.win/post/fast-udp-io-in-firefox/">
+  <meta property="og:site_name" content="Abhinav Agarwalla">
+  <meta property="og:title" content="Fast UDP I/O for Firefox in Rust">
+  <meta property="og:description" content="Motivation Around 20% of Firefox’s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP. This translates to substantial UDP I/O activity.
+Firefox uses NSPR for most of its network I/O. When it comes to UDP I/O, NSPR only offers a limited set of dated APIs, most relevant here PR_SendTo and PR_RecvFrom, wrappers around POSIX’s sendto and recvfrom. The N in NSPR stands for Netscape, giving you a hint of its age.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-09-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-14T00:00:00+00:00">
+    <meta property="article:tag" content="Tech">
+    <meta property="article:tag" content="Quic">
+    <meta property="article:tag" content="Firefox">
+    <meta property="article:tag" content="Rust">
+    <meta property="article:tag" content="Networking">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fast UDP I/O for Firefox in Rust">
+  <meta name="twitter:description" content="Motivation Around 20% of Firefox’s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP. This translates to substantial UDP I/O activity.
+Firefox uses NSPR for most of its network I/O. When it comes to UDP I/O, NSPR only offers a limited set of dated APIs, most relevant here PR_SendTo and PR_RecvFrom, wrappers around POSIX’s sendto and recvfrom. The N in NSPR stands for Netscape, giving you a hint of its age.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://shell.soiraspi.win/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Fast UDP I/O for Firefox in Rust",
+      "item": "https://shell.soiraspi.win/post/fast-udp-io-in-firefox/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Fast UDP I/O for Firefox in Rust",
+  "name": "Fast UDP I\/O for Firefox in Rust",
+  "description": "Motivation Around 20% of Firefox\u0026rsquo;s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP. This translates to substantial UDP I/O activity.\nFirefox uses NSPR for most of its network I/O. When it comes to UDP I/O, NSPR only offers a limited set of dated APIs, most relevant here PR_SendTo and PR_RecvFrom, wrappers around POSIX\u0026rsquo;s sendto and recvfrom. The N in NSPR stands for Netscape, giving you a hint of its age.\n",
+  "keywords": [
+    "tech", "quic", "firefox", "rust", "networking"
+  ],
+  "articleBody": "Motivation Around 20% of Firefox’s HTTP traffic today uses HTTP/3, which runs over QUIC, which in turn runs over UDP. This translates to substantial UDP I/O activity.\nFirefox uses NSPR for most of its network I/O. When it comes to UDP I/O, NSPR only offers a limited set of dated APIs, most relevant here PR_SendTo and PR_RecvFrom, wrappers around POSIX’s sendto and recvfrom. The N in NSPR stands for Netscape, giving you a hint of its age.\nOperating systems have evolved since. Many offer multi-message APIs like sendmmsg and recvmmsg. Some offer segmentation offloading like GSO (Generic Segmentation Offload) and GRO (Generic Receive Offload). Each of these promise significant performance improvements for UDP I/O.\nCan Firefox benefit from replacing its aging UDP I/O stack with modern system calls?\nOverview This project began in mid-2024 with the goal of rewriting Firefox’s QUIC UDP I/O stack using modern system calls across all supported operating systems. Beyond performance improvements, we wanted to increase security by using a memory-safe language to do UDP I/O. Firefox’s QUIC state machine itself is implemented in Rust already. We thereby chose Rust for this project as well, giving us both increased security and easy integration with the existing QUIC codebase.\nInstead of starting from scratch, we built on top of quinn-udp, the UDP I/O library of the Quinn project, a QUIC implementation in Rust. This sped up our development efforts significantly. Big thank you to the Quinn project. Operating system calls are complex, with a myriad of idiosyncrasies, especially across versions. Firefox is multi-platform, focusing on Windows, Android, MacOS and Linux as tier 1. The main complexity though stems from Firefox supporting ancient versions of each of them, e.g. Android 5. (Edit: Mozilla has since dropped Android 5 support.)\nOne year later, i.e., mid 2025, this project is now rolling out to the majority of Firefox users. Performance benchmark results are promising. In extreme cases, on purely CPU bound benchmarks, we’re seeing a jump from \u003c 1Gbit/s to 4 Gbit/s. Looking at CPU flamegraphs, the majority of CPU time is now spent in I/O system calls and cryptography code.\nBelow are the many improvements we were able to land, plus the ones we weren’t. I hope other projects in need of fast UDP I/O can benefit from our work. To make their lifes easier, below I am documenting the many learnings we made.\nThe basics To understand the improvements, it’s helpful to first examine how UDP I/O traditionally works and how modern optimizations change this picture.\nSingle datagram Previously Firefox would send (and receive) single UDP datagrams to (and from) the OS via sendto (and recvfrom) system call family. The OS would send (and receive) that UDP datagram to (and from) the network interface card (NIC). The NIC would send (and receive) it to (and from) the Internet.\nThus each datagram would require leaving user space which is cheap for one UDP datagram, but expensive when sending at say a 500 Mbit/s rate. In addition all user space and kernel space overhead independent of the number of bytes sent and received, is paid per datagram, i.e. per \u003c 1500 bytes.\n+----------------------+ | Firefox | | +-----------+ | | | QUIC | | | +-----------+ | +----------------------+ | [ datagram ] | === User / Kernel === | [ datagram ] | +----------------------+ | OS | +----------------------+ | [ datagram ] | +----------------------+ | NIC | +----------------------+ | [ datagram ] | +----------------------+ | Internet | +----------------------+ Batch of datagrams Instead of sending a single datagram at a time, some operating systems nowadays offer multi-message system call families, e.g. on Linux sendmmsg and recvmmsg. The idea is simple. Send and receive multiple UDP datagrams at once, save on the costs that are independent of the number of bytes sent and received.\n+--------------------------+ | Firefox | | +-----------+ | | | QUIC | | | +-----------+ | +--------------------------+ | [ datagram, datagram, datagram ] | ===== User / Kernel ===== | [ datagram, datagram, datagram ] | +--------------------------+ | OS | +--------------------------+ | [ datagram, datagram, datagram ] | +--------------------------+ | NIC | +--------------------------+ | [ datagram, datagram, datagram ] | +--------------------------+ | Internet | +--------------------------+ Single large segmented datagram Some modern operating systems and network interface cards also support system call families with UDP segmentation offloading, e.g. GSO and GRO on Linux. Instead of sending multiple UDP datagrams in a batch, it enables the application to send a single large UDP datagram, i.e. larger than the Maximum Transmission Unit, to the kernel. Next, either the kernel, but really ideally the network interface card, will segment it into multiple smaller packets, add a header to each and calculates the UDP checksum. The reverse happens on the receive path, where multiple incoming packets can be coalesced into a single large UDP datagram delivered to the application all at once.\n+------------------------------+ | Firefox | | +-----------+ | | | QUIC | | | +-----------+ | +------------------------------+ | [ large segmented datagram ] | ====== User / Kernel ====== | [ large segmented datagram ] | +------------------------------+ | OS | +------------------------------+ | [ large segmented datagram ] | +------------------------------+ | NIC | +------------------------------+ | [ datagram, datagram, datagram ] | +------------------------------+ | Internet | +------------------------------+ Note: Unfortunately, Wireshark does not yet support GSO, making network-level debugging more challenging when these optimizations are active.\nFor performance analysis of these different approaches, Cloudflare’s comprehensive study provides excellent benchmarks and detailed explanations.\nReplacing NSPR in Firefox Batching and segmentation offloading aside for now, first step in the project was to replace usage of NSPR with quinn-udp, still sending and receiving one UDP datagram at a time. We updated the Mozilla QUIC client and server test implementation, then integrated quinn-udp into Firefox itself.\nNext we rewrote the UDP datagram processing pipeline in the Mozilla QUIC implementation to send and receive batches of datagrams. This is done in a way, such that we can leverage both the multi-message style system calls, as well as the segmentation offloading style, if available. We added this along with various other I/O improvements, e.g. Lars added in-place en-/decryption. Going into detail here is better done in a separate blog post. Let’s focus on UDP I/O here.\nSo far so good. This was the easy part. Up next, the edge cases by platform.\nPlatform details Windows Windows offers WSASendMsg and WSARecvMsg to send and receive a single UDP datagram. That UDP datagram can either be a classic MTU size datagram, or a large segmented datagram. For the latter, what Linux calls GSO and GRO, Windows call USO and URO. As described above, we started off rolling out quinn-udp using single-datagram system calls only. This went without issues on Windows.\nNext we tested WSARecvMsg with URO, i.e. receiving a batch of inbound datagrams as a single large segmented datagram, but got the following bug report:\nfosstodon.org doesn’t load with network.http.http3.use_nspr_for_io=false on ARM64 Windows\nfosstodon is a Mastodon server. It is hosted behind the CDN provider Fastly. Fastly is a heavy user of Linux’s GSO, i.e. sends larger UDP datagram trains, perfect to be coalesced into a single large segmented UDP datagram when Firefox receives it. Why would Window’s URO prevent Firefox from loading the site?\nAfter many hours of back and forth with the reporter, luckily a Mozilla employee as well, I ended up buying the exact same laptop, same color, in a desperate attempt to reproduce the issue. Without much luck at first, I eventually needed a Linux command line tool, thus installed WSL, and to my surprise, that triggered the bug (reproducer). Turns out, on Windows on ARM, with WSL enabled, a WSARecvMsg call with URO would not return a segment size, thus Firefox was unable to differentiate a single datagram, from a single segmented datagram. QUIC short header packets don’t carry a length, thus there is no way to tell where one QUIC packet ends and another starts, leading to the above page load failures.\nWe have been in touch with Microsoft since. No progress thus far. Thereby we are keeping URO on Windows disabled in Firefox for now.\nAfter URO we started using WSASendMsg USO, i.e. sending a single large segmented datagram per system call. But this too we rolled back quickly, seeing increased packet loss on Firefox Windows installations. In addition, we have at least one report of a user, seeing their network driver crash due to Firefox’s usage of USO. More debugging needed.\nMacOS The transition on MacOS from NSPR to quinn-udp for HTTP/3 QUIC UDP I/O involved switching from the system calls sendto and recvfrom to the system calls sendmsg and recvmsg. As with Windows, no issues on this first step, ignoring one report where MacOS 10.15 might be seeing IP packets other than v4 and v6 (fixed since).\nUnfortunately MacOS does not offer UDP segmentation offloading, neither on the send, nor on the receive side. What it does offer though are two undocumented system calls, namely sendmsg_x and recvmsg_x, allowing a user to send and receive batches of UDP datagrams at once. Lars from Mozilla added it to quinn-udp, exposed behind the fast-apple-datapath feature flag, off by default. After multiple iterations with smaller bugfixes (#2154, #2214, #2216 …) we decided to not ship it to users, not knowing how MacOS would behave, in case Apple ever decides to remove it, but with Firefox still calling it.\nLinux Linux provides the most comprehensive and mature UDP optimization support, offering both multi-message APIs (sendmmsg/recvmmsg) and segmentation offloading (GSO/GRO). The quinn-udp library makes a deliberate choice to prioritize GSO over sendmmsg for transmission, as GSO typically provides superior performance with diminishing returns when both techniques are combined. Thus far, this has proven the right choice for Firefox as well.\nIn addition to segmentation offloading being superior in the first place, Firefox uses one UDP socket per connection in order to improve privacy. As each socket gets its own source port it is harder to correlate connections. Why is this relevant here? GSO (and GRO) can only segment (and coalesce) datagrams from the same 4-tuple (src IP, src port, dst IP, dst port), sendmmsg and recvmmsg on the other hand can send and receive across 4-tuples. Given that Firefox uses one socket per connection, it cannot make use of that distinct benefit of sendmmsg (and recvmmsg), making segmentation offloading yet again the obvious choice for Firefox.\nIgnoring minor changes required to Firefox’s optional network sandboxing, and an additional at runtime GSO support check, replacing Firefox’s QUIC UDP I/O stack on Linux has been without issues, now enjoying all the benefits of segmentation offloading.\nAndroid During the time of this project I learned quickly that (a) Android is not Linux and (b) that Firefox still supports Android 5, …, on x86 (32 bit). (Edit: Mozilla has since dropped Android 5 support.)\nOn x86, Android dispatches advanced socket calls through socketcall system call instead of calling e.g. sendmsg directly. In addition Android has various default seccomp filters, crashing an app when e.g. not going through the required socketcall system call. The combination of the two did cost me a couple of days, resulting in this (basically single line) change in quinn-udp.\nOn Android API level 25 and below, calling sendmsg with an ECN bit set results in an error EINVAL. quinn-udp will now simply retry on EINVAL disabling various optional settings (e.g. ECN) on the second attempt.\nGreat benefit of the Quinn community is that Firefox will benefit from any improvements made to quinn-udp. For example this excellent find by Thomas where Android in some cases would complain if we did a GSO with a single segment only.\nExplicit congestion notifications (ECN) With Firefox using modern system calls across all major operating systems, a nice additional benefit is the ability to send and receive ancillary data like IP ECN. This too came with some minor surprises, but QUIC ECN in Firefox is well on its way now. Firefox Nightly telemetry shows around 50% of all QUIC connections running on ECN outbound capable paths. With L4S and thus ECN becoming more and more relevant in today’s Internet, this is a great step forward.\nSummary We successfully replaced Firefox’s QUIC UDP I/O stack with a modern memory-safe implementation using quinn-udp. Instead of limited and dated system calls like sendto and recvfrom, Firefox now uses modern OS specific system calls across all major platforms, resulting in HTTP/3 QUIC throughput improvements when CPU bound, and enabling QUIC ECN support across all major platforms. Some OS specific optimizations still need more work, e.g. USO and URO on Windows. That said, especially given QUIC’s growing adoption and thus increased UDP usage, I am optimistic that OS and driver support will continue to improve.\n",
+  "wordCount" : "2115",
+  "inLanguage": "en",
+  "datePublished": "2025-09-14T00:00:00Z",
+  "dateModified": "2025-09-14T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Abhinav Agarwalla"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shell.soiraspi.win/post/fast-udp-io-in-firefox/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Abhinav Agarwalla",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shell.soiraspi.win/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <a href="https://shell.soiraspi.win/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -107,37 +181,37 @@ The N in NSPR stands for Netscape, giving you a hint of its age.">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Home">
+                <a href="https://shell.soiraspi.win/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/resume" title="Resume">
+                <a href="https://shell.soiraspi.win/resume" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blogs/" title="Blogs">
+                <a href="https://shell.soiraspi.win/blogs/" title="Blogs">
                     <span>Blogs</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/post/" title="Archive">
+                <a href="https://shell.soiraspi.win/post/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/code" title="Builds">
+                <a href="https://shell.soiraspi.win/code" title="Builds">
                     <span>Builds</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://shell.soiraspi.win/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://shell.soiraspi.win/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -412,18 +486,18 @@ That said, especially given QUIC&rsquo;s growing adoption and thus increased UDP
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/tech/">Tech</a></li>
-      <li><a href="http://localhost:1313/tags/quic/">Quic</a></li>
-      <li><a href="http://localhost:1313/tags/firefox/">Firefox</a></li>
-      <li><a href="http://localhost:1313/tags/rust/">Rust</a></li>
-      <li><a href="http://localhost:1313/tags/networking/">Networking</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/tech/">Tech</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/quic/">Quic</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/firefox/">Firefox</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/rust/">Rust</a></li>
+      <li><a href="https://shell.soiraspi.win/tags/networking/">Networking</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+        <span>&copy; 2026 <a href="https://shell.soiraspi.win/">Abhinav Agarwalla</a></span> · 
 
     <span>
         Powered by

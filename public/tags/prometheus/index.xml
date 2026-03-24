@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Prometheus on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/prometheus/</link>
+    <link>https://shell.soiraspi.win/tags/prometheus/</link>
     <description>Recent content in Prometheus on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leaving the Prometheus team</title>
-      <link>http://localhost:1313/post/2020-03-14-leaving-prometheus-team/</link>
+      <link>https://shell.soiraspi.win/post/2020-03-14-leaving-prometheus-team/</link>
       <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2020-03-14-leaving-prometheus-team/</guid>
+      <guid>https://shell.soiraspi.win/post/2020-03-14-leaving-prometheus-team/</guid>
       <description>&lt;p&gt;In January 2017 I joined the company CoreOS as a test-engineer helping the
 monitoring team and the &lt;a href=&#34;https://github.com/rkt/rkt&#34;&gt;rkt container engine team&lt;/a&gt;
 write reliable software. Eventually I joined the CoreOS&amp;rsquo; monitoring team
@@ -31,9 +31,9 @@ In addition being part of the open source project enabled me to speak at many
     </item>
     <item>
       <title>Metric driven performance optimization</title>
-      <link>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</link>
+      <link>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</guid>
       <description>&lt;p&gt;Within my work at Red Hat and Kubernetes &lt;a href=&#34;https://github.com/kubernetes/community/tree/master/sig-instrumentation&#34;&gt; SIG instrumentation
 &lt;/a&gt; I
 have been working on &lt;a href=&#34;https://github.com/kubernetes/kube-state-metrics/&#34;&gt; kube-state-metrics

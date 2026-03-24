@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Time on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/time/</link>
+    <link>https://shell.soiraspi.win/tags/time/</link>
     <description>Recent content in Time on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/time/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/time/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>30th DistSys Reading Group - NTP</title>
-      <link>http://localhost:1313/post/2021-01-26-30th-paper-club/</link>
+      <link>https://shell.soiraspi.win/post/2021-01-26-30th-paper-club/</link>
       <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2021-01-26-30th-paper-club/</guid>
+      <guid>https://shell.soiraspi.win/post/2021-01-26-30th-paper-club/</guid>
       <description>&lt;p&gt;What better way to start a new year than with a paper discussing how to change
 time?&lt;/p&gt;
 &lt;p&gt;In the 30th session we discussed a paper which I think has much up its sleeves -

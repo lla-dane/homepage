@@ -1,4 +1,4 @@
-baseURL = "https://max-inden.de/"
+baseURL = "https://shell.soiraspi.win/"
 languageCode = "en-us"
 defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "Abhinav Agarwalla"

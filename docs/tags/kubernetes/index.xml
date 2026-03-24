@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Kubernetes on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/kubernetes/</link>
+    <link>https://shell.soiraspi.win/tags/kubernetes/</link>
     <description>Recent content in Kubernetes on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shell.soiraspi.win/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Metric driven performance optimization</title>
-      <link>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</link>
+      <link>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/2019-06-25-metric-driven-performance-optimization/</guid>
+      <guid>https://shell.soiraspi.win/post/2019-06-25-metric-driven-performance-optimization/</guid>
       <description>&lt;p&gt;Within my work at Red Hat and Kubernetes &lt;a href=&#34;https://github.com/kubernetes/community/tree/master/sig-instrumentation&#34;&gt; SIG instrumentation
 &lt;/a&gt; I
 have been working on &lt;a href=&#34;https://github.com/kubernetes/kube-state-metrics/&#34;&gt; kube-state-metrics

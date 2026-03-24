@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Automated Firewall management usign Docker and Cron | Abhinav Agarwalla</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -13,16 +13,16 @@ Simulating automated firewall configuration using Docker, cron jobs, and UFW to 
 Introduction
 Managing firewall rules across multiple servers can be tedious, especially in dynamic environments where configurations change frequently. In this blog we will explore how to automate firewall management using Docker, cron jobs and UFW (Uncomplicated Firewall). We’ll simulate a real-world scenario where different server roles require unique server rules and ensure they are consistently enforced using a centralized repository.">
 <meta name="author" content="Abhinav Agarwalla">
-<link rel="canonical" href="http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/">
+<link rel="canonical" href="https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://shell.soiraspi.win/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://shell.soiraspi.win/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://shell.soiraspi.win/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://shell.soiraspi.win/apple-touch-icon.png">
+<link rel="mask-icon" href="https://shell.soiraspi.win/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/">
+<link rel="alternate" hreflang="en" href="https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,13 +74,82 @@ Managing firewall rules across multiple servers can be tedious, especially in dy
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/">
+  <meta property="og:site_name" content="Abhinav Agarwalla">
+  <meta property="og:title" content="Automated Firewall management usign Docker and Cron">
+  <meta property="og:description" content="Simulating automated firewall configuration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles
+Introduction Managing firewall rules across multiple servers can be tedious, especially in dynamic environments where configurations change frequently. In this blog we will explore how to automate firewall management using Docker, cron jobs and UFW (Uncomplicated Firewall). We’ll simulate a real-world scenario where different server roles require unique server rules and ensure they are consistently enforced using a centralized repository.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2025-03-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-19T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Automated Firewall management usign Docker and Cron">
+  <meta name="twitter:description" content="Simulating automated firewall configuration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles
+Introduction Managing firewall rules across multiple servers can be tedious, especially in dynamic environments where configurations change frequently. In this blog we will explore how to automate firewall management using Docker, cron jobs and UFW (Uncomplicated Firewall). We’ll simulate a real-world scenario where different server roles require unique server rules and ensure they are consistently enforced using a centralized repository.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://shell.soiraspi.win/blogs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Automated Firewall management usign Docker and Cron",
+      "item": "https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Automated Firewall management usign Docker and Cron",
+  "name": "Automated Firewall management usign Docker and Cron",
+  "description": " Simulating automated firewall configuration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles\nIntroduction Managing firewall rules across multiple servers can be tedious, especially in dynamic environments where configurations change frequently. In this blog we will explore how to automate firewall management using Docker, cron jobs and UFW (Uncomplicated Firewall). We’ll simulate a real-world scenario where different server roles require unique server rules and ensure they are consistently enforced using a centralized repository.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " Simulating automated firewall configuration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles\nIntroduction Managing firewall rules across multiple servers can be tedious, especially in dynamic environments where configurations change frequently. In this blog we will explore how to automate firewall management using Docker, cron jobs and UFW (Uncomplicated Firewall). We’ll simulate a real-world scenario where different server roles require unique server rules and ensure they are consistently enforced using a centralized repository.\nBy the end of this guide, you’ll have a working setup where firewall rules are automatically applied and updated periodically across your Dockerized environment.\nWhy Automate Firewall Management? Manually managing firewall rules across multiple servers can lead to:\nInconsistent configurations - Some servers may have outdated or missing rules.\nSecurity risks - Open ports may be accidentally left unprotected.\nOperational overhead - Manually updating firewall rules is time-consuming.\nComplete code: https://github.com/lla-dane/Rust/tree/master/firewall-configs\nSetup Simulation overview We will simulate 3 server roles - Web server, database server and bastion host.\nAutomated firewall rule enforcement - Using cron jobs to pull the latest firewall configs from a central repository.\nA secure LAN env - Using Docker networking to isolate and simulate server interactions.\nSetting up firewall rules We will make a firewall-configs repo like this:\nServer Roles webserver.rules : A webserver is basically a machine that hosts websites, serving web pages and other resources to users over the internet. So by default only 3 kinds of communications need to happen with a webserver. SSH (port 22) - Administrator access for debugging and deployment updates.\nHTTP (port 80) - Serving regular web traffic\nHTTPS (port 443) - Secure, encrypted communication with users.\n#!/bin/bash set -x yes | ufw reset # resets all firewall rules to ensure clean slate ufw default deny incoming # Deny all incoming requests ufw default allow outgoing # Allow all outgoing requests ufw allow 22/tcp # ssh ufw allow 80/tcp # http ufw allow 443/tcp # https yes | ufw enable # enables the firewall with configured rules databaseserver.rules : A database server is responsible for storing, managing, and serving data to applications and other services. It typically does not interact directly with end-users but communicates with web servers or application servers to process queries and return results.\nBy default, only two types of communication are necessary for a database server:\nSSH (port 22) - Administrator access for debugging and deployment updates.\nMySQL (port 3306) – Enables database connections from trusted application servers or web servers that need to read/write data.\n#!/bin/bash set -x yes | ufw reset ufw default deny incoming ufw default allow outgoing ufw allow 22/tcp # Allow SSH ufw allow 3306/tcp # Allow MySQL yes | ufw enable bastion.rules : A bastion host acts a secure entry point into a private network, allowing administrators to access internal server securely. It is designed to be the only publicly accessible server, reducing the attack surface and adding an extra layer of security.\nBy default, only one type of communication is necessary for a bastion host:\nSSH (port 22) – Allows administrators to securely connect to the bastion host and then access other internal servers from there. #!/bin/bash set -x yes | ufw reset ufw default deny incoming ufw default allow outgoing ufw allow 22/tcp # Allow SSH yes | ufw enable Firewall imposing script This script automates firewall rule updates based on the server’s role. It pulls the latest configurations from Github, identifies the server’s role, and applies the corresponding firewall rules. Logs are maintained for tracking, ensuring consistent and up-to-date security policies.\n#!/bin/bash #This script applies the respective firewall config as the server-name LOG_FILE=\"/var/log/firewall-update.log\" GIT_PATH=\"/usr/bin/git\" UFW_PATH=\"/usr/sbin/ufw\" FIREWALL_CONFIG_DIR=\"/firewall-configs/roles\" echo \"🚀 Updating firewall rules - $(date)\" | tee -a $LOG_FILE # Step 1: Pull the latest firewall rules from GitHub cd /firewall-configs || exit 1 $GIT_PATH pull origin master \u003e\u003e $LOG_FILE 2\u003e\u00261 # Step 2: Detect server role if [ ! -f /etc/server-role ]; then echo \"❌ Server role file not found! Exiting.\" | tee -a $LOG_FILE exit 1 fi ROLE=$(cat /etc/server-role) echo \"🔍 Server role detected: $ROLE\" | tee -a $LOG_FILE # Step 3: Apply the correct firewall rules RULE_FILE=\"$FIREWALL_CONFIG_DIR/$ROLE.rules\" if [ -f \"$RULE_FILE\" ]; then echo \"⚙️ Applying firewall rules from $RULE_FILE\" | tee -a $LOG_FILE bash \"$RULE_FILE\" \u003e\u003e $LOG_FILE 2\u003e\u00261 echo \"✅ Firewall rules applied successfully!\" | tee -a $LOG_FILE else echo \"❌ No firewall rules found for role '$ROLE'. Skipping.\" | tee -a $LOG_FILE exit 1 fi This script will be executed inside the docker containers, everytime the cron job will be trigered to update firewall configurations.\nSetting up the network and containers First we create Docker network to simulate a private LAN environment for our servers docker network create --subnet=192.168.1.0/24 firewall-net # 192.168.1.0/24 means there are 255 available IP points in this network. # From 192.168.1.0.0 to 192.168.1.0.254 We create three containers, each representing a different server role:\ndocker run -dit --name webserver --net firewall-net --privileged --ip 192.168.1.10 ubuntu bash docker run -dit --name databaseserver --net firewall-net --privileged --ip 192.168.1.20 ubuntu bash docker run -dit --name bastion --net firewall-net --privileged --ip 192.168.1.30 ubuntu bash ⚠️ Security Warning: The --privileged flag gives root privileges inside the container. In a real-world setup, use least privilege principles.\nInstalling required packages inside the containers Enter each container and install UFW, cron, Git and nano\ndocker exec -it webserver bash apt update \u0026\u0026 apt install ufw git cron nano -y Repeat this for databaseserver and bastion\nCloning the central Firewall Configuration Repository\ngit clone https://github.com//firewall-configs.git echo \"webserver\" \u003e /etc/server-role # Change accordingly for each server role Automating Firewall Updates with Cron We use a cron job, to execute a command periodically in any kind of system. Here we use the firewall rules imposing script to execute periodically (say every 1 min) using a cron job the containers.\nexport EDITOR=nano crontab -e # Add the follwing line to fetch and apply the latest firewall rules every minute */1 * * * * /bin/bash /firewall-configs/scripts/apply_firewall.sh \u003e\u003e /var/log/firewall-update.log 2\u003e\u00261 service cron start Testing the Firewall Rules To verify if our automated firewall rules are working, check UFW status or logs; ufw status verbose # Firewall config # Output for web server: # Status: active # Logging: on (low) # Default: deny (incoming), allow (outgoing), deny (routed) # New profiles: skip # To Action From # -- ------ ---- # 22/tcp ALLOW IN Anywhere # 80/tcp ALLOW IN Anywhere # 443/tcp ALLOW IN Anywhere # 22/tcp (v6) ALLOW IN Anywhere (v6) # 80/tcp (v6) ALLOW IN Anywhere (v6) # 443/tcp (v6) ALLOW IN Anywhere (v6) cat /var/log/firewall-update.log # Logs during the script execution Try making network connections that should be blocked: docker exec -it webserver ssh 192.168.1.20 # Should fail docker exec -it databaseserver curl -v 192.168.1.10:80 # Should fail docker exec -it webserver nc -zv 192.168.1.20 3306 # Should fail Explicitly allow access to internal IP addresses\ndocker exec -it databaseserver ufw allow from 192.168.1.10 to any port 22 docker exec -it databaseserver ufw reload # Now SSH from webserver -\u003e databaseserver should work Conclusion Automating firewall management ensures consistency, reduces human error, and enhances security. In this simulation, we used Docker, cron jobs, and UFW to implement a self-updating system that adapts dynamically based on predefined role-based configurations.\nThis concept can be extended further by:\n🔹 Integrating with CI/CD pipelines to push firewall updates automatically.\n🔹 Using Ansible or Terraform for managing firewall configurations at scale.\n🔹 Implementing audit logging and monitoring to track firewall rule changes.\nWhat are your thoughts on this approach? Let me know in the comments! 🚀\n",
+  "wordCount" : "1259",
+  "inLanguage": "en",
+  "datePublished": "2025-03-19T00:00:00Z",
+  "dateModified": "2025-03-19T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Abhinav Agarwalla"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://shell.soiraspi.win/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Abhinav Agarwalla",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shell.soiraspi.win/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <a href="https://shell.soiraspi.win/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -106,37 +175,37 @@ Managing firewall rules across multiple servers can be tedious, especially in dy
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="Home">
+                <a href="https://shell.soiraspi.win/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/resume" title="Resume">
+                <a href="https://shell.soiraspi.win/resume" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/blogs/" title="Blogs">
+                <a href="https://shell.soiraspi.win/blogs/" title="Blogs">
                     <span>Blogs</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/post/" title="Archive">
+                <a href="https://shell.soiraspi.win/post/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/code" title="Builds">
+                <a href="https://shell.soiraspi.win/code" title="Builds">
                     <span>Builds</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="https://shell.soiraspi.win/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About">
+                <a href="https://shell.soiraspi.win/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -380,7 +449,7 @@ Managing firewall rules across multiple servers can be tedious, especially in dy
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+        <span>&copy; 2026 <a href="https://shell.soiraspi.win/">Abhinav Agarwalla</a></span> · 
 
     <span>
         Powered by

@@ -1,6 +1,6 @@
 ---
 date: 2024-09-16T00:00:00Z
-tags: ["travel","usa"]
+tags: ["blockchain", "opensource"]
 title: Completed Summer of Bitcoin '24
 ---
 

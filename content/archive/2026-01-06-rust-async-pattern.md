@@ -1,6 +1,6 @@
 ---
 date: 2026-01-06T00:00:00Z
-tags: ["travel","usa"]
+tags: ["rust"]
 title: Rust async pattern -- single owner IO
 ---
 

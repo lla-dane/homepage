@@ -1,6 +1,6 @@
 ---
 date: 2025-12-25T00:00:00Z
-tags: ["travel","usa"]
+tags: ["hardware"]
 title: Got a Raspberry Pi 5
 ---
 

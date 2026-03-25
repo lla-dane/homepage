@@ -1,5 +1,6 @@
 ---
 title: "Introduced Prometheus metrics to libp2p(-py)"
+tags: ["opensource", "libp2p", "prometheus"]
 date: 2026-03-25
 ---
 

@@ -1,6 +1,6 @@
 ---
 date: 2025-03-17T00:00:00Z
-tags: ["travel","usa"]
+tags: ["ai-agents"]
 title: Build on AI-agents for the first time
 ---
 

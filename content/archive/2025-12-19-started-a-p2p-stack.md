@@ -1,6 +1,6 @@
 ---
 date: 2025-12-19T00:00:00Z
-tags: ["travel","usa"]
+tags: ["networking", "p2p", "rust"]
 title: Started writing a p2p stack in Rust
 ---
 

@@ -6,23 +6,39 @@
     <description>Recent content in Libp2p on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/libp2p/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Talk &#34;State of libp2p&#34; @FOSDEM</title>
-      <link>http://localhost:1313/post/state-of-libp2p/</link>
-      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/state-of-libp2p/</guid>
-      <description>&lt;p&gt;Gave a talk on the state of libp2p at FOSDEM 2022.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;State of libp2p&lt;/p&gt;
-&lt;p&gt;Status quo and future roadmap of the peer-to-peer networking library libp2p.&lt;/p&gt;
-&lt;p&gt;libp2p is a universal, cross-platform, multi-language, modular peer-to-peer
-networking library powering multiple large-scale networks, for example IPFS,
-Ethereum 2, Filecoin or Polkadot.&lt;/p&gt;
-&lt;p&gt;We will discuss the current state of the project, eyeball the various language
-implementations, take a look at the many live networks running on top of
-libp2p today and finally cover the project roadmap for the years to come.&lt;/p&gt;</description>
+      <title>Introduced Prometheus metrics to libp2p(-py)</title>
+      <link>http://localhost:1313/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</guid>
+      <description>&lt;p&gt;Introduced &lt;code&gt;Prometheus/Grafana&lt;/code&gt; metrics to libp2p(-py), improving network observability for the core services like Gossipsub, Kad-DHT and connection lifecycle.&lt;/p&gt;
+&lt;p&gt;PR: &lt;a href=&#34;https://github.com/libp2p/py-libp2p/pull/1199&#34;&gt;https://github.com/libp2p/py-libp2p/pull/1199&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduced AutoTLS in libp2p(-py)</title>
+      <link>http://localhost:1313/archive/2026-02-02-introduce-autotls-in-libp2p/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2026-02-02-introduce-autotls-in-libp2p/</guid>
+      <description>&lt;p&gt;Extended the TLS security module in libp2p(-py) to fetch CA authorized TLS certificates using the &lt;a href=&#34;https://github.com/libp2p/specs/blob/master/tls/autotls-client.md&#34;&gt;libp2p Auto-TLS client specification&lt;/a&gt;, rather than using self-signed ones.&lt;/p&gt;
+&lt;p&gt;This will enable protocol execution via web-transport and browsers for libp2p(-py).&lt;/p&gt;
+&lt;p&gt;PR: &lt;a href=&#34;https://github.com/libp2p/py-libp2p/pull/1072&#34;&gt;https://github.com/libp2p/py-libp2p/pull/1072&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hackathon win @ETHNewDelhi&#39;25</title>
+      <link>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</guid>
+      <description>&lt;p&gt;Attended an IRL hackathon in New Delhi. Built a &lt;a href=&#34;ttps://github.com/lla-dane/P2P-Federated-Learning&#34;&gt;p2p federated learning&lt;/a&gt; platform using libp2p(-py), Akave-O3 and Hedera hashgraph. Won the &lt;a href=&#34;https://ethglobal.com/showcase/p2p-fed-learning-ba4m0&#34;&gt;Filecoin/Akave&lt;/a&gt; track at ETHNewDelhi&#39;25.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Selected for Protocol Labs Dev Guild</title>
+      <link>http://localhost:1313/archive/2025-05-04-selected-in-pldg/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-05-04-selected-in-pldg/</guid>
+      <description>&lt;p&gt;Got selected for Protocol Labs Dev Guild.&lt;/p&gt;
+&lt;p&gt;Excited to go deeper into p2p infrascture and libp2p ecosystem.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

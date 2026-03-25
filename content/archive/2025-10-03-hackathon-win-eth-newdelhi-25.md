@@ -1,6 +1,6 @@
 ---
 date: 2025-10-03T00:00:00Z
-tags: ["travel","usa"]
+tags: ["travel", "hackathon", "libp2p", "p2p", "networking", "blockchain"]
 title: Hackathon win @ETHNewDelhi'25
 ---
 

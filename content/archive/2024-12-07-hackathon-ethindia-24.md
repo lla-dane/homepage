@@ -1,6 +1,6 @@
 ---
 date: 2024-12-07T00:00:00Z
-tags: ["travel","usa"]
+tags: ["travel", "hackathon", "p2p"]
 title: Pool prize at @ETHIndia'24 hackathon
 ---
 

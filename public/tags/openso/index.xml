@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Openso on Abhinav Agarwalla</title>
+    <link>http://localhost:46311/tags/openso/</link>
+    <description>Recent content in Openso on Abhinav Agarwalla</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:46311/tags/openso/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First open source fellowship</title>
+      <link>http://localhost:46311/archive/2024-06-15-selected-to-sob-24/</link>
+      <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46311/archive/2024-06-15-selected-to-sob-24/</guid>
+      <description>&lt;p&gt;Got selected for Summer of Bitcoin 2024. First real step into working on open source projects in a structured way.&lt;/p&gt;
+&lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/my-journey-summer-of-bitcoin&#34;&gt;blog&lt;/a&gt; about the selection process too.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

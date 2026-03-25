@@ -1,6 +1,6 @@
 ---
 date: 2025-04-07T00:00:00Z
-tags: ["travel","usa"]
+tags: ["networking", "wireguard", "firewall"]
 title: Built a VPN gateway with Wireguard
 ---
 

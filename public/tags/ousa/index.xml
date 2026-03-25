@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ousa on Abhinav Agarwalla</title>
+    <link>http://localhost:46311/tags/ousa/</link>
+    <description>Recent content in Ousa on Abhinav Agarwalla</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:46311/tags/ousa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Completed Summer of Bitcoin &#39;24</title>
+      <link>http://localhost:46311/archive/2024-09-16-completed--sob-24/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:46311/archive/2024-09-16-completed--sob-24/</guid>
+      <description>&lt;p&gt;Got selected for Summer of Bitcoin 2024, contributing to &lt;a href=&#34;https://github.com/getfloresta/Floresta&#34;&gt;Floresta&lt;/a&gt;, a lightweight bitcoin client.&lt;/p&gt;
+&lt;p&gt;Learned a lot about navigating large codebases and p2p mechanics used in decentralized systems.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

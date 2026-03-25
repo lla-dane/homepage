@@ -1,6 +1,6 @@
 ---
 date: 2024-09-25T00:00:00Z
-tags: ["travel","usa"]
+tags: ["travel", "hackathon", "blockchain"]
 title: Hackathon win @EthSingapore'24
 ---
 

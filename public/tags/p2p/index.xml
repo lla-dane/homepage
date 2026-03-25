@@ -2,21 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>P2p on Abhinav Agarwalla</title>
-    <link>https://shell.soiraspi.win/tags/p2p/</link>
+    <link>http://localhost:1313/tags/p2p/</link>
     <description>Recent content in P2p on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Mar 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://shell.soiraspi.win/tags/p2p/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/p2p/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hole punching in libp2p</title>
-      <link>https://shell.soiraspi.win/post/2022-03-06-libp2p-hole-punching/</link>
-      <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://shell.soiraspi.win/post/2022-03-06-libp2p-hole-punching/</guid>
-      <description>&lt;p&gt;We have been working on hole punching support in libp2p for the last year. It
-finally landed in the Go and Rust libp2p implementation.&lt;/p&gt;
-&lt;p&gt;Read all about it on the IPFS blog:
-&lt;a href=&#34;https://blog.ipfs.io/2022-01-20-libp2p-hole-punching/&#34;&gt;https://blog.ipfs.io/2022-01-20-libp2p-hole-punching/&lt;/a&gt;&lt;/p&gt;</description>
+      <title>Introduced AutoTLS in libp2p(-py)</title>
+      <link>http://localhost:1313/archive/2026-02-02-introduce-autotls-in-libp2p/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2026-02-02-introduce-autotls-in-libp2p/</guid>
+      <description>&lt;p&gt;Extended the TLS security module in libp2p(-py) to fetch CA authorized TLS certificates using the &lt;a href=&#34;https://github.com/libp2p/specs/blob/master/tls/autotls-client.md&#34;&gt;libp2p Auto-TLS client specification&lt;/a&gt;, rather than using self-signed ones.&lt;/p&gt;
+&lt;p&gt;This will enable protocol execution via web-transport and browsers for libp2p(-py).&lt;/p&gt;
+&lt;p&gt;PR: &lt;a href=&#34;https://github.com/libp2p/py-libp2p/pull/1072&#34;&gt;https://github.com/libp2p/py-libp2p/pull/1072&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Implemented Floodsub from scratch</title>
+      <link>http://localhost:1313/archive/2026-01-15-wrote-floodsub-from-scratch/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2026-01-15-wrote-floodsub-from-scratch/</guid>
+      <description>&lt;p&gt;Wrote a Floodsub module for scratch in my experimental &lt;a href=&#34;https://github.com/lla-dane/rnet&#34;&gt;p2p stack&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Learned a great deal how pubsub broadcasting systems behave under the hood with complex rust async designs.
+Getting ready to write Gossipsub now.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Started writing a p2p stack in Rust</title>
+      <link>http://localhost:1313/archive/2025-12-19-started-a-p2p-stack/</link>
+      <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-12-19-started-a-p2p-stack/</guid>
+      <description>&lt;p&gt;Started writing an experimental p2p stack, &lt;a href=&#34;https://github.com/lla-dane/rnet&#34;&gt;rnet&lt;/a&gt; inspired from libp2p specs, to dig deeper into rust and core p2p mechanics.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hackathon win @ETHNewDelhi&#39;25</title>
+      <link>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</guid>
+      <description>&lt;p&gt;Attended an IRL hackathon in New Delhi. Built a &lt;a href=&#34;ttps://github.com/lla-dane/P2P-Federated-Learning&#34;&gt;p2p federated learning&lt;/a&gt; platform using libp2p(-py), Akave-O3 and Hedera hashgraph. Won the &lt;a href=&#34;https://ethglobal.com/showcase/p2p-fed-learning-ba4m0&#34;&gt;Filecoin/Akave&lt;/a&gt; track at ETHNewDelhi&#39;25.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pool prize at @ETHIndia&#39;24 hackathon</title>
+      <link>http://localhost:1313/archive/2024-12-07-hackathon-ethindia-24/</link>
+      <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-12-07-hackathon-ethindia-24/</guid>
+      <description>&lt;p&gt;Attended an IRL hackthon in Bangalore. Won a pool prize building on Lit Protocol&amp;rsquo;s decetralized encryption/decryption API.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

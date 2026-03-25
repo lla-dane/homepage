@@ -1,6 +1,6 @@
 ---
 date: 2024-06-15T00:00:00Z
-tags: ["travel","usa"]
+tags: ["blockchain", "opensource"]
 title: First open source fellowship
 ---
 

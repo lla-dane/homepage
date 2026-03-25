@@ -1,6 +1,6 @@
 ---
 date: 2025-05-04T00:00:00Z
-tags: ["travel","usa"]
+tags: ["opensource", "libp2p"]
 title: Selected for Protocol Labs Dev Guild
 ---
 

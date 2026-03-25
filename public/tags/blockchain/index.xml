@@ -2,26 +2,62 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blockchain on Abhinav Agarwalla</title>
-    <link>https://shell.soiraspi.win/tags/blockchain/</link>
+    <link>http://localhost:1313/tags/blockchain/</link>
     <description>Recent content in Blockchain on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://shell.soiraspi.win/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blockchain/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>28th DistSys Reading Group - Hotstuff</title>
-      <link>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</link>
-      <pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://shell.soiraspi.win/post/2020-09-08-28th-paper-club/</guid>
-      <description>&lt;p&gt;With the 28th session we jumped into the space of byzantine fault tolerant
-consensus protocols. We covered fault tolerant consensus with various Paxos
-variants in the past, but this session was the first one looking into how to
-solve the &lt;a href=&#34;https://en.wikipedia.org/wiki/Byzantine_fault&#34;&gt;byzantine generals
-problem&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Instead of using PBFT [1] as a first paper we went with Hotstuff [2] instead.
-The reasoning behind this choice was (a) Hotstuff presenting a somewhat easy
-up-to-date consensus algorithm and (b) that it provides a framework enabling one
-to compare other algorithms (e.g. PBFT) in the space.&lt;/p&gt;</description>
+      <title>Hackathon win @ETHNewDelhi&#39;25</title>
+      <link>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</guid>
+      <description>&lt;p&gt;Attended an IRL hackathon in New Delhi. Built a &lt;a href=&#34;ttps://github.com/lla-dane/P2P-Federated-Learning&#34;&gt;p2p federated learning&lt;/a&gt; platform using libp2p(-py), Akave-O3 and Hedera hashgraph. Won the &lt;a href=&#34;https://ethglobal.com/showcase/p2p-fed-learning-ba4m0&#34;&gt;Filecoin/Akave&lt;/a&gt; track at ETHNewDelhi&#39;25.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Weekend hackathon win</title>
+      <link>http://localhost:1313/archive/2025-01-16-gear-mega-hackathon-25/</link>
+      <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-01-16-gear-mega-hackathon-25/</guid>
+      <description>&lt;p&gt;Participated in a hackathon over the weekend. Built a cool &lt;a href=&#34;https://github.com/karankoder/CrowdNet&#34;&gt;event hosting platform&lt;/a&gt; on Vara blockchain. Won a &lt;a href=&#34;https://x.com/lla_dane/status/1879907556778475966&#34;&gt;1st prize&lt;/a&gt; in the beginner track. Getting more comfortable working under tight constraints.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wrote on Nillion&#39;s Blind Computation API</title>
+      <link>http://localhost:1313/archive/2024-10-15-nillion-blind-computations/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-10-15-nillion-blind-computations/</guid>
+      <description>&lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/implementing-blind-computations-using-nillion-protocol&#34;&gt;blog&lt;/a&gt; on my contribution to our project in @EthOnline&#39;24 hackthon, on Nillion&amp;rsquo;s blind computation API.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hackathon win @EthSingapore&#39;24</title>
+      <link>http://localhost:1313/archive/2024-09-25-hackathon-win-ethsingapore-24/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-09-25-hackathon-win-ethsingapore-24/</guid>
+      <description>&lt;p&gt;First time travel to Singapore, amazing country. Won a &lt;a href=&#34;https://ethglobal.com/showcase/lendingsapphire-jrbsc&#34;&gt;prize&lt;/a&gt; building on Oasis ROFL API with team.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hackathon win @EthOnline&#39;24</title>
+      <link>http://localhost:1313/archive/2024-09-18-first-hackathon-ethonline-24/</link>
+      <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-09-18-first-hackathon-ethonline-24/</guid>
+      <description>&lt;p&gt;Participated in my first hackathon. Won a &lt;a href=&#34;https://ethglobal.com/showcase/fairbet-ejims&#34;&gt;prize&lt;/a&gt; in Nillion track building on its blind compuation API.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Completed Summer of Bitcoin &#39;24</title>
+      <link>http://localhost:1313/archive/2024-09-16-completed--sob-24/</link>
+      <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-09-16-completed--sob-24/</guid>
+      <description>&lt;p&gt;Got selected for Summer of Bitcoin 2024, contributing to &lt;a href=&#34;https://github.com/getfloresta/Floresta&#34;&gt;Floresta&lt;/a&gt;, a lightweight bitcoin client.&lt;/p&gt;
+&lt;p&gt;Learned a lot about navigating large codebases and p2p mechanics used in decentralized systems.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First open source fellowship</title>
+      <link>http://localhost:1313/archive/2024-06-15-selected-to-sob-24/</link>
+      <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-06-15-selected-to-sob-24/</guid>
+      <description>&lt;p&gt;Got selected for Summer of Bitcoin 2024. First real step into working on open source projects in a structured way.&lt;/p&gt;
+&lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/my-journey-summer-of-bitcoin&#34;&gt;blog&lt;/a&gt; about the selection process too.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

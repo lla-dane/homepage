@@ -1,6 +1,6 @@
 ---
 date: 2024-09-18T00:00:00Z
-tags: ["travel","usa"]
+tags: ["hackathon", "blockchain"]
 title: Hackathon win @EthOnline'24
 ---
 

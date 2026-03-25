@@ -1,6 +1,6 @@
 ---
 date: 2025-01-16T00:00:00Z
-tags: ["travel","usa"]
+tags: ["hackathon", "blockchain"]
 title: Weekend hackathon win
 ---
 

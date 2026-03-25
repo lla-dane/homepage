@@ -1,6 +1,6 @@
 ---
 date: 2025-04-24T00:00:00Z
-tags: ["travel","usa"]
+tags: ["networking", "firewall"]
 title: Learning document on iptables
 ---
 

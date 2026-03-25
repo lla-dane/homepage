@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Libp2 on Abhinav Agarwalla</title>
+    <link>http://localhost:1313/tags/libp2/</link>
+    <description>Recent content in Libp2 on Abhinav Agarwalla</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/libp2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackathon win @ETHNewDelhi&#39;25</title>
+      <link>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</guid>
+      <description>&lt;p&gt;Attended an IRL hackathon in New Delhi. Built a &lt;a href=&#34;ttps://github.com/lla-dane/P2P-Federated-Learning&#34;&gt;p2p federated learning&lt;/a&gt; platform using libp2p(-py), Akave-O3 and Hedera hashgraph. Won the &lt;a href=&#34;https://ethglobal.com/showcase/p2p-fed-learning-ba4m0&#34;&gt;Filecoin/Akave&lt;/a&gt; track at ETHNewDelhi&#39;25.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

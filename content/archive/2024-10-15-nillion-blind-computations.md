@@ -1,6 +1,6 @@
 ---
 date: 2024-10-15T00:00:00Z
-tags: ["travel","usa"]
+tags: ["blockchain", "p2p"]
 title: Wrote on Nillion's Blind Computation API
 ---
 

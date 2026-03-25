@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>S on Abhinav Agarwalla</title>
+    <link>http://localhost:1313/tags/s/</link>
+    <description>Recent content in S on Abhinav Agarwalla</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wrote on Nillion&#39;s Blind Computation API</title>
+      <link>http://localhost:1313/archive/2024-10-15-nillion-blind-computations/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-10-15-nillion-blind-computations/</guid>
+      <description>&lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/implementing-blind-computations-using-nillion-protocol&#34;&gt;blog&lt;/a&gt; on my contribution to our project in @EthOnline&#39;24 hackthon, on Nillion&amp;rsquo;s blind computation API.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,90 +2,91 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Abhinav Agarwalla</title>
-    <link>http://localhost:35867/</link>
+    <link>http://localhost:34567/</link>
     <description>Recent content on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:35867/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:34567/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:35867/about/</link>
+      <link>http://localhost:34567/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/about/</guid>
+      <guid>http://localhost:34567/about/</guid>
       <description>&lt;p&gt;I am Abhinav, interested in networking, p2p systems and breaking stuff. Welcome to my corner of the &lt;em&gt;The Internet&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;You might enjoy browsing through &lt;a href=&#34;http://localhost:35867/blogs&#34;&gt;a few of my dev blogs&lt;/a&gt;, or simply scroll through &lt;a href=&#34;http://localhost:35867/resume&#34;&gt;my resume&lt;/a&gt; to see what I am up to lately.&lt;/p&gt;
+&lt;p&gt;You might enjoy browsing through &lt;a href=&#34;http://localhost:34567/blogs&#34;&gt;a few of my dev blogs&lt;/a&gt;, or simply scroll through &lt;a href=&#34;http://localhost:34567/resume&#34;&gt;my resume&lt;/a&gt; to see what I am up to lately.&lt;/p&gt;
 &lt;p&gt;You can best reach me via e-mail: mail@abhinavagarwalla6@gmail.com.&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Summit&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:35867/profile/summit.jpg&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img alt=&#34;Summit&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:34567/profile/summit.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduced Prometheus metrics to libp2p(-py)</title>
-      <link>http://localhost:35867/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</link>
+      <link>http://localhost:34567/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</link>
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</guid>
-      <description>&lt;p&gt;Introduced &lt;a href=&#34;https://github.com/libp2p/py-libp2p/pull/1199&#34;&gt;Prometheus/Grafana metrics&lt;/a&gt; to libp2p(-py), improving network observability for the core services like Gossipsub, Kad-DHT and connection lifecycle.&lt;/p&gt;</description>
+      <guid>http://localhost:34567/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</guid>
+      <description>&lt;p&gt;Introduced &lt;code&gt;Prometheus/Grafana&lt;/code&gt; metrics to libp2p(-py), improving network observability for the core services like Gossipsub, Kad-DHT and connection lifecycle.&lt;/p&gt;
+&lt;p&gt;PR: &lt;a href=&#34;https://github.com/libp2p/py-libp2p/pull/1199&#34;&gt;https://github.com/libp2p/py-libp2p/pull/1199&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kedarkantha Peak</title>
-      <link>http://localhost:35867/archive/2026-03-10-trek-to-kedarkantha/</link>
+      <link>http://localhost:34567/archive/2026-03-10-trek-to-kedarkantha/</link>
       <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2026-03-10-trek-to-kedarkantha/</guid>
+      <guid>http://localhost:34567/archive/2026-03-10-trek-to-kedarkantha/</guid>
       <description>&lt;p&gt;Went first time trekking, to Kedarkantha peak. The elevation was around ~3800m, spent 3 days in the forest and river rafting in Rishikesh.&lt;/p&gt;
 &lt;p&gt;Felt good to get away from code, from time to time.&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Summit&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:35867/static/kedarkantha.jpg&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img alt=&#34;Summit&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:34567/static/kedarkantha.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduced AutoTLS in libp2p(-py)</title>
-      <link>http://localhost:35867/archive/2026-02-02-introduce-autotls-in-libp2p/</link>
+      <link>http://localhost:34567/archive/2026-02-02-introduce-autotls-in-libp2p/</link>
       <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2026-02-02-introduce-autotls-in-libp2p/</guid>
+      <guid>http://localhost:34567/archive/2026-02-02-introduce-autotls-in-libp2p/</guid>
       <description>&lt;p&gt;Extended the TLS security module in libp2p(-py) to fetch CA authorized TLS certificates using the &lt;a href=&#34;https://github.com/libp2p/specs/blob/master/tls/autotls-client.md&#34;&gt;libp2p Auto-TLS client specification&lt;/a&gt;, rather than using self-signed ones.&lt;/p&gt;
 &lt;p&gt;This will enable protocol execution via web-transport and browsers for libp2p(-py).&lt;/p&gt;
 &lt;p&gt;PR: &lt;a href=&#34;https://github.com/libp2p/py-libp2p/pull/1072&#34;&gt;https://github.com/libp2p/py-libp2p/pull/1072&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Implemented Floodsub from scratch</title>
-      <link>http://localhost:35867/archive/2026-01-15-wrote-floodsub-from-scratch/</link>
+      <link>http://localhost:34567/archive/2026-01-15-wrote-floodsub-from-scratch/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2026-01-15-wrote-floodsub-from-scratch/</guid>
+      <guid>http://localhost:34567/archive/2026-01-15-wrote-floodsub-from-scratch/</guid>
       <description>&lt;p&gt;Wrote a Floodsub module for scratch in my experimental &lt;a href=&#34;https://github.com/lla-dane/rnet&#34;&gt;p2p stack&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Learned a great deal how pubsub broadcasting systems behave under the hood with complex rust async designs.
 Getting ready to write Gossipsub now.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Rust async pattern -- single owner IO</title>
-      <link>http://localhost:35867/archive/2026-01-06-rust-async-pattern/</link>
+      <link>http://localhost:34567/archive/2026-01-06-rust-async-pattern/</link>
       <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2026-01-06-rust-async-pattern/</guid>
+      <guid>http://localhost:34567/archive/2026-01-06-rust-async-pattern/</guid>
       <description>&lt;p&gt;Ran into an issue while building my experimental &lt;a href=&#34;&#34;&gt;p2p stack&lt;/a&gt; in Rust &amp;ndash; multiple parts of the code wanted &lt;code&gt;&amp;amp;mut TcpStream&lt;/code&gt;. Turned out the design was improper. What worked for me was creating a single IO task owning the socket, with everything else communication via &lt;code&gt;mpsc&lt;/code&gt;. Cleaner ownership, fewer borrow issues, and easier to reason about.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Got a Raspberry Pi 5</title>
-      <link>http://localhost:35867/archive/2025-12-25-bought-a-rasberry-pi-5/</link>
+      <link>http://localhost:34567/archive/2025-12-25-bought-a-rasberry-pi-5/</link>
       <pubDate>Thu, 25 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-12-25-bought-a-rasberry-pi-5/</guid>
+      <guid>http://localhost:34567/archive/2025-12-25-bought-a-rasberry-pi-5/</guid>
       <description>&lt;p&gt;Bought a Raspberry PI 5.&lt;/p&gt;
 &lt;p&gt;Planning to do some networking experiments and small infrstructure setups.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Started writing a p2p stack in Rust</title>
-      <link>http://localhost:35867/archive/2025-12-19-started-a-p2p-stack/</link>
+      <link>http://localhost:34567/archive/2025-12-19-started-a-p2p-stack/</link>
       <pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-12-19-started-a-p2p-stack/</guid>
+      <guid>http://localhost:34567/archive/2025-12-19-started-a-p2p-stack/</guid>
       <description>&lt;p&gt;Started writing an experimental p2p stack, &lt;a href=&#34;https://github.com/lla-dane/rnet&#34;&gt;rnet&lt;/a&gt; inspired from libp2p specs, to dig deeper into rust and core p2p mechanics.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hackathon win @ETHNewDelhi&#39;25</title>
-      <link>http://localhost:35867/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</link>
+      <link>http://localhost:34567/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</guid>
+      <guid>http://localhost:34567/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</guid>
       <description>&lt;p&gt;Attended an IRL hackathon in New Delhi. Built a &lt;a href=&#34;ttps://github.com/lla-dane/P2P-Federated-Learning&#34;&gt;p2p federated learning&lt;/a&gt; platform using libp2p(-py), Akave-O3 and Hedera hashgraph. Won the &lt;a href=&#34;https://ethglobal.com/showcase/p2p-fed-learning-ba4m0&#34;&gt;Filecoin/Akave&lt;/a&gt; track at ETHNewDelhi&#39;25.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Contributions in libp2p(-py) in PLDG Cohort-3</title>
-      <link>http://localhost:35867/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</link>
+      <link>http://localhost:34567/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</link>
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</guid>
+      <guid>http://localhost:34567/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Hey folks &lt;strong&gt;👋&lt;/strong&gt;,&lt;br&gt;
 Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.&lt;br&gt;
@@ -94,32 +95,32 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Selected for Protocol Labs Dev Guild</title>
-      <link>http://localhost:35867/archive/2025-05-04-selected-in-pldg/</link>
+      <link>http://localhost:34567/archive/2025-05-04-selected-in-pldg/</link>
       <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-05-04-selected-in-pldg/</guid>
+      <guid>http://localhost:34567/archive/2025-05-04-selected-in-pldg/</guid>
       <description>&lt;p&gt;Got selected for Protocol Labs Dev Guild.&lt;/p&gt;
 &lt;p&gt;Excited to go deeper into p2p infrascture and libp2p ecosystem.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Learning document on iptables</title>
-      <link>http://localhost:35867/archive/2025-04-24-learning-iptables-in-deep/</link>
+      <link>http://localhost:34567/archive/2025-04-24-learning-iptables-in-deep/</link>
       <pubDate>Thu, 24 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-04-24-learning-iptables-in-deep/</guid>
+      <guid>http://localhost:34567/archive/2025-04-24-learning-iptables-in-deep/</guid>
       <description>&lt;p&gt;Found a great &lt;a href=&#34;https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html#ABOUTTHEAUTHOR&#34;&gt;document&lt;/a&gt; to learn about firewall management and &lt;code&gt;iptables&lt;/code&gt; in deep.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Built a VPN gateway with Wireguard</title>
-      <link>http://localhost:35867/archive/2025-04-07-vpn-gateway-with-wireguard/</link>
+      <link>http://localhost:34567/archive/2025-04-07-vpn-gateway-with-wireguard/</link>
       <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-04-07-vpn-gateway-with-wireguard/</guid>
+      <guid>http://localhost:34567/archive/2025-04-07-vpn-gateway-with-wireguard/</guid>
       <description>&lt;p&gt;Built a VPN gateway using Wireguard, Docker and a nginx server, restricting the server access to only allow wireguard-client IP addresses by modifying the firefall rules for the docker network.&lt;/p&gt;
 &lt;p&gt;It was fun, wrote a &lt;a href=&#34;https://soishell.hashnode.dev/building-a-covert-lan-dockerized-wireguard-vpn-gateway-for-private-container-access&#34;&gt;blog&lt;/a&gt; about this.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building a Covert LAN - A Dockerized VPN Gateway using WireGuard and Nginx</title>
-      <link>http://localhost:35867/blogs/2025-04-06-building-a-covert-lan/</link>
+      <link>http://localhost:34567/blogs/2025-04-06-building-a-covert-lan/</link>
       <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2025-04-06-building-a-covert-lan/</guid>
+      <guid>http://localhost:34567/blogs/2025-04-06-building-a-covert-lan/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Establishing a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted connections.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -128,9 +129,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Automated Firewall management usign Docker and Cron</title>
-      <link>http://localhost:35867/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</link>
+      <link>http://localhost:34567/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</link>
       <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</guid>
+      <guid>http://localhost:34567/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Simulating automated firewall co&lt;strong&gt;nfiguration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -139,30 +140,30 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Build on AI-agents for the first time</title>
-      <link>http://localhost:35867/archive/2025-03-17-work-with-ai-agents/</link>
+      <link>http://localhost:34567/archive/2025-03-17-work-with-ai-agents/</link>
       <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-03-17-work-with-ai-agents/</guid>
+      <guid>http://localhost:34567/archive/2025-03-17-work-with-ai-agents/</guid>
       <description>&lt;p&gt;First working with AI agents, built a &lt;a href=&#34;https://github.com/lla-dane/LoyaltyX&#34;&gt;loyalty platform&lt;/a&gt; on NEAR blockchain by using Near AI-agent kit for agent driven user interaction, and smart contract execution. Had fun.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Weekend hackathon win</title>
-      <link>http://localhost:35867/archive/2025-01-16-gear-mega-hackathon-25/</link>
+      <link>http://localhost:34567/archive/2025-01-16-gear-mega-hackathon-25/</link>
       <pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2025-01-16-gear-mega-hackathon-25/</guid>
+      <guid>http://localhost:34567/archive/2025-01-16-gear-mega-hackathon-25/</guid>
       <description>&lt;p&gt;Participated in a hackathon over the weekend. Built a cool &lt;a href=&#34;https://github.com/karankoder/CrowdNet&#34;&gt;event hosting platform&lt;/a&gt; on Vara blockchain. Won a &lt;a href=&#34;https://x.com/lla_dane/status/1879907556778475966&#34;&gt;1st prize&lt;/a&gt; in the beginner track. Getting more comfortable working under tight constraints.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pool prize at @ETHIndia&#39;24 hackathon</title>
-      <link>http://localhost:35867/archive/2024-12-07-hackathon-ethindia-24/</link>
+      <link>http://localhost:34567/archive/2024-12-07-hackathon-ethindia-24/</link>
       <pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2024-12-07-hackathon-ethindia-24/</guid>
+      <guid>http://localhost:34567/archive/2024-12-07-hackathon-ethindia-24/</guid>
       <description>&lt;p&gt;Attended an IRL hackthon in Bangalore. Won a pool prize building on Lit Protocol&amp;rsquo;s decetralized encryption/decryption API.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Implementing Blind Computation using Nillion Protocol</title>
-      <link>http://localhost:35867/blogs/2024-10-24-blind-computations-using-nillion-protocol/</link>
+      <link>http://localhost:34567/blogs/2024-10-24-blind-computations-using-nillion-protocol/</link>
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2024-10-24-blind-computations-using-nillion-protocol/</guid>
+      <guid>http://localhost:34567/blogs/2024-10-24-blind-computations-using-nillion-protocol/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -174,38 +175,38 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Wrote on Nillion&#39;s Blind Computation API</title>
-      <link>http://localhost:35867/archive/2024-10-15-nillion-blind-computations/</link>
+      <link>http://localhost:34567/archive/2024-10-15-nillion-blind-computations/</link>
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2024-10-15-nillion-blind-computations/</guid>
+      <guid>http://localhost:34567/archive/2024-10-15-nillion-blind-computations/</guid>
       <description>&lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/implementing-blind-computations-using-nillion-protocol&#34;&gt;blog&lt;/a&gt; on my contribution to our project in @EthOnline&#39;24 hackthon, on Nillion&amp;rsquo;s blind computation API.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hackathon win @EthSingapore&#39;24</title>
-      <link>http://localhost:35867/archive/2024-09-25-hackathon-win-ethsingapore-24/</link>
+      <link>http://localhost:34567/archive/2024-09-25-hackathon-win-ethsingapore-24/</link>
       <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2024-09-25-hackathon-win-ethsingapore-24/</guid>
+      <guid>http://localhost:34567/archive/2024-09-25-hackathon-win-ethsingapore-24/</guid>
       <description>&lt;p&gt;First time travel to Singapore, amazing country. Won a &lt;a href=&#34;https://ethglobal.com/showcase/lendingsapphire-jrbsc&#34;&gt;prize&lt;/a&gt; building on Oasis ROFL API with team.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Hackathon win @EthOnline&#39;24</title>
-      <link>http://localhost:35867/archive/2024-09-18-first-hackathon-ethonline-24/</link>
+      <link>http://localhost:34567/archive/2024-09-18-first-hackathon-ethonline-24/</link>
       <pubDate>Wed, 18 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2024-09-18-first-hackathon-ethonline-24/</guid>
+      <guid>http://localhost:34567/archive/2024-09-18-first-hackathon-ethonline-24/</guid>
       <description>&lt;p&gt;Participated in my first hackathon. Won a &lt;a href=&#34;https://ethglobal.com/showcase/fairbet-ejims&#34;&gt;prize&lt;/a&gt; in Nillion track building on its blind compuation API.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Completed Summer of Bitcoin &#39;24</title>
-      <link>http://localhost:35867/archive/2024-09-16-completed--sob-24/</link>
+      <link>http://localhost:34567/archive/2024-09-16-completed--sob-24/</link>
       <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2024-09-16-completed--sob-24/</guid>
+      <guid>http://localhost:34567/archive/2024-09-16-completed--sob-24/</guid>
       <description>&lt;p&gt;Got selected for Summer of Bitcoin 2024, contributing to &lt;a href=&#34;https://github.com/getfloresta/Floresta&#34;&gt;Floresta&lt;/a&gt;, a lightweight bitcoin client.&lt;/p&gt;
 &lt;p&gt;Learned a lot about navigating large codebases and p2p mechanics used in decentralized systems.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Improve Floresta&#39;s testing - Part 2</title>
-      <link>http://localhost:35867/blogs/2024-08-30-imporove-floresta-testing-part-2/</link>
+      <link>http://localhost:34567/blogs/2024-08-30-imporove-floresta-testing-part-2/</link>
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2024-08-30-imporove-floresta-testing-part-2/</guid>
+      <guid>http://localhost:34567/blogs/2024-08-30-imporove-floresta-testing-part-2/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta&amp;rsquo;s testing&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -234,9 +235,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Improve Floresta&#39;s testing - Part 1</title>
-      <link>http://localhost:35867/blogs/2024-07-18-improve-floresta-testing-part-1/</link>
+      <link>http://localhost:34567/blogs/2024-07-18-improve-floresta-testing-part-1/</link>
       <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2024-07-18-improve-floresta-testing-part-1/</guid>
+      <guid>http://localhost:34567/blogs/2024-07-18-improve-floresta-testing-part-1/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:&lt;br&gt;
 Improve the testing environment of Floresta.&lt;/p&gt;
@@ -247,26 +248,26 @@ Improve the testing environment of Floresta.&lt;/p&gt;
     </item>
     <item>
       <title>First open source fellowship</title>
-      <link>http://localhost:35867/archive/2024-06-15-selected-to-sob-24/</link>
+      <link>http://localhost:34567/archive/2024-06-15-selected-to-sob-24/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/archive/2024-06-15-selected-to-sob-24/</guid>
+      <guid>http://localhost:34567/archive/2024-06-15-selected-to-sob-24/</guid>
       <description>&lt;p&gt;Got selected for Summer of Bitcoin 2024. First real step into working on open source projects in a structured way.&lt;/p&gt;
 &lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/my-journey-summer-of-bitcoin&#34;&gt;blog&lt;/a&gt; about the selection process too.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Getting selected in Summer of Bitcoin&#39;24</title>
-      <link>http://localhost:35867/blogs/2024-06-15-getting-selected-in-sob-2024/</link>
+      <link>http://localhost:34567/blogs/2024-06-15-getting-selected-in-sob-2024/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/blogs/2024-06-15-getting-selected-in-sob-2024/</guid>
+      <guid>http://localhost:34567/blogs/2024-06-15-getting-selected-in-sob-2024/</guid>
       <description>&lt;h3 id=&#34;what-is-sob-&#34;&gt;What is SoB ?&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Summer of Bitcoin is a global program focused on bringing more student developers into the open source software development in the Bitcoin community. Students work with an open-source organisation on a 12 week programming project during their summer break from school.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This blog highlights &lt;strong&gt;journey&lt;/strong&gt; of getting selected into the program from the very beginning. I believe their is no defined path for getting selected in such open-source fellowships. Everyone has a unique journey, and you can take a few things from other journeys to write yours :) because the essence of each one is similar.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Build Logs</title>
-      <link>http://localhost:35867/builds/</link>
+      <link>http://localhost:34567/builds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/builds/</guid>
+      <guid>http://localhost:34567/builds/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/lla-dane&#34;&gt;&lt;strong&gt;&lt;strong&gt;Github&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&#34;https://www.linkedin.com/in/abhinav-agarwalla-a80425258/&#34;&gt;&lt;strong&gt;&lt;strong&gt;Linkedln&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt; | &lt;a href=&#34;https://x.com/lla_dane&#34;&gt;&lt;strong&gt;&lt;strong&gt;Twitter&lt;/strong&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;open-source&#34;&gt;Open Source:&lt;/h2&gt;
 &lt;ul&gt;
@@ -318,9 +319,9 @@ Improve the testing environment of Floresta.&lt;/p&gt;
     </item>
     <item>
       <title>Resume</title>
-      <link>http://localhost:35867/resume/</link>
+      <link>http://localhost:34567/resume/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:35867/resume/</guid>
+      <guid>http://localhost:34567/resume/</guid>
       <description>&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
 &lt;h3 id=&#34;contributor-to-libp2p-py-networking-stack&#34;&gt;Contributor to Libp2p(-py) networking stack&lt;/h3&gt;
 &lt;p&gt;May 2025 - now&lt;/p&gt;

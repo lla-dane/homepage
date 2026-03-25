@@ -104,7 +104,7 @@ type: post
 	
 - **__Crowdnet__**: A decentralized event hosting plaform on the Vara Blockchain. Won the 1st prize in the beginner track in the Gear Mega Hackathon'25. 
 	- *Twitter post: https://x.com/lla_dane/status/1879907556778475966*
-	- *Repo: https://x.com/lla_dane/status/1879907556778475966*
+	- *Repo: https://github.com/karankoder/CrowdNet*
 
 ---
 	
@@ -129,24 +129,24 @@ type: post
 ## Dev Blogs: 
 at *https://soishell.hashnode.dev/*
 
--  [**__Contributions to py-libp2p as a part of PLDG Cohort-3__**](https://lladane.hashnode.dev/what-i-built-in-py-libp2p-during-pldg-cohort-3): A curated documentation on the various protocols I contributed on for 3 months in py-libp2p p2p networking library as a part of Protocol-Labs-DEV-Guild (PLDG) Cohort-3.
+-  [**__Contributions to py-libp2p as a part of PLDG Cohort-3__**](https://soishell.hashnode.dev/what-i-built-in-py-libp2p-during-pldg-cohort-3): A curated documentation on the various protocols I contributed on for 3 months in py-libp2p p2p networking library as a part of Protocol-Labs-DEV-Guild (PLDG) Cohort-3.
 
 ---
 
-- [**__Building a Covert LAN: Dockerized Wireguard VPN Gateway for Private Container Access__**](https://lladane.hashnode.dev/building-a-covert-lan-dockerized-wireguard-vpn-gateway-for-private-container-access): Established a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted VPN connections.
+- [**__Building a Covert LAN: Dockerized Wireguard VPN Gateway for Private Container Access__**](https://soishell.hashnode.dev/building-a-covert-lan-dockerized-wireguard-vpn-gateway-for-private-container-access): Established a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted VPN connections.
 
 ---
 
-- [**__Automated Firewall Management using Docker and Cron__**](https://lladane.hashnode.dev/automated-firewall-management): Simulating automated firewall configuration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles.
+- [**__Automated Firewall Management using Docker and Cron__**](https://soishell.hashnode.dev/automated-firewall-management): Simulating automated firewall configuration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles.
 
 ---
 
-- [**__Implementing Blind Computations using Nillion Protocol__**](https://lladane.hashnode.dev/implementing-blind-computations-using-nillion-protocol): A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.
+- [**__Implementing Blind Computations using Nillion Protocol__**](https://soishell.hashnode.dev/implementing-blind-computations-using-nillion-protocol): A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.
 
 ---
 
-- [**__Improve Floresta's testing: Part 2 | Summer of Bitcoin '24__**](https://lladane.hashnode.dev/improve-florestas-testing-part-2-summer-of-bitcoin-24): This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta's testing. 
+- [**__Improve Floresta's testing: Part 2 | Summer of Bitcoin '24__**](https://soishell.hashnode.dev/improve-florestas-testing-part-2-summer-of-bitcoin-24): This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta's testing. 
 
 ---
 
-- [**__Improve Floresta's testing: Part 1 | Summer of Bitcoin '24__**](https://lladane.hashnode.dev/improve-floresta-testing-part1): This blog covers the progress of my Summer of Bitcoin project till mid-evaluation; Improve the testing environment of Floresta.
+- [**__Improve Floresta's testing: Part 1 | Summer of Bitcoin '24__**](https://soishell.hashnode.dev/improve-floresta-testing-part1): This blog covers the progress of my Summer of Bitcoin project till mid-evaluation; Improve the testing environment of Floresta.

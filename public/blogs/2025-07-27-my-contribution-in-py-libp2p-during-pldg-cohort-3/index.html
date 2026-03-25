@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Contributions in libp2p(-py) in PLDG Cohort-3 | Abhinav Agarwalla</title>
 <meta name="keywords" content="">
 <meta name="description" content="
@@ -13,16 +13,16 @@ Over the past few months, I’ve been diving deep into the internals of py-libp2
 This blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.
 I’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.">
 <meta name="author" content="Abhinav Agarwalla">
-<link rel="canonical" href="https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
+<link rel="canonical" href="http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://shell.soiraspi.win/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://shell.soiraspi.win/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://shell.soiraspi.win/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://shell.soiraspi.win/apple-touch-icon.png">
-<link rel="mask-icon" href="https://shell.soiraspi.win/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,86 +74,13 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/">
-  <meta property="og:site_name" content="Abhinav Agarwalla">
-  <meta property="og:title" content="Contributions in libp2p(-py) in PLDG Cohort-3">
-  <meta property="og:description" content="Hey folks 👋,
-Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.
-This blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.
-I’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="blogs">
-    <meta property="article:published_time" content="2025-07-27T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-07-27T00:00:00+00:00">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Contributions in libp2p(-py) in PLDG Cohort-3">
-  <meta name="twitter:description" content="Hey folks 👋,
-Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.
-This blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.
-I’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Blogs",
-      "item": "https://shell.soiraspi.win/blogs/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Contributions in libp2p(-py) in PLDG Cohort-3",
-      "item": "https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Contributions in libp2p(-py) in PLDG Cohort-3",
-  "name": "Contributions in libp2p(-py) in PLDG Cohort-3",
-  "description": " Hey folks 👋,\nOver the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.\nThis blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.\nI’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.\n",
-  "keywords": [
-    
-  ],
-  "articleBody": " Hey folks 👋,\nOver the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.\nThis blog is a casual walkthrough of what I’ve have been working on — things like getting Python node to talk with Rust peers, cleaning up old TODOs in the codebase, and helping refactor core modules like the PeerStore. If you’re curious about open source, P2P protocols, or python networking internals, this should be an interesting read.\nI’ll skip the heavy theory (for the most part) and just talk about the work, the weird bugs, what I learned, and where it’s all going. Let’s get into it.\n![](https://cdn.hashnode.com/res/hashnode/image/upload/v1753620337100/67ca88bd-a18f-46cd-b99b-6346c72303aa.webp align=“center”)\nIntroduction Py-libp2p is the Python implementation of the libp2p networking stack, part of the broader libp2p ecosystem originally modularized out of IPFS to support peer-to-peer systems like Ethereum, Filecoin, and decentralized apps across languages like Go, Rust, JavaScript, and more.\nDesigned to be modular and protocol-agnostic, libp2p abstracts transport (TCP), multiplexing, peer identification, security handshakes (Noise, TLS), and pub-sub mechanisms (Floodsub, Goosipsub) into reusable building blocks. Although still experimental, py-libp2p is steadily progressing toward feature parity with other mature implementations.\nhttps://github.com/libp2p/py-libp2p\nhttps://github.com/libp2p\nBackground \u0026 Context Originally libp2p was developed for IPFS and Filecoin, its now used across a range of protocols and projects. Most real-world deployment use the Go or Rust implementations of libp2p. But the python version — py-libp2p — plays a crucial role in bridging the ecosystem to Python-based tooling, prototyping, and intergration with other Python-native libraries. Its specially useful in research, rapid experimentation, and educational contexts.\nhttps://github.com/libp2p/rust-libp2p\nhttps://github.com/libp2p/go-libp2p\nWhen I started contributing to py-libp2p, the project was in an interesting place. While it had the basic structure of a libp2p stack — transports, peerstore, protocols like ping and identify — it still lacked full compatibility with other languages implementations. There were various rough edges, partial implementations in the PeerStore, and TODOs that made it a long way from a production grade software or even in interop testing.\nAt the same time, the libp2p ecosystem was putting more focus on cross-language compatibility, especially as more protocols aim to support mixed stacks (eg. a Rust node communicating with a Python client). Getting Python to “speak libp2p“ the same way Go or Rust does mean closing a bunch of gaps — both in code and in design alignment.\nThat’s where my work started.\nCore Contribution Areas Advancing py-libp2p \u003c-\u003e rust-libp2p Interoperability https://github.com/libp2p/py-libp2p/pull/620\nhttps://github.com/libp2p/py-libp2p/discussions/598#discussioncomment-13420717\nOne of my major contributions was working toward establishing successful Ping interoperability between py-libp2p and rust-libp2p implementations. This work was crucial for ensuring that Python-based libp2p applications can communicate seamlessly with Rust-based ones.\nKey achievements:\nPing Protocol Interoperability: Successfully made ping interop happen between py-libp2p and rust-libp2p using Noise security and Yamux multiplexing.\nProtocol negotiation - Select negotiation that were preventing successful cross-implementation communication.\nTechnical challenges:\nStream Protocol Issues: Initially, protocol negotiation was failing after security and muxer negotiation. The py-dialer could write /multistream/1.0.0 but couldn’t read responses from rust nodes.\nKey encoding Compatibility: Addressed mismatches in how cryptographic keys were being encoded/serialized between implementations in the Noise security module.\nPing Interop successful demo:\n%[https://vimeo.com/1104887674?share=copy]\nSystematic TODO and FIXME Resolution One of the biggest contributions I made early on was just rolling up sleeves and going after a bunch of long-standing TODOs and FIXMEs scattered across the codebase. These weren’t just minor style fixes — many of them touched core parts of py-libp2p’s functionality, from protocol negotiation to stream handling to security logic.\nHere are some of the key things I tackled:\n🔄 Protocol Negotiation: Handling ls command before connection happens PR: https://github.com/libp2p/py-libp2p/pull/622\nI added a support for the ls command in the multistream-select handshake logic (in multiselect.py). This lets a dialer ask the listener, “Hey, what protocols do you support?“ — which is a standard part of libp2p’s connection upgrade flow, but was missing in the Python version. Without it, protocol negotiation with other implementations (like Rust and Go) was pretty fragile.\nScreenshot:\n![](https://cdn.hashnode.com/res/hashnode/image/upload/v1753624416760/b4afa3aa-69f1-4d86-86af-c092f065d74b.png align=“center”)\n🔐 Security Layer: Real Peer IDs Only PR: https://github.com/libp2p/py-libp2p/pull/681\nIn the security handshake code upgrade_security, there was a sketchy placeholder that used a dummy peer ID ID(b””) when establishing inbound connections. I fixed that by making peer_id optional and explicitly handling the inbound/outbound case. This not only removed the FIXME but also cleaned up the semantics of the API\n⚙️ Concurrency and Timeout While digging through some of the more subtle runtime behavior in py-libp2p, I noticed a couple of rough edges around concurrency that could easily become major pain points, especially as the number of peers grows.\n🔒 Async Validator Throttling\nPR: https://github.com/libp2p/py-libp2p/pull/755\nThe validator subsystem, especially in the context of the DHT or identify porotocol, can end up running many validations concurrently — for example, when a node is receiving a high volume of peer records or signed data. There was not mechanism in place to cap how many async validators could run at once, which made it vulnerable to resource exhaustion, especially in tests that simulate high peer churn.\nTo fix this, I introduced a semaphore-based throttle that limits how many async validators can run at the same time. This makes the system far more predictable under load. Instead of hitting weird trio warnings or memory bloat, you now get backpressure — which is exactly what you want in a peer-to-peer system under stress.\nThe mechanism looked something like this:\nclass PubSub: def __init__(self, max_concurrent_validators=MAX_CONCURRENT_VALIDATORS): self._validator_semaphore = trio.Semaphore(max_concurrent_validators) async def _run_async_validator(self, func, msg_forwarder, msg, results): async with self._validator_semaphore: result = await func(msg_forwarder, msg) results.append(result) ⏱️ Timeout on Stream Closures\n![](https://cdn.hashnode.com/res/hashnode/image/upload/v1753620384021/ec720b83-58c3-4b85-bc67-50a34dc6f139.gif align=“center”)\nPR: https://github.com/libp2p/py-libp2p/pull/696\nAnother issue was with stream closure logic. In a few places, especially where streams were being shut down as part of connection teardown or during tests, there was no timeout — which meant that if anything hung internally (e.g. a stalled read or write), the whole operation could get stuck indefinitely. That’s brutal during testing, and worse in a live node.\nSo I added proper timeouts using trio.fail_after(5) during stream close and shutdown phases. It’s a small change, but it makes the system way more resilient. Now if a stream doesn’t cleanly shut down within a few seconds, the code doesn’t hang — it just fails fast and continues with cleanup.\nThese kinds of changes are less flashy at the protocol-level work, but they’re critical for making the stack actually usable in the rea-world conditions. You don’t want your node falling over bacause 200 peers showed up or because one stream forgot to say goodbye.\n🧠 Refactoring the PeerStore: Making py-libp2p Record-Aware One of the most impactful chunks of work I did was around cleaning up and upgrading the PeerStore in py-libp2p. For context, the PeerStore is the core module responsible for storing information about known peers — things like their multiaddrs, public keys, supported protocols, metadata, etc.\nBut when I started, py-libp2p’s PeerStore was still pretty barebones. It didn’t handle signed peer records, didn’t respect sequence number for address updates, and wasn’t alligned with how other libp2p implementations (like Go or Rust) handle peer identity and trust. So I set out to fix that.\nThis work spanned across three PRs:\nPeerStore Refactor :- https://github.com/libp2p/py-libp2p/pull/648 This PR was the groundwork. The existing PeerStore was messy — it let you blindly overwrite a peer’s multiaddrs with no regard for where that data came from, how recent it was, or whether it was trustworthy.\nI started by simplifying the address handling logic and cleaning up how multiaddrs were stored and retrieved. This helped eliminate weird edge cases where stale or empty address lists would override valid data.\n✅ What changed:\nAddrBook, KeyBook, ProtocolBook, and MetadataBook interfaces matching go-libp2p’s abstractions, enabling identical method names (e.g., add_addrs(), get_pubkey(), put_metadata()) and TTL semantics for stored data.\nPermanent vs. ephemeral TTLs for peer addresses, so that bootstrap or recently connected peers behave exactly as in go-libp2p (permanent TTL = ∞, recently connected TTL = 10 min, temporary TTL = 2 min)\nAddrStream support, enabling clients to consume a continuous stream of address updates for a given peer—crucial for services that need to react when a peer’s reachable addresses change.\nThese reactivity empowers p2p applications (eg. pubsub routers, DHT clients) to maintain up-to-date peer views without manual polling.\nSigned PeerRecord support to PeerStore:- https://github.com/libp2p/py-libp2p/pull/753 This was a big one. Here I added full support for libp2p’s PeerRecord format — which is a spec-compliant way to share peer addresses in a secure, verifiable format.\nNow, instead of just storing raw multiaddrs, py-libp2p can accept an Envelope, verify the peer’s signature, extract the PeerRecord, and decide whether to accept or reject it based on the record’s sequence number.\n✅ What changed:\nImplemented the PeerRecord class the wrapper Envelope class.\nImplemented the Certified-Addr-Book interface in the PeerStore class.\nSequence numbers are checked to ensure newer records override older ones\nInvalid or replayed records are silently ignored\nStored PeerRecord data is cached and used when the peer info is requested again\nA separate async task for periodic cleanup of the PeerStore data, to prevent exhaustion.\n💡 Why this mattered:\nThis brought py-libp2p in line with Rust, Go, and JS implementations. With this, a Python peer can now securely share its address information, and other peers can verify that info wasn’t spoofed or tampered with. This is a core requirement for Identify and DHT interop.\nLessons learned Cross-Implementation Compatibility is Complex. Working on interoperability between py-libp2p and rust-libp2p taught me that:\nProtocol details matter: Small differences in implementation can break compatibility\nError handling varies: Different languages and frameworks handle errors differently, requiring careful alignment\nTesting is crucial: Cross-implementation testing requires sophisticated test setups and coordination\nTechnical Debt Management. Systematically addressing TODOs and FIXMEs showed me:\nIncremental improvements: Small, focused changes are more manageable than large refactors\nBreaking changes require care: Even beneficial changes need proper versioning and communication\nTest coverage is essential: Every change needs corresponding tests to prevent regressions\nConclusion Contributing to py-libp2p over these three months has been an incredibly rewarding experience. From debugging complex interoperability issues to implementing resource management systems, each contribution has helped make py-libp2p more robust and reliable.\nThe work on py-libp2p ↔ rust-libp2p interoperability represents a significant step forward for the broader libp2p ecosystem, enabling Python developers to build applications that can seamlessly communicate with Rust-based libp2p implementations. The systematic TODO/FIXME resolution effort has reduced technical debt and improved code quality across the project.\nLooking ahead, py-libp2p has tremendous potential to become a fully-featured peer-to-peer networking stack for Python developers. The foundation is solid, and with continued community effort, it will undoubtedly play a crucial role in the decentralized web ecosystem.\n![](https://cdn.hashnode.com/res/hashnode/image/upload/v1753620553897/b13d22a2-a34e-43e3-bf78-88b6efcf927c.webp align=“center”)\n",
-  "wordCount" : "1798",
-  "inLanguage": "en",
-  "datePublished": "2025-07-27T00:00:00Z",
-  "dateModified": "2025-07-27T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Abhinav Agarwalla"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://shell.soiraspi.win/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Abhinav Agarwalla",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://shell.soiraspi.win/favicon.ico"
-    }
-  }
-}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://shell.soiraspi.win/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -179,37 +106,37 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
         </div>
         <ul id="menu">
             <li>
-                <a href="https://shell.soiraspi.win/" title="Home">
+                <a href="http://localhost:1313/" title="Home">
                     <span>Home</span>
                 </a>
             </li>
             <li>
-                <a href="https://shell.soiraspi.win/resume" title="Resume">
+                <a href="http://localhost:1313/resume" title="Resume">
                     <span>Resume</span>
                 </a>
             </li>
             <li>
-                <a href="https://shell.soiraspi.win/blogs/" title="Blogs">
-                    <span>Blogs</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://shell.soiraspi.win/post/" title="Archive">
+                <a href="http://localhost:1313/post/" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://shell.soiraspi.win/code" title="Builds">
+                <a href="http://localhost:1313/blogs/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/code" title="Builds">
                     <span>Builds</span>
                 </a>
             </li>
             <li>
-                <a href="https://shell.soiraspi.win/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="https://shell.soiraspi.win/about/" title="About">
+                <a href="http://localhost:1313/about/" title="About">
                     <span>About</span>
                 </a>
             </li>
@@ -392,7 +319,7 @@ This brought py-libp2p in line with Rust, Go, and JS implementations. With this,
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="https://shell.soiraspi.win/">Abhinav Agarwalla</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
 
     <span>
         Powered by

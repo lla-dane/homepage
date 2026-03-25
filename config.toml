@@ -23,15 +23,15 @@ theme = "PaperMod"
   identifier = "resume"
   url = "/resume"
 [[menu.main]]
-  name = "Blogs"
-  weight = 18
-  identifier = "blogs"
-  url = "/blogs/"
-[[menu.main]]
   name = "Archive"
   weight = 20
   identifier = "archive"
   url = "/post/"
+[[menu.main]]
+  name = "Blogs"
+  weight = 22
+  identifier = "blogs"
+  url = "/blogs/"
 [[menu.main]]             # config your menu              
   name = "Builds"
   weight = 25

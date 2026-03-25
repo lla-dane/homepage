@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Building a Covert LAN - A Dockerized VPN Gateway using WireGuard and Nginx | Abhinav Agarwalla</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+Establishing a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted connections.
+
+Introduction
+In an increasing noisy internet, privacy isn’t just about encrypting your data - it’s also about controlling who gets to see and expose your services in the first place. Imagining running a set of internal services, say a dashboard, an internal wiki, or a media server. You don’t want these exposed to the internet, and even your local network feels too open. What if you could make them disappear entirely from everything except a private VPN?">
+<meta name="author" content="Abhinav Agarwalla">
+<link rel="canonical" href="http://localhost:1313/blogs-copy/2025-04-06-building-a-covert-lan/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs-copy/2025-04-06-building-a-covert-lan/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blogs/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/code" title="Builds">
+                    <span>Builds</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Building a Covert LAN - A Dockerized VPN Gateway using WireGuard and Nginx
+    </h1>
+    <div class="post-meta"><span title='2025-04-06 00:00:00 +0000 UTC'>April 6, 2025</span>&nbsp;·&nbsp;<span>Abhinav Agarwalla</span>
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>Establishing a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted connections.</p>
+</blockquote>
+<h1 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h1>
+<p>In an increasing noisy internet, privacy isn’t just about encrypting your data - it’s also about controlling who gets to see and expose your services in the first place. Imagining running a set of internal services, say a dashboard, an internal wiki, or a media server. You don’t want these exposed to the internet, and even your local network feels too open. What if you could make them disappear entirely from everything except a private VPN?</p>
+<p>That’s the concept of building a covert LAN - a hidden internal network where your containers only speak to authenticated Wireguard peers, nothing more. In this blog, I’ll walk you through how I built one using Docker, <code>Wireguard</code>, and a sprinkle of <code>iptables</code> magic. You’ll get a clear idea of how to isolate services so well that even your own host machine can’t sneak past the guards unless it’s on the VPN.</p>
+<h1 id="why-we-want-a-covert-lan-">Why we want a covert LAN ?<a hidden class="anchor" aria-hidden="true" href="#why-we-want-a-covert-lan-">#</a></h1>
+<p>This project started with a simple goal: keep my Dockerized services off the grid. Not off the internet — off everyhting. I didn’t want my NGINX container responding to some random local network scans, or my services being visible just because I’m on the same subnet.</p>
+<blockquote>
+<p>A quick word about <strong>subnets:</strong> A subnet — short for subnetwork — is a logical partition of an IP network. Devices withing the same subnet can usually talk to each other directly, without needing to go through the router. For example, your laptop, your phone, and you desktop might all be on <code>192:168.1.x</code>. That makes them neighbors — and neighbors can see each other.</p>
+</blockquote>
+<p>So if my Docker container is listening on the default bridge and my host is on the same subnet, they’re technically visible. Even worse, someone else plugged into the same LAN — say at a coworking space or on campus — might also be on the subnet. That’s visibility risk.</p>
+<p>What I wanted was a digital equivalent of a soundproof, windowless room. The containers shouldn’t know or care about who’s on the same subnet — unless they’ve come in the right door: the Wireguard VPN.</p>
+<h1 id="what-were-building-">What we’re building ?<a hidden class="anchor" aria-hidden="true" href="#what-were-building-">#</a></h1>
+<p>Now let’s talk about what the architecture will look like. We’ve got a Docker network that contains some sensitive services — a web server, maybe an admin panel (for now just a NGINX server) — and we wrap that network inside a Wireguard gateway. The catch is, the services inside are only accessible through VPN.</p>
+<p>Anyone not coming in via Wireguard? Doesn’t matter if they’re on the same physical machine or the same LAN — they’re blocked at the door.</p>
+<p>This approach lets up simulate something like a ‘zero trust’ internal network, even for Docker containers. It’s sneaky little LAN in the shadows — accessible only to those who carry the right cryptographic keys.</p>
+<h1 id="how-it-works-">How it works ?<a hidden class="anchor" aria-hidden="true" href="#how-it-works-">#</a></h1>
+<p>At the heart of this setup is network isolating and filtering. Docker gives us isolated networks by default, but those can still be accessed by the host or LAN users unless explicitly locked down. So we add a WireGuard container that acts as the gatekeeper, and we use iptables to enforce strict rules:</p>
+<ul>
+<li>
+<p>Only traffic coming from WireGuard-assigned IPs (like <code>10.8.0.2</code>) can talk to the internal Docker bridge.</p>
+</li>
+<li>
+<p>the host? Blocked unless it tunnels through WireGuard.</p>
+</li>
+<li>
+<p>The LAN? Doesn’t even see the services.</p>
+</li>
+</ul>
+<p>With this combo of namespaces, bridges, and packet filtering, we build a digital moat — a hidden enclave accessible only via VPN.</p>
+<h1 id="setup">Setup<a hidden class="anchor" aria-hidden="true" href="#setup">#</a></h1>
+<p>In this simulation, this whole thing runs on a linux machine (Arch in this blog) with Docker. We will be using <strong>docker-compose</strong> to orchestrate the WireGuard gateway and some test containers — like NGINX — sitting behind it.</p>
+<p>I chose Wireguard (<em><s>basically because I failed to set up OpenVPN on my arch linux in the first place, LOL</s></em>) because its lighweight, fast and dead simple to set up inside Docker. And <strong>iptables?</strong> Well… its not exactly a joy to use — the syntax feels like you’re casting ancient spells — but when you do get it right, its wildly powerful. We will use to enforce strict egress (who containers are allowed to talk to) and ingress rules (who are allowed in) so that if someone tries to reach my services outside the VPN, they’re hitting a brick wall.</p>
+<p>Now that we’ve talked about why we’re doing this, it’s time to start building the actual foundation of this covert network. Everything runs in Docker — it’s clean, isolated, and portable. Plus, we can tear it down and rebuild it with a single <strong>compose up</strong> if we needed.</p>
+<p>The hear to this setup is WireGuard. We’ll set up two containers: one as the <strong>WireGuard access server</strong>, and another as a <strong>WireGuard client</strong> that lives inside the same Docker network. Together, these form the secure tunnel that connects trusted clients to our isolated services.</p>
+<h2 id="pre-requisites">Pre-requisites<a hidden class="anchor" aria-hidden="true" href="#pre-requisites">#</a></h2>
+<h3 id="-a-linux-machine-preferably-arch">✅ A linux Machine (Preferably Arch)<a hidden class="anchor" aria-hidden="true" href="#-a-linux-machine-preferably-arch">#</a></h3>
+<p>I’m running this on Arch Linux, because I like control, minimalism, and sometimes pain. But you can use any modern Linux distro that has iptables, Docker, and support for wireguard kernel module. Ubuntu, Debian, Fedora — they’ll work fine.</p>
+<p>Just make sure you have root access, and you’re comfortable using the terminal. This is not a GUI walkthrough.</p>
+<h3 id="-docker--docker-compose">✅ Docker &amp; Docker Compose<a hidden class="anchor" aria-hidden="true" href="#-docker--docker-compose">#</a></h3>
+<p>You’ll need Docker up and running, obviously. Docker Compose makes it easier to spin up multi-container environments, so we’ll be using that too. Nothing fancy — just the standard setup.</p>
+<p>If <code>docker --version</code> and <code>docker compose version</code> give you valid output, you’re good.</p>
+<h3 id="-basic-networking--iptables-knowledge">✅ Basic Networking &amp; iptables Knowledge<a hidden class="anchor" aria-hidden="true" href="#-basic-networking--iptables-knowledge">#</a></h3>
+<p>You don’t need to be a expert, but you should have some idea of how IP ranges, interfaces, and firewall rules work. We’ll be crafting rules with iptables to strictly control access to our Docker network — so if you&rsquo;ve never written a firewall rule before, prepare to do some learning.</p>
+<p>Don’t worry, I’ll explain the why behind each rule — but I won’t be doing a deep dive on how TCP/IP works.</p>
+<h3 id="-macos-and-windows-no-native-iptables">🚫 macOS and Windows: No Native iptables<a hidden class="anchor" aria-hidden="true" href="#-macos-and-windows-no-native-iptables">#</a></h3>
+<ul>
+<li>
+<p>macOS uses the pf (Packet Filter) firewall system — totally different from iptables. You can’t run <code>iptables</code> there unless you&rsquo;re using a Linux VM or container.</p>
+</li>
+<li>
+<p>Windows has its own firewall stack (Windows Filtering Platform), and again, no native <code>iptables</code>.</p>
+</li>
+</ul>
+<h3 id="a-curious-and-paranoid-mindset">✅A Curious and Paranoid Mindset<a hidden class="anchor" aria-hidden="true" href="#a-curious-and-paranoid-mindset">#</a></h3>
+<p>This project is about control and isolation. We’re not just setting up a VPN — we’re creating a controlled LAN inside Docker that’s invisible to the outside world unless you&rsquo;re inside the tunnel. It’s a bit of a puzzle and a lot of fun, especially if you enjoy tinkering with network namespaces, containers, and low-level firewall rules.</p>
+<p>If that sounds like your vibe — let’s get to it.</p>
+<h2 id="wireguard-access-server">WireGuard access server<a hidden class="anchor" aria-hidden="true" href="#wireguard-access-server">#</a></h2>
+<p>This is the gateway — the door into our secret LAN. You can set up the access servers for general usecase, by following this <a href="https://pimylifeup.com/wireguard-docker/">blog</a>. But we will do some different configurations.</p>
+<p>After setting up <code>docker</code> and <code>docker compose</code>, we will set up the WireGuard server container.</p>
+<ul>
+<li>
+<p>We will create a directory to store the compose.yaml file for running WireGuard using Docker. It is also the same location we will be storing all of the configuration files for Wireguard. You can create a directory at <code>/opt/stacks/wireguard</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /opt/stacks/wireguard
+</span></span><span style="display:flex;"><span>cd /opt/stacks/wireguard
+</span></span></code></pre></div><p>For the rest of the walkthrough, we expect that you are within this folder.</p>
+</li>
+<li>
+<p><strong>Generating a Password Hash for your WireGuard Docker Container:</strong> Within the terminal, run the following command. While typing out this command, ensure that you replace <code>&lt;PASSWORD&gt;</code> with the password you intend on using to access the WG-Easy web interface.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw <span style="color:#e6db74">&#39;&lt;PASSWORD&gt;&#39;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>After running the above command, you should end up with a line that looks somewhat like what is shown below. This is a bcrypt hash of your password. However, before this line can be used in the Docker Compose file, it requires some modifications.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Example PASSWOKD_HASH</span>
+</span></span><span style="display:flex;"><span>PASSWORD_HASH<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$2b$12$coPqCsPtcFO.Ab99xylBNOW4.Iu7OOA2/ZIboHN6/oyxca3MWo7fW&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MODIFIED PASSWORD_HASH (just remove the (&#39;), and add additional $ after each dollar sign)</span>
+</span></span><span style="display:flex;"><span>PASSWORD_HASH<span style="color:#f92672">=</span>$$2b$$12$$coPqCsPtcFO.Ab99xylBNOW4.Iu7OOA2/ZIboHN6/oyxca3MWo7fW
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Creating a custom Docker Bridge Network</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  docker network create <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --driver bridge <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --subnet 172.25.0.0/16 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --gateway 172.25.0.1 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  covert_lan
+</span></span></code></pre></div><p>This does three things:</p>
+<ul>
+<li>
+<p>Creates a bridge network called <code>covert_lan</code>.</p>
+</li>
+<li>
+<p>Uses a fixed subnet <code>172.25.0.0/16</code> so you can reliably build rules around it.</p>
+</li>
+<li>
+<p>Assigns a known gateway IP <code>172.25.0.1</code> to use in iptables, routing, etc.</p>
+</li>
+</ul>
+<p>Fetch the network info</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker network inspect covert_lan
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output (Look for Subnet and Gateway)</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;IPAM&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Config&#34;</span>: <span style="color:#f92672">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Subnet&#34;</span>: <span style="color:#e6db74">&#34;172.25.0.0/16&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;Gateway&#34;</span>: <span style="color:#e6db74">&#34;172.25.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Writing a Docker Compose File for WireGuard: We are finally at the point where we can write the Docker Compose file for our WireGuard VPN. A Compose file is like a set of instructions that Docker will use to manage and run your WireGuard VPN.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano compose.yaml
+</span></span></code></pre></div><p>Within this file, we will type the following lines.</p>
+<ul>
+<li>
+<p><code>&lt;PASSWORD_HASH&gt;</code>: Replace this placeholder with the value that you got earlier in on this guide. The password that was generated for this hash is what you will use to log in to the WG-Easy web interface.</p>
+</li>
+<li>
+<p><code>&lt;IPADDRESS&gt;</code>: Next, specify the IP address or domain name where your VPN can be accessed. Here it will be the IP address of the access server container <code>172.25.0.2</code>.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  wg-easy:
+</span></span><span style="display:flex;"><span>    container_name: wg-easy
+</span></span><span style="display:flex;"><span>    image: ghcr.io/wg-easy/wg-easy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      - PASSWORD_HASH<span style="color:#f92672">=</span>$$2b$$12$$coPqCsPtcFO.Ab99xylBNOW4.Iu7OOA2/ZIboHN6/oyxca3MWo7fW
+</span></span><span style="display:flex;"><span>      - WG_HOST<span style="color:#f92672">=</span>172.25.0.2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    volumes:
+</span></span><span style="display:flex;"><span>      - ./config:/etc/wireguard
+</span></span><span style="display:flex;"><span>      - /lib/modules:/lib/modules
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;51820:51820/udp&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;51821:51821/tcp&#34;</span>
+</span></span><span style="display:flex;"><span>    restart: unless-stopped
+</span></span><span style="display:flex;"><span>    cap_add:
+</span></span><span style="display:flex;"><span>      - NET_ADMIN
+</span></span><span style="display:flex;"><span>      - SYS_MODULE
+</span></span><span style="display:flex;"><span>    sysctls:
+</span></span><span style="display:flex;"><span>      - net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      - net.ipv4.conf.all.src_valid_mark<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    networks:
+</span></span><span style="display:flex;"><span>      - covert_lan
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Setting up the Wireguard Docker Stack:</strong> To get our VPN up and running, we need to use the command below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose up -d
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Accessing our WireGuard Docker Container Web Interface:</strong> Before we can start using our new VPN. we will need to create a new client. Most of time this could be a pain with other VPN services, but with the WireGuard container that we are using its dead simple.<br>
+To access the web interface and create the client, follow the steps from 14 in <a href="https://pimylifeup.com/wireguard-docker/">this blog.</a></p>
+<p>Access the we interface here: <code>http://localhost:51821</code>.</p>
+</li>
+</ul>
+<h2 id="wireguard-client">WireGuard client<a hidden class="anchor" aria-hidden="true" href="#wireguard-client">#</a></h2>
+<p>Once you’ve created your WireGuard client using the web interface (assuming you&rsquo;re using something like the <code>LinuxServer.io</code> WireGuard container), you’ll get a <code>.conf</code> file — probably something like <code>wire_vpn.conf</code>. This is the configuration that your WireGuard client will use to connect to the VPN server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano Downloads/wire_vpn.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Interface<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>PrivateKey <span style="color:#f92672">=</span> OIeJsiERVJGffJYF77ro24xd0i6wB5Q2T+YpZgn36mc<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>Address <span style="color:#f92672">=</span> 10.8.0.2/24 <span style="color:#75715e"># For the 1st client that you create</span>
+</span></span><span style="display:flex;"><span>DNS <span style="color:#f92672">=</span> 1.1.1.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Peer<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>PublicKey <span style="color:#f92672">=</span> DjqUtarLkB26ZnGWNhxBHwuYnU39eJKSSsHWYYiSnjY<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>PresharedKey <span style="color:#f92672">=</span> jmbIwT89seHklvi3sSsYgJuBjlqVWK+P+0IVXKdadxo<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>AllowedIPs <span style="color:#f92672">=</span> 0.0.0.0/0, ::/0
+</span></span><span style="display:flex;"><span>PersistentKeepalive <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>Endpoint <span style="color:#f92672">=</span> 172.20.0.2:51820
+</span></span></code></pre></div><p>This is a general-purpose config — its designed to route all traffic from your client through the VPN (that’s what <code>AllowedIPs = 0.0.0.0/0, ::/0</code> means). But in our case, we’re not trying to build a full tunnel VPN. We’re building a covert LAN. Our goal is much tighter: we want to allow the client to access only services inside our Docker bridge network — nothing more, nothing less.</p>
+<blockquote>
+<p>My college Wi-Fi blocks VPN traffic — no exceptions. So instead of routing everything through the VPN, I set it up to only tunnel traffic destined for a private Docker network.</p>
+<p>That means no packets ever leave my machine through the VPN unless they’re going to that isolated LAN. To the college network, its like the VPN doesn’t exist.</p>
+<p>I still get full internet access for everything else, while quietly running a secure, private experiment lab in the background. Stealthy and effective.</p>
+</blockquote>
+<p>So we’ll be making a few critical changes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 🚧 Modified Config: Making It Fit Our Setup</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Interface<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>PrivateKey <span style="color:#f92672">=</span> SBXUhS5PNmWbGeI5EkYXpZCN+kcc9IBGRcFB90hJL1A<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>Address <span style="color:#f92672">=</span> 10.8.0.2/24
+</span></span><span style="display:flex;"><span>DNS <span style="color:#f92672">=</span> 1.1.1.1
+</span></span><span style="display:flex;"><span>Table <span style="color:#f92672">=</span> off
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Peer<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>PublicKey <span style="color:#f92672">=</span> DjqUtarLkB26ZnGWNhxBHwuYnU39eJKSSsHWYYiSnjY<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>PresharedKey <span style="color:#f92672">=</span> vtAB/CT6yrTd1oFUl/NBOlZ/xgr76T1Q9OX0/qsCK3s<span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>AllowedIPs <span style="color:#f92672">=</span> 172.25.0.0/16
+</span></span><span style="display:flex;"><span>PersistentKeepalive <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>Endpoint <span style="color:#f92672">=</span> 172.20.0.2:51820
+</span></span></code></pre></div><p>Lets break down that down a bit.</p>
+<ul>
+<li>
+<p><code>Table = off</code>: This tells WireGuard not to mess with your system routing table. Normally, when you connect to a VPN, WireGuard will inject routes for <code>AllowedIPs</code> . But we don’t want that. We’re already going to control what traffic goes through the VPN using our own routing or firewall logic. Setting <code>Table = off</code> gives us full control<code>.</code></p>
+</li>
+<li>
+<p><code>AllowedIPs = 172.25.0.0/16</code>: This is the Docker bridge subnet. It tells the client: “only send traffic to this subnet through the VPN tunnel.“ That means only traffic bound for services on the Docker network will ever touch the WireGuard interface — which is exactly what we want.</p>
+</li>
+<li>
+<p><code>PersistentKeepalive = 25</code>: This just keeps the tunnel alive if the client is behind NAT or idle. You can tweak it or leave it out, but it helps with connection stability.</p>
+</li>
+</ul>
+<p>With this modified config, your WireGuard client becomes a stealthy visitor on your isolated Docker network. It doesn&rsquo;t route general internet traffic. It doesn&rsquo;t announce itself. It only has eyes for services behind the VPN — exactly how you’d want it for a private, zero-trust-style setup.</p>
+<p>Now lets set up the required tools for setting up the VPN client. We’ll be using the <code>wg-quick</code> utility, which comes bundled with the <code>wireguard-tools</code> package. This little tool reads our <code>wire_vpn.conf</code> file and brings up the VPN interface with a single command. No need to mess around with a million options.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S wireguard-tools
+</span></span><span style="display:flex;"><span>which wg-quick
+</span></span><span style="display:flex;"><span>wg --version
+</span></span></code></pre></div><p>Now we need to move the wire_vpn.conf file to this directory: <code>/etc/wireguard/</code> using this command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp Downloads/wire_vpn.conf /etc/wireguard/
+</span></span></code></pre></div><p>Now just spin up the VPN tunnel with this command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo wg-quick up wire_vpn     <span style="color:#75715e"># Connected</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output (Something like this)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] ip link add wvpn type wireguard</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] wg setconf wvpn /dev/fd/63</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] ip -4 address add 10.8.0.2/24 dev wvpn</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] ip link set mtu 1420 up dev wvpn</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] resolvconf -a wvpn -m 0 -x</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo wg-quick down wire_vpn   <span style="color:#75715e"># Disconnected</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output (Something like this)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] ip link delete dev wvpn</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span><span style="color:#75715e">#] resolvconf -d wvpn -f</span>
+</span></span></code></pre></div><h2 id="spinning-up-the-iptables-rules-">Spinning Up the <code>iptables</code> Rules 🧙‍♂️<a hidden class="anchor" aria-hidden="true" href="#spinning-up-the-iptables-rules-">#</a></h2>
+<p>Now that our WireGuard tunnel is alive and breathing, it’s time to lay down some strict laws—iptables style.</p>
+<p>Think of this part as warding off uninvited guests. By default, Docker is a bit too friendly. It allows containers to be accessed from anywhere on the host, which is not what we want. Our mission is to build a covert LAN, right? That means <strong>no outside access unless it comes through the VPN</strong>.</p>
+<p>Here’s where iptables comes in. It might not have the prettiest syntax (okay, it’s borderline arcane), but it’s incredibly powerful when it comes to controlling traffic flow at the network layer.</p>
+<p>We use it to write rules like:</p>
+<ul>
+<li>
+<p><code>Ingress filtering</code>: Only allow packets into our Docker network if they’re coming from the WireGuard interface. Anything else gets dropped at the gate—no questions asked.</p>
+</li>
+<li>
+<p><code>Egress control</code>: Prevent any app or user on the host from directly talking to Docker containers. That means no <code>curl</code>ing a container from the host, no sneak peeks. All traffic must route through the VPN tunnel.</p>
+</li>
+</ul>
+<p>This setup ensures one critical thing: even though the services are running on your machine, you can’t access them unless you&rsquo;re on the VPN. It&rsquo;s like running a secret server that even you can’t see without the right keys.</p>
+<p>Lets set up the rules:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iptables -I OUTPUT -d 172.20.0.0/16 ! -s 10.8.0.0/24 -j REJECT
+</span></span></code></pre></div><h3 id="-what-this-does">💡 What this does:<a hidden class="anchor" aria-hidden="true" href="#-what-this-does">#</a></h3>
+<ul>
+<li>
+<p><code>-I OUTPUT</code>: Inserts a rule at the <strong>top</strong> of the OUTPUT chain (so it’s processed first).</p>
+</li>
+<li>
+<p><code>-d 172.25.0.0/16</code>: Targets all packets going to Docker’s bridge network (<code>covert_lan</code> in your case).</p>
+</li>
+<li>
+<p><code>! -s 10.8.0.0/24</code>: Blocks anything <strong>not</strong> coming from the VPN subnet.</p>
+</li>
+<li>
+<p><code>-j REJECT</code>: Rejects the connection attempt (with an ICMP unreachable by default).</p>
+</li>
+</ul>
+<p>You can confirm it’s in place with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iptables -L OUTPUT -v --line-numbers
+</span></span></code></pre></div><p>💾 Optional – Save it so it survives reboot:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo iptables-save | sudo tee /etc/iptables/iptables.rules
+</span></span><span style="display:flex;"><span>sudo systemctl enable iptables
+</span></span><span style="display:flex;"><span>sudo systemctl start iptables
+</span></span></code></pre></div><p>Now lets check if our routing table is updated after setting up the rules:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>route -n 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Kernel IP routing table
+</span></span><span style="display:flex;"><span>Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+</span></span><span style="display:flex;"><span>0.0.0.0         172.16.68.1     0.0.0.0         UG    <span style="color:#ae81ff">100</span>    <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> enp55s0f4u1
+</span></span><span style="display:flex;"><span>10.8.0.0        0.0.0.0         255.255.255.0   U     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> wire_vpn
+</span></span><span style="display:flex;"><span>172.16.68.0     0.0.0.0         255.255.252.0   U     <span style="color:#ae81ff">100</span>    <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> enp55s0f4u1
+</span></span><span style="display:flex;"><span>172.17.0.0      0.0.0.0         255.255.0.0     U     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> docker0
+</span></span><span style="display:flex;"><span>172.18.0.0      0.0.0.0         255.255.0.0     U     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> docker_gwbridge
+</span></span><span style="display:flex;"><span>192.168.122.0   0.0.0.0         255.255.255.0   U     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> virbr0
+</span></span></code></pre></div><p>If you see this line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>10.8.0.0        0.0.0.0         255.255.255.0   U     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> wire_vpn
+</span></span></code></pre></div><p>Then that mean all the traffic from <code>10.8.0.0/24</code> will be routed form the <code>wire_vpn</code> tunnel, which we want because only that traffic will be accepted by our docker services.</p>
+<h2 id="set-up-the-nginx-container">Set up the NGINX container:<a hidden class="anchor" aria-hidden="true" href="#set-up-the-nginx-container">#</a></h2>
+<p>We now want to launch a NGINX container and attach it to the <code>covert_lan</code> network:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -d --name wire_ngicx --network covert_lan nginx
+</span></span></code></pre></div><p>Inspect the <code>covert_lan</code> network to see if <code>wire_nginx</code> container is attached to it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker network inspect covert_lan 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See for the containers: </span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;Containers&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;18974b2b2d8ce2ae4959bc597d5008157bdc27a995b1d8b32f51fcfc9529626d&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;wg-easy&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;EndpointID&#34;</span>: <span style="color:#e6db74">&#34;b471d2ca8aa4b01418dda16b0b874e4b18eb5813376e6aa66a411f05ec5570b5&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;MacAddress&#34;</span>: <span style="color:#e6db74">&#34;0e:d5:34:12:d5:16&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;IPv4Address&#34;</span>: <span style="color:#e6db74">&#34;172.25.0.2/16&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;IPv6Address&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;990440a5202e10f2b168718fbbc4316b07643d1940e5c811d0c7d9503f9df6f7&#34;</span>: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Name&#34;</span>: <span style="color:#e6db74">&#34;wire_ngnix&#34;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;EndpointID&#34;</span>: <span style="color:#e6db74">&#34;26aae0dff008c5567d28d4b2959e6f73c65e867cdefae083cb4847687e67dc3b&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;MacAddress&#34;</span>: <span style="color:#e6db74">&#34;5a:e6:7a:71:5c:ff&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;IPv4Address&#34;</span>: <span style="color:#e6db74">&#34;172.25.0.3/16&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;IPv6Address&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>,
+</span></span></code></pre></div><p>Now everything is complete, lets test our network.</p>
+<h1 id="testing">Testing<a hidden class="anchor" aria-hidden="true" href="#testing">#</a></h1>
+<h2 id="check-if-everything-is-set-up">Check if everything is set up<a hidden class="anchor" aria-hidden="true" href="#check-if-everything-is-set-up">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo wg-quick up wire_vpn
+</span></span></code></pre></div><p>Check if all our required containers are running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE                     COMMAND                  CREATED        STATUS                       PORTS                                                                                              NAMES
+</span></span><span style="display:flex;"><span>990440a5202e   nginx                     <span style="color:#e6db74">&#34;/docker-entrypoint.…&#34;</span>   <span style="color:#ae81ff">19</span> hours ago   Up <span style="color:#ae81ff">3</span> minutes                 80/tcp                                                                                             wire-nginx
+</span></span><span style="display:flex;"><span>18974b2b2d8c   ghcr.io/wg-easy/wg-easy   <span style="color:#e6db74">&#34;docker-entrypoint.s…&#34;</span>   <span style="color:#ae81ff">19</span> hours ago   Up About an hour <span style="color:#f92672">(</span>healthy<span style="color:#f92672">)</span>   0.0.0.0:51820-&gt;51820/udp, <span style="color:#f92672">[</span>::<span style="color:#f92672">]</span>:51820-&gt;51820/udp, 0.0.0.0:51821-&gt;51821/tcp, <span style="color:#f92672">[</span>::<span style="color:#f92672">]</span>:51821-&gt;51821/tcp   wg-easy
+</span></span></code></pre></div><p>Check if the <code>iptables</code> rules are intact:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>route -n | grep 10.8.0.0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>10.8.0.0        0.0.0.0         255.255.255.0   U     <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>        <span style="color:#ae81ff">0</span> wire_vpn
+</span></span></code></pre></div><p>Check your <code>wire_vpn</code> modified IPV4 address:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip a | grep wire_vpn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span>18: wvpn: &lt;POINTOPOINT,NOARP,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1420</span> qdisc noqueue state UNKNOWN group default qlen <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>    inet 10.8.0.2/24 scope global wvpn
+</span></span></code></pre></div><p><code>10.8.0.2</code> will be the wire_vpn tunnel ipv4 address.</p>
+<h2 id="make-the-curl-request-to-nginx-container">Make the <code>curl</code> request to NGINX container<a hidden class="anchor" aria-hidden="true" href="#make-the-curl-request-to-nginx-container">#</a></h2>
+<ul>
+<li>
+<p><code>curl</code> with the <code>wire_vpn</code> interface:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl --interface 10.8.0.2 http://172.25.0.3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expected output</span>
+</span></span><span style="display:flex;"><span>&lt;!DOCTYPE html&gt;
+</span></span><span style="display:flex;"><span>&lt;html&gt;
+</span></span><span style="display:flex;"><span>&lt;head&gt;
+</span></span><span style="display:flex;"><span>&lt;title&gt;Welcome to nginx!&lt;/title&gt;
+</span></span><span style="display:flex;"><span>&lt;style&gt;
+</span></span><span style="display:flex;"><span>html <span style="color:#f92672">{</span> color-scheme: light dark; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>body <span style="color:#f92672">{</span> width: 35em; margin: <span style="color:#ae81ff">0</span> auto;
+</span></span><span style="display:flex;"><span>font-family: Tahoma, Verdana, Arial, sans-serif; <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>&lt;/style&gt;
+</span></span><span style="display:flex;"><span>&lt;/head&gt;
+</span></span><span style="display:flex;"><span>&lt;body&gt;
+</span></span><span style="display:flex;"><span>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span></span><span style="display:flex;"><span>&lt;p&gt;If you see this page, the nginx web server is successfully installed and
+</span></span><span style="display:flex;"><span>working. Further configuration is required.&lt;/p&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;p&gt;For online documentation and support please refer to
+</span></span><span style="display:flex;"><span>&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.org/&#34;</span>&gt;nginx.org&lt;/a&gt;.&lt;br/&gt;
+</span></span><span style="display:flex;"><span>Commercial support is available at
+</span></span><span style="display:flex;"><span>&lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://nginx.com/&#34;</span>&gt;nginx.com&lt;/a&gt;.&lt;/p&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;p&gt;&lt;em&gt;Thank you <span style="color:#66d9ef">for</span> using nginx.&lt;/em&gt;&lt;/p&gt;
+</span></span><span style="display:flex;"><span>&lt;/body&gt;
+</span></span><span style="display:flex;"><span>&lt;/html&gt;
+</span></span></code></pre></div><p>Here I explicitly used <code>--interface 10.8.0.2</code> flag, this forces <code>curl</code> to send the request through the WireGuard interface <code>10.8.0.2</code>. WIthout it, the request will go through your default network interface, which will be refused ofcourse.</p>
+</li>
+<li>
+<p><code>curl</code> with the <code>default physical network</code> interface:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl http://172.25.0.3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Output</span>
+</span></span><span style="display:flex;"><span>Timeout error
+</span></span></code></pre></div><p>This concludes the testing for our <code>covert_lan</code> .</p>
+</li>
+</ul>
+<h1 id="-future-goals">🚀 Future Goals<a hidden class="anchor" aria-hidden="true" href="#-future-goals">#</a></h1>
+<p>Now this whole setup has opened the door for a bunch of fun experiments. Here’s what I’m planning next:</p>
+<ul>
+<li>
+<p><code>Spin up an IDS/IPS container (Snort or Suricata)</code>: Drop it into promiscuous mode on the Docker network so it can sniff all traffic flowing between containers. The goal? Catch suspicious behavior — weird request patterns, port scans, anything shady — and log or alert on it.</p>
+</li>
+<li>
+<p><code>Create an attacker/scanner container (nmap, curl, etc.)</code>: Simulate real-world attacks from inside the covert LAN. This rogue container would try to port-scan, probe endpoints, or brute-force access — basically stress-testing the setup and helping me fine-tune firewall rules or detection systems.</p>
+</li>
+</ul>
+<p>This project is turning into my personal cyber lab, and I’m stoked to keep hacking on it. All thanks to Docker for its flexibility.</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>What started as a workaround for my college network’s VPN restrictions turned into a full-on covert network experiment — and honestly, I learned a ton along the way.</p>
+<p>By tunneling everything through WireGuard inside Docker, crafting tight <code>iptables</code> rules, and locking down access behind a <code>virtual LAN</code>, I now have an isolated environment where I can run services, test security, and explore without interference from the outside world.</p>
+<p>It’s minimal, stealthy, and extremely modular — and that’s the beauty of it. This isn’t just a VPN setup; it’s the foundation for a private cyber playground. There’s plenty left to explore, from IDS/IPS integrations to automated rule orchestration and real-world service hosting.</p>
+<p>If you&rsquo;re into self-hosting, network security, or just want to build something cool with Docker and WireGuard, give this a shot. Break things, tweak things, and make it your own.</p>
+<p>The covert LAN awaits. 🕶️🛰️</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

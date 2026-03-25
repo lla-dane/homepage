@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Improve Floresta&#39;s testing - Part 2 | Abhinav Agarwalla</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta&rsquo;s testing
+
+Floresta ?
+Floresta a lightweight Bitcoin full node implementation written in Rust. powered by Utreexo a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated Electrum server.
+My progress :
+
+All my related PRs after mid-evaluation:
+
+
+https://github.com/vinteumorg/Floresta/pull/200
+
+
+https://github.com/vinteumorg/Floresta/pull/202
+
+
+https://github.com/vinteumorg/Floresta/pull/203
+
+
+https://github.com/vinteumorg/Floresta/pull/214
+
+
+
+Floresta-wire :
+As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta&rsquo;s node infrastructure:">
+<meta name="author" content="Abhinav Agarwalla">
+<link rel="canonical" href="http://localhost:1313/blogs-copy/2024-08-30-imporove-floresta-testing-part-2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blogs-copy/2024-08-30-imporove-floresta-testing-part-2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Abhinav Agarwalla (Alt + H)">Abhinav Agarwalla</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/resume" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/post/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/blogs/" title="Blogs">
+                    <span>Blogs</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/code" title="Builds">
+                    <span>Builds</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Improve Floresta&#39;s testing - Part 2
+    </h1>
+    <div class="post-meta"><span title='2024-08-30 00:00:00 +0000 UTC'>August 30, 2024</span>&nbsp;·&nbsp;<span>Abhinav Agarwalla</span>
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+<p>This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta&rsquo;s testing</p>
+</blockquote>
+<h1 id="floresta-">Floresta ?<a hidden class="anchor" aria-hidden="true" href="#floresta-">#</a></h1>
+<p>Floresta a lightweight Bitcoin full node implementation written in Rust. powered by <a href="https://eprint.iacr.org/2019/611"><strong>Utreexo</strong></a> a novel dynamic accumulator designed for the Bitcoin UTXO set, with an integrated <a href="https://thebitcoinmanual.com/articles/btc-electrum-server/"><strong>Electrum</strong></a> server.</p>
+<h1 id="my-progress-">My progress :<a hidden class="anchor" aria-hidden="true" href="#my-progress-">#</a></h1>
+<blockquote>
+<p>All my related PRs after mid-evaluation:</p>
+<ul>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/200">https://github.com/vinteumorg/Floresta/pull/200</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/202">https://github.com/vinteumorg/Floresta/pull/202</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/203">https://github.com/vinteumorg/Floresta/pull/203</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vinteumorg/Floresta/pull/214">https://github.com/vinteumorg/Floresta/pull/214</a></p>
+</li>
+</ul>
+</blockquote>
+<h2 id="floresta-wire-">Floresta-wire :<a hidden class="anchor" aria-hidden="true" href="#floresta-wire-">#</a></h2>
+<p>As I discussed before in my previous blog about my progress, I discussed about 3 node instances, that make up Floresta&rsquo;s node infrastructure:</p>
+<ul>
+<li>
+<p><strong>chain_selector_node:</strong> Its job is to connect with multiple peers and decide the best chain in the network, on which we will build upon.</p>
+</li>
+<li>
+<p><strong>sync_node:</strong> After chain selector decides the best chain, the sync node downloads and validates them</p>
+</li>
+<li>
+<p>running_nod: After the node caches-up with the network, we can start listening for new blocks, handling any request our user might make and keep our peers alive.</p>
+</li>
+</ul>
+<p><strong>After mid-evaluation my contribution was majorly around sync-node and running-node.</strong></p>
+<h3 id="test-utils">Test-Utils:<a hidden class="anchor" aria-hidden="true" href="#test-utils">#</a></h3>
+<p>Since the basic functionality for setting up the simulation node, is about mostly same for the 3 nodes, setting up a common test utilities module seemed right.</p>
+<p>It has all the basic functions to set up testing for the p2p-wire like:</p>
+<ul>
+<li>
+<p>Setting up the peers</p>
+</li>
+<li>
+<p>Fetching different types of Signet and Regtest block data from the test_data directories.</p>
+</li>
+<li>
+<p>Serializing the fetched data into an abstract form which would be accepted in the consensus.</p>
+</li>
+<li>
+<p>The Peer-Messaging system for the NodeRequests, which would be same for all the nodes.</p>
+</li>
+</ul>
+<blockquote>
+<p>PR related to this feature: <a href="https://github.com/vinteumorg/Floresta/pull/202">https://github.com/vinteumorg/Floresta/pull/202</a></p>
+</blockquote>
+<h3 id="sync-node">Sync-Node:<a hidden class="anchor" aria-hidden="true" href="#sync-node">#</a></h3>
+<p>So now that we set up the test-utils, only thing left to set up a simulated sync-node is setting up a test_node function:</p>
+<p>Most of the things in this function is same for all the nodes, apart from these two things:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">setup_node</span>(
+</span></span><span style="display:flex;"><span>        peers: Vec<span style="color:#f92672">&lt;</span>(
+</span></span><span style="display:flex;"><span>            Vec<span style="color:#f92672">&lt;</span>Header<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>            HashMap<span style="color:#f92672">&lt;</span>BlockHash, UtreexoBlock<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>            HashMap<span style="color:#f92672">&lt;</span>BlockHash, Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;&gt;</span>,
+</span></span><span style="display:flex;"><span>        )<span style="color:#f92672">&gt;</span>,
+</span></span><span style="display:flex;"><span>        pow_fraud_proofs: <span style="color:#66d9ef">bool</span>,
+</span></span><span style="display:flex;"><span>        network: <span style="color:#a6e22e">floresta_chain</span>::Network,
+</span></span><span style="display:flex;"><span>    ) -&gt; <span style="color:#a6e22e">Arc</span><span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&lt;</span>&#39;static<span style="color:#f92672">&gt;&gt;&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Declaring the type of node we want to simulate.
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> node <span style="color:#f92672">=</span> UtreexoNode::<span style="color:#f92672">&lt;</span>SyncNode, Arc<span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;&gt;&gt;</span>::new(
+</span></span><span style="display:flex;"><span>            config,
+</span></span><span style="display:flex;"><span>            chain.clone(),
+</span></span><span style="display:flex;"><span>            mempool,
+</span></span><span style="display:flex;"><span>            None,
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Setting up the &amp;&#39;static mut referance of the node.
+</span></span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> _node: <span style="color:#66d9ef">&amp;</span>&#39;static <span style="color:#a6e22e">mut</span> UtreexoNode<span style="color:#f92672">&lt;</span>SyncNode, Arc<span style="color:#f92672">&lt;</span>ChainState<span style="color:#f92672">&lt;</span>KvChainStore<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">unsafe</span> { std::mem::transmute(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> <span style="color:#f92672">**</span>node) };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        timeout(Duration::from_secs(<span style="color:#ae81ff">10</span>), _node.run(kill_signal, <span style="color:#f92672">|</span>_<span style="color:#f92672">|</span> {}))
+</span></span><span style="display:flex;"><span>            .<span style="color:#66d9ef">await</span>
+</span></span><span style="display:flex;"><span>            .unwrap();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Did the following tests:</p>
+<ul>
+<li>
+<p>Syncing valid blocks</p>
+</li>
+<li>
+<p>Test how it responds to a node sending a block without proof (this should ban the node)</p>
+</li>
+<li>
+<p>Sending blocks out-of-order (it should handle them fine)</p>
+</li>
+<li>
+<p>How it responds to a block with invalid proof (this should ban the node, but should <strong>not</strong> invalidate the block)</p>
+</li>
+</ul>
+<blockquote>
+<p>PR related to this: <a href="https://github.com/vinteumorg/Floresta/pull/200">https://github.com/vinteumorg/Floresta/pull/200</a></p>
+<p>While setting up this test, I found a disastrous bug.</p>
+</blockquote>
+<h3 id="bug-fix">Bug Fix:<a hidden class="anchor" aria-hidden="true" href="#bug-fix">#</a></h3>
+<p>Suppose there is a lying peer and an honest peer, then all the blocks from which the invalid block was caught, should be requested again to the honest peer.</p>
+<p>But previously the block requests to the lying peer got stuck in the inflight messages to the lying peer, even after the peer is banned. So we could never move forward to the next block.</p>
+<p>Then I fixed it by, removing the inflight requests related to the lying peer and sending those to a rendom_peer after the banniing.</p>
+<blockquote>
+<p>PR related to this fix: <a href="https://github.com/vinteumorg/Floresta/pull/203">https://github.com/vinteumorg/Floresta/pull/203</a></p>
+</blockquote>
+<p>Seriously, I was stuck in the same error for about a day because of this bug. I feel fixing this bug and one before, were my most important contributions.</p>
+<h3 id="running-node">Running-node:<a hidden class="anchor" aria-hidden="true" href="#running-node">#</a></h3>
+<p>Due to some address issues, I could not test the running node in the <strong>Signet Network.</strong> Instead I had to use <strong>Regtest Network,</strong> which I was avoiding as there is not a straight forward guide for how to use bitcoin-regtest in <strong>Utreexod,</strong> the full node which I was using to get raw <strong>SIgnet Utreexo Blocks</strong>.</p>
+<p>So then after a lot of brain-racking, we figured out how to run regtest on utreexod with these two commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./utreexod --datadir<span style="color:#f92672">=</span>. --logdir<span style="color:#f92672">=</span>. --regtest --flatutreexoproofindex --miningaddr<span style="color:#f92672">=</span>&lt;regetest-address&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./utreexoctl --regtest --datadir<span style="color:#f92672">=</span>. generate &lt;num-blocks&gt;
+</span></span></code></pre></div><p>In this way we can generate <code>UtreexoBlocks</code> using utreexod. Sometimes &ndash;<code>flatutreexoproofindex</code> flag doesn&rsquo;t work, so we can also use &ndash;<code>utreexoproofofindex</code>.<br>
+One of these two will absolutely work.</p>
+<p>Now I can set up tests with peers sending the blockchain with forks, using regtest in all 3 node instances.</p>
+<blockquote>
+<p>This PR is still under development. PR related to this: <a href="https://github.com/vinteumorg/Floresta/pull/214">https://github.com/vinteumorg/Floresta/pull/214</a></p>
+</blockquote>
+<h1 id="future-idea">Future Idea:<a hidden class="anchor" aria-hidden="true" href="#future-idea">#</a></h1>
+<p>Integration tests for the wire-protocol were fairly straightforward and clearly help fixing and finding bugs and vulnerabilities in the codebase.</p>
+<p>I plan on implementing the following things in the codebase:</p>
+<ul>
+<li>
+<p>Prometheus and Grafana toolkit support for continuous monitoring.</p>
+</li>
+<li>
+<p>Implementing regression and endurance tests and simulating Floresta in hardware limiting virtual environments.</p>
+</li>
+</ul>
+<h1 id="learning">Learning:<a hidden class="anchor" aria-hidden="true" href="#learning">#</a></h1>
+<ul>
+<li>
+<p>Through this journey, I learned a lot about how to use version control in fairly advanced levels in open-source projects, getting involved with the community, and contributing to the projects.</p>
+</li>
+<li>
+<p>The major learning for me was getting fairly proficient in Rust programming and programming in Bitcoin-architecture applications.</p>
+</li>
+</ul>
+<h1 id="special-thanks">Special Thanks<a hidden class="anchor" aria-hidden="true" href="#special-thanks">#</a></h1>
+<p>It was an awesome experience for me to work on this project. I learned a lot of new things, Davidson Souza helped me a lot whenever I got stuck.</p>
+<p>I would also like to thank Adi Shankara and Summer of Bitcoin for this amazing learning experience. I was able to develop great skills and valuable experience. I look forward to contributing to the Bitcoin space.</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>Thank you for reading, hope you enjoyed it. I&rsquo;ll continue to update my progress via the series of blogs ;)</p>
+<p>Follow me on Twitter | Linkedln for more blockchain-development tips and posts.</p>
+<p>That&rsquo;s all for today ! You have read the article till the end.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Abhinav Agarwalla</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

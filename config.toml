@@ -23,15 +23,15 @@ theme = "PaperMod"
   identifier = "resume"
   url = "/resume"
 [[menu.main]]
+  name = "Blogs"
+  weight = 18
+  identifier = "blogs"
+  url = "/blogs/"
+[[menu.main]]
   name = "Archive"
   weight = 20
   identifier = "archive"
   url = "/post/"
-[[menu.main]]
-  name = "Blogs"
-  weight = 22
-  identifier = "blogs"
-  url = "/blogs/"
 [[menu.main]]             # config your menu              
   name = "Builds"
   weight = 25
@@ -52,8 +52,8 @@ theme = "PaperMod"
     dir = ':cacheDir/images'
 
 [params.homeInfoParams]
-Title = "I am Max, a [_strange loop_](https://en.wikipedia.org/wiki/Strange_loop) ..."
-Content = "interested in networking, distributed systems and type theory. Welcome to my little island on this astounding thing called _The Internet_."
+Title = "I am Abhinav, a [_strange loop_](https://en.wikipedia.org/wiki/Strange_loop) ..."
+Content = "interested in networking, p2p systems and breaking stuff. Welcome to my corner of _The Internet_."
 
 [[params.socialIcons]]
 name = "RSS"
@@ -63,23 +63,22 @@ url = "/index.xml"
 [[params.socialIcons]]
 name = "email"
 title = ""
-url = "mailto:mail@max-inden.de"
+url = "mailto:mail@abhinavagarwalla6@gmail.com"
 
 [[params.socialIcons]]
-name = "mastodon"
+name = "hashnode"
 title = ""
-url = "https://mastodon.social/@mxinden"
+url = "https://soishell.hashnode.dev"
 
 [[params.socialIcons]]
 name = "github"
 title = ""
-url = "https://github.com/mxinden"
+url = "https://github.com/lla-dane"
 
 [[params.socialIcons]]
 name = "Twitter"
 title = ""
-url = "https://twitter.com/mxinden"
-
+url = "https://twitter.com/lla_dane"
 
 [params]
   author = "Abhinav Agarwalla"
@@ -89,7 +88,7 @@ url = "https://twitter.com/mxinden"
   since = "2016"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
-  gitRepo = "https://github.com/mxinden/homepage/"
+  gitRepo = "https://github.com/lla-dane/homepage/"
 
   # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
   logoTitle = "Abhinav Agarwalla"        # default: the title value    # 默认值: 上面设置的title值
@@ -215,13 +214,13 @@ url = "https://twitter.com/mxinden"
     alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
-    a-email = "mailto:mail@max-inden.de"
+    a-email = "mailto:mail@abhinavagarwalla6@gmail.com"
     # b-stack-overflow = "http://localhost:1313"
-    c-twitter = "https://twitter.com/mxinden"
+    c-twitter = "https://twitter.com/lla_dane"
     # d-facebook = "http://localhost:1313"
     # e-linkedin = "http://localhost:1313"
     # f-google = "http://localhost:1313"
-    g-github = "https://github.com/mxinden/"
+    g-github = "https://github.com/lla-dane/"
     # h-weibo = "http://localhost:1313"
     # i-zhihu = "http://localhost:1313"
     # j-douban = "http://localhost:1313"

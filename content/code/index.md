@@ -3,7 +3,7 @@ title: Build Logs
 type: post
 ---
 
-[**__Github__**](https://**github**.com/lla-dane) | [**__Linkedln__**](https://www.linkedin.com/in/abhinav-agarwalla-a80425258/) | [**__Twitter__**](https://x.com/lla_dane)
+[**__Github__**](https://github.com/lla-dane) | [**__Linkedln__**](https://www.linkedin.com/in/abhinav-agarwalla-a80425258/) | [**__Twitter__**](https://x.com/lla_dane)
 
 ## Open Source: 
 

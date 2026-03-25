@@ -31,12 +31,12 @@ theme = "PaperMod"
   name = "Archive"
   weight = 20
   identifier = "archive"
-  url = "/post/"
+  url = "/archive/"
 [[menu.main]]             # config your menu              
   name = "Builds"
   weight = 25
   identifier = "builds"
-  url = "/code"
+  url = "/builds"
 [[menu.main]]
   name = "Tags"
   weight = 30

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blogs on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/blogs/</link>
+    <link>http://localhost:35867/blogs/</link>
     <description>Recent content in Blogs on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 27 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:35867/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Contributions in libp2p(-py) in PLDG Cohort-3</title>
-      <link>http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</link>
+      <link>http://localhost:35867/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</link>
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</guid>
+      <guid>http://localhost:35867/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Hey folks &lt;strong&gt;👋&lt;/strong&gt;,&lt;br&gt;
 Over the past few months, I’ve been diving deep into the internals of py-libp2p - the python implementation of the libp2p networking stack. I joined in this project on PLDG cohort-3 mostly out of curiosity: what does it really take to make peer-to-peer systems talk to each other? Turns out… a fair bit.&lt;br&gt;
@@ -21,9 +21,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Building a Covert LAN - A Dockerized VPN Gateway using WireGuard and Nginx</title>
-      <link>http://localhost:1313/blogs/2025-04-06-building-a-covert-lan/</link>
+      <link>http://localhost:35867/blogs/2025-04-06-building-a-covert-lan/</link>
       <pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2025-04-06-building-a-covert-lan/</guid>
+      <guid>http://localhost:35867/blogs/2025-04-06-building-a-covert-lan/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Establishing a secure, private network by integrating Wireguard VPN with Docker container services to ensure exclusive access through encrypted connections.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -32,9 +32,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Automated Firewall management usign Docker and Cron</title>
-      <link>http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</link>
+      <link>http://localhost:35867/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</link>
       <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</guid>
+      <guid>http://localhost:35867/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Simulating automated firewall co&lt;strong&gt;nfiguration using Docker, cron jobs, and UFW to ensure consistent security policies across multiple server roles&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -43,9 +43,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Implementing Blind Computation using Nillion Protocol</title>
-      <link>http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/</link>
+      <link>http://localhost:35867/blogs/2024-10-24-blind-computations-using-nillion-protocol/</link>
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/</guid>
+      <guid>http://localhost:35867/blogs/2024-10-24-blind-computations-using-nillion-protocol/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;A comprehensive guide on how to implement blind computations (computing on encrypted variables without ever decrypting them) using Nillion protocol.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -57,9 +57,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Improve Floresta&#39;s testing - Part 2</title>
-      <link>http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/</link>
+      <link>http://localhost:35867/blogs/2024-08-30-imporove-floresta-testing-part-2/</link>
       <pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/</guid>
+      <guid>http://localhost:35867/blogs/2024-08-30-imporove-floresta-testing-part-2/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog covers the progress of my Summer of Bitcoin porject - Improve Floresta&amp;rsquo;s testing&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -88,9 +88,9 @@ I’ll skip the heavy theory (for the most part) and just talk about the work, t
     </item>
     <item>
       <title>Improve Floresta&#39;s testing - Part 1</title>
-      <link>http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/</link>
+      <link>http://localhost:35867/blogs/2024-07-18-improve-floresta-testing-part-1/</link>
       <pubDate>Thu, 18 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/</guid>
+      <guid>http://localhost:35867/blogs/2024-07-18-improve-floresta-testing-part-1/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;This blog covers the progress of my Summer of Bitcoin project till mid-evaluation:&lt;br&gt;
 Improve the testing environment of Floresta.&lt;/p&gt;
@@ -101,9 +101,9 @@ Improve the testing environment of Floresta.&lt;/p&gt;
     </item>
     <item>
       <title>Getting selected in Summer of Bitcoin&#39;24</title>
-      <link>http://localhost:1313/blogs/2024-06-15-getting-selected-in-sob-2024/</link>
+      <link>http://localhost:35867/blogs/2024-06-15-getting-selected-in-sob-2024/</link>
       <pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/2024-06-15-getting-selected-in-sob-2024/</guid>
+      <guid>http://localhost:35867/blogs/2024-06-15-getting-selected-in-sob-2024/</guid>
       <description>&lt;h3 id=&#34;what-is-sob-&#34;&gt;What is SoB ?&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Summer of Bitcoin is a global program focused on bringing more student developers into the open source software development in the Bitcoin community. Students work with an open-source organisation on a 12 week programming project during their summer break from school.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;This blog highlights &lt;strong&gt;journey&lt;/strong&gt; of getting selected into the program from the very beginning. I believe their is no defined path for getting selected in such open-source fellowships. Everyone has a unique journey, and you can take a few things from other journeys to write yours :) because the essence of each one is similar.&lt;/p&gt;</description>

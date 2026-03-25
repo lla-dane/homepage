@@ -2,179 +2,179 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:35867/about/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:35867/</loc>
     <lastmod>2026-03-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</loc>
+    <loc>http://localhost:35867/archive/</loc>
     <lastmod>2026-03-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>http://localhost:35867/archive/2026-03-25-intoduced-prometheus-metrics-to-libp2p/</loc>
     <lastmod>2026-03-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2026-03-10-trek-to-kedarkantha/</loc>
+    <loc>http://localhost:35867/archive/2026-03-10-trek-to-kedarkantha/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2026-02-02-introduce-autotls-in-libp2p/</loc>
+    <loc>http://localhost:35867/archive/2026-02-02-introduce-autotls-in-libp2p/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:35867/tags/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/travel/</loc>
+    <loc>http://localhost:35867/tags/travel/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tags/usa/</loc>
+    <loc>http://localhost:35867/tags/usa/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2026-01-15-wrote-floodsub-from-scratch/</loc>
+    <loc>http://localhost:35867/archive/2026-01-15-wrote-floodsub-from-scratch/</loc>
     <lastmod>2026-01-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2026-01-06-rust-async-pattern/</loc>
+    <loc>http://localhost:35867/archive/2026-01-06-rust-async-pattern/</loc>
     <lastmod>2026-01-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-12-25-bought-a-rasberry-pi-5/</loc>
+    <loc>http://localhost:35867/archive/2025-12-25-bought-a-rasberry-pi-5/</loc>
     <lastmod>2025-12-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-12-19-started-a-p2p-stack/</loc>
+    <loc>http://localhost:35867/archive/2025-12-19-started-a-p2p-stack/</loc>
     <lastmod>2025-12-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-10-03-hackathon-win-eth-newdelhi-25/</loc>
+    <loc>http://localhost:35867/archive/2025-10-03-hackathon-win-eth-newdelhi-25/</loc>
     <lastmod>2025-10-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/</loc>
+    <loc>http://localhost:35867/blogs/</loc>
     <lastmod>2025-07-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</loc>
+    <loc>http://localhost:35867/blogs/2025-07-27-my-contribution-in-py-libp2p-during-pldg-cohort-3/</loc>
     <lastmod>2025-07-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-05-04-selected-in-pldg/</loc>
+    <loc>http://localhost:35867/archive/2025-05-04-selected-in-pldg/</loc>
     <lastmod>2025-05-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-04-24-learning-iptables-in-deep/</loc>
+    <loc>http://localhost:35867/archive/2025-04-24-learning-iptables-in-deep/</loc>
     <lastmod>2025-04-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-04-07-vpn-gateway-with-wireguard/</loc>
+    <loc>http://localhost:35867/archive/2025-04-07-vpn-gateway-with-wireguard/</loc>
     <lastmod>2025-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2025-04-06-building-a-covert-lan/</loc>
+    <loc>http://localhost:35867/blogs/2025-04-06-building-a-covert-lan/</loc>
     <lastmod>2025-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</loc>
+    <loc>http://localhost:35867/blogs/2025-03-19-automated-firewall-management-using-docker-and-cron/</loc>
     <lastmod>2025-03-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-03-17-work-with-ai-agents/</loc>
+    <loc>http://localhost:35867/archive/2025-03-17-work-with-ai-agents/</loc>
     <lastmod>2025-03-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2025-01-16-gear-mega-hackathon-25/</loc>
+    <loc>http://localhost:35867/archive/2025-01-16-gear-mega-hackathon-25/</loc>
     <lastmod>2025-01-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2024-12-07-hackathon-ethindia-24/</loc>
+    <loc>http://localhost:35867/archive/2024-12-07-hackathon-ethindia-24/</loc>
     <lastmod>2024-12-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2024-10-24-blind-computations-using-nillion-protocol/</loc>
+    <loc>http://localhost:35867/blogs/2024-10-24-blind-computations-using-nillion-protocol/</loc>
     <lastmod>2024-10-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2024-10-15-nillion-blind-computations/</loc>
+    <loc>http://localhost:35867/archive/2024-10-15-nillion-blind-computations/</loc>
     <lastmod>2024-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2024-09-25-hackathon-win-ethsingapore-24/</loc>
+    <loc>http://localhost:35867/archive/2024-09-25-hackathon-win-ethsingapore-24/</loc>
     <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2024-09-18-first-hackathon-ethonline-24/</loc>
+    <loc>http://localhost:35867/archive/2024-09-18-first-hackathon-ethonline-24/</loc>
     <lastmod>2024-09-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2024-09-16-completed--sob-24/</loc>
+    <loc>http://localhost:35867/archive/2024-09-16-completed--sob-24/</loc>
     <lastmod>2024-09-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2024-08-30-imporove-floresta-testing-part-2/</loc>
+    <loc>http://localhost:35867/blogs/2024-08-30-imporove-floresta-testing-part-2/</loc>
     <lastmod>2024-08-30T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2024-07-18-improve-floresta-testing-part-1/</loc>
+    <loc>http://localhost:35867/blogs/2024-07-18-improve-floresta-testing-part-1/</loc>
     <lastmod>2024-07-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/post/2024-06-15-selected-to-sob-24/</loc>
+    <loc>http://localhost:35867/archive/2024-06-15-selected-to-sob-24/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/blogs/2024-06-15-getting-selected-in-sob-2024/</loc>
+    <loc>http://localhost:35867/blogs/2024-06-15-getting-selected-in-sob-2024/</loc>
     <lastmod>2024-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/code/</loc>
+    <loc>http://localhost:35867/builds/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:35867/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/resume/</loc>
+    <loc>http://localhost:35867/resume/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

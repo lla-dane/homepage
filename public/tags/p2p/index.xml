@@ -47,5 +47,12 @@ Getting ready to write Gossipsub now.&lt;/p&gt;</description>
       <guid>http://localhost:1313/archive/2024-12-07-hackathon-ethindia-24/</guid>
       <description>&lt;p&gt;Attended an IRL hackthon in Bangalore. Won a pool prize building on Lit Protocol&amp;rsquo;s decetralized encryption/decryption API.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Wrote on Nillion&#39;s Blind Computation API</title>
+      <link>http://localhost:1313/archive/2024-10-15-nillion-blind-computations/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2024-10-15-nillion-blind-computations/</guid>
+      <description>&lt;p&gt;Wrote a &lt;a href=&#34;https://soishell.hashnode.dev/implementing-blind-computations-using-nillion-protocol&#34;&gt;blog&lt;/a&gt; on my contribution to our project in @EthOnline&#39;24 hackthon, on Nillion&amp;rsquo;s blind computation API.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -64,21 +64,23 @@ url = "/index.xml"
 name = "email"
 title = ""
 url = "mailto:mail@abhinavagarwalla6@gmail.com"
-
+[[params.socialIcons]]
+name = "github"
+title = ""
+url = "https://github.com/lla-dane"
+[[params.socialIcons]]
+name = "linkedin"
+title = ""
+url = "https://www.linkedin.com/in/abhinav-agarwalla-a80425258/"
+[[params.socialIcons]]
+name = "Twitter"
+title = ""
+url = "https://twitter.com/lla_dane"
 [[params.socialIcons]]
 name = "hashnode"
 title = ""
 url = "https://soishell.hashnode.dev"
 
-[[params.socialIcons]]
-name = "github"
-title = ""
-url = "https://github.com/lla-dane"
-
-[[params.socialIcons]]
-name = "Twitter"
-title = ""
-url = "https://twitter.com/lla_dane"
 
 [params]
   author = "Abhinav Agarwalla"

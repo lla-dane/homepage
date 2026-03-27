@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Rust on Abhinav Agarwalla</title>
-    <link>http://localhost:1313/tags/rust/</link>
-    <description>Recent content in Rust on Abhinav Agarwalla</description>
+    <title>Rnet on Abhinav Agarwalla</title>
+    <link>http://localhost:1313/tags/rnet/</link>
+    <description>Recent content in Rnet on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/rnet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Built a secure transport layer for my p2p stack</title>
       <link>http://localhost:1313/archive/2026-03-27-built-secure-transport-layer-for-rnet/</link>
@@ -26,13 +26,6 @@
       <description>&lt;p&gt;Wrote a Floodsub module for scratch in my experimental &lt;a href=&#34;https://github.com/lla-dane/rnet&#34;&gt;p2p stack&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Learned a great deal how pubsub broadcasting systems behave under the hood with complex rust async designs.
 Getting ready to write Gossipsub now.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rust async pattern -- single owner IO</title>
-      <link>http://localhost:1313/archive/2026-01-06-rust-async-pattern/</link>
-      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/archive/2026-01-06-rust-async-pattern/</guid>
-      <description>&lt;p&gt;Ran into an issue while building my experimental &lt;a href=&#34;&#34;&gt;p2p stack&lt;/a&gt; in Rust &amp;ndash; multiple parts of the code wanted &lt;code&gt;&amp;amp;mut TcpStream&lt;/code&gt;. Turned out the design was improper. What worked for me was creating a single IO task owning the socket, with everything else communication via &lt;code&gt;mpsc&lt;/code&gt;. Cleaner ownership, fewer borrow issues, and easier to reason about.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Started writing a p2p stack in Rust</title>

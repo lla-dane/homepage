@@ -61,8 +61,14 @@ type: post
     - Implemented TCP transport and mplex-style stream multiplexing with concurrent logical streams.
     - Developed core protocols like floodsub with end-to-end peer-subscriptions, message propagation and deduplication.
     - Applied low-level async Rust patterns to manage IO, stream lifecycles, and protocol execution safely.
+    
+    **Pull requests**:
+    - Introduce generic traits for global types: [**__#1__**](https://github.com/lla-dane/rnet/pull/1)
+    - feat: Introduce secure transport layer (DH + ChaCha20Poly1305): [**__#2__**](https://github.com/lla-dane/rnet/pull/2)
 
     *Repo: https://github.com/lla-dane/rnet*
+
+
 ---
 
 2. [**__P2P-Federated-Learning__**](https://github.com/lla-dane/P2P-Federated-Learning):- A p2p federated learning stack built with **py-libp2p, Akave-O3 and Hedera hashgraph**.

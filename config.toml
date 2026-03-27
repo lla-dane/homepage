@@ -11,22 +11,22 @@ theme = "PaperMod"
   changefreq = "weekly"
   priority = 0.5
   filename = "sitemap.xml"
-
 [[menu.main]]             # config your menu              
   name = "Home"
   weight = 10
   identifier = "home"
   url = "/"
 [[menu.main]]             # config your menu              
-  name = "Resume"
-  weight = 10
-  identifier = "resume"
-  url = "/resume"
-[[menu.main]]             # config your menu              
   name = "Builds"
   weight = 12
   identifier = "builds"
   url = "/builds"
+[[menu.main]]             # config your menu              
+  name = "Resume"
+  weight = 16
+  identifier = "resume"
+  url = "/resume"
+
 [[menu.main]]
   name = "Blogs"
   weight = 18

@@ -1,6 +1,6 @@
 ---
 title: "Implemented Floodsub from scratch"
-tags: ["rust", "p2p", "protocol", "networking"]
+tags: ["rust", "p2p", "protocol", "networking", "rnet"]
 date: 2026-01-15
 ---
 

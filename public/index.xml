@@ -6,7 +6,7 @@
     <description>Recent content on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
@@ -14,9 +14,19 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;I am Abhinav, interested in networking, p2p systems and breaking stuff. Welcome to my corner of the &lt;em&gt;The Internet&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;You might enjoy browsing through &lt;a href=&#34;http://localhost:1313/blogs&#34;&gt;a few of my dev blogs&lt;/a&gt;, get some inspiration from the &lt;a href=&#34;http://localhost:1313/archive&#34;&gt;numerous summaries of past experiments and learnings&lt;/a&gt; that I organize or simply scroll through &lt;a href=&#34;http://localhost:1313/resume&#34;&gt;my resume&lt;/a&gt; or &lt;a href=&#34;http://localhost:1313/builds&#34;&gt;build logs&lt;/a&gt; to see what I am up to lately.&lt;/p&gt;
+&lt;p&gt;You might enjoy browsing through &lt;a href=&#34;http://localhost:1313/blogs&#34;&gt;a few of my dev blogs&lt;/a&gt;, get some inspiration from the &lt;a href=&#34;http://localhost:1313/archive&#34;&gt;numerous summaries of past experiments and learnings&lt;/a&gt; that I organize or simply scroll through &lt;a href=&#34;http://localhost:1313/builds&#34;&gt;my build logs&lt;/a&gt; or &lt;a href=&#34;http://localhost:1313/resume&#34;&gt;resume&lt;/a&gt; to see what I am up to lately.&lt;/p&gt;
 &lt;p&gt;You can best reach me via e-mail: mail@abhinavagarwalla6@gmail.com.&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;Summit&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/profile/summit.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Built a secure transport layer for my p2p stack</title>
+      <link>http://localhost:1313/archive/2026-03-27-built-secure-transport-layer-for-rnet/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/archive/2026-03-27-built-secure-transport-layer-for-rnet/</guid>
+      <description>&lt;p&gt;Built a secure transport layer today for my p2p stack.&lt;/p&gt;
+&lt;p&gt;Raw streams -&amp;gt; negotiated -&amp;gt; encrypted (Deffie Hellman + ChaCha20Poly1305).&lt;/p&gt;
+&lt;p&gt;Feels good seeing the pieces come together.&lt;/p&gt;
+&lt;p&gt;PR: &lt;a href=&#34;https://github.com/lla-dane/rnet/pull/2&#34;&gt;https://github.com/lla-dane/rnet/pull/2&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduced Prometheus metrics to libp2p(-py)</title>

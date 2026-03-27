@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Abhinav Agarwalla</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/tags/networking/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>P2p</title>
+      <link>http://localhost:1313/tags/p2p/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/p2p/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protocol</title>
+      <link>http://localhost:1313/tags/protocol/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/protocol/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rnet</title>
+      <link>http://localhost:1313/tags/rnet/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rust</title>
+      <link>http://localhost:1313/tags/rust/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rust/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Libp2p</title>
       <link>http://localhost:1313/tags/libp2p/</link>
@@ -37,38 +72,10 @@
       <description></description>
     </item>
     <item>
-      <title>P2p</title>
-      <link>http://localhost:1313/tags/p2p/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/p2p/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Protocol</title>
-      <link>http://localhost:1313/tags/protocol/</link>
-      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/protocol/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Tls</title>
       <link>http://localhost:1313/tags/tls/</link>
       <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/tls/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Networking</title>
-      <link>http://localhost:1313/tags/networking/</link>
-      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/networking/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Rust</title>
-      <link>http://localhost:1313/tags/rust/</link>
-      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/rust/</guid>
       <description></description>
     </item>
     <item>

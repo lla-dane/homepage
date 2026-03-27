@@ -27,7 +27,7 @@ May 2024 - August 2024
 
 ## Projects
 
-- Building an experimental p2p networking stack, [`rnet`](https://github.com/lla-dane/rnet), with core abstractions (`peer-identity`, `multiaddr`, `streams`) with `TCP` transport and `mplex`-style multiplexing, enabling concurrent protocol execution and end-to-end `Floodsub` message propagation.
+- Building an experimental p2p networking stack, [`rnet`](https://github.com/lla-dane/rnet), with core abstractions (`peer-identity`, `multiaddr`, `encrypted-streams`) with `TCP` transport and `mplex`-style multiplexing, enabling concurrent protocol execution and end-to-end `Floodsub` message propagation.
 - Built a [`p2p-federated-learning`](https://github.com/lla-dane/P2P-Federated-Learning) stack, combining `libp2p` networking with `Hedera` consensus and `Akave-O3` storage, enabling trustless coordination, incentives and secure dataset/model exchange without credential sharing.
 - Built an agent-driven on-chain [`loyalty platform`](https://github.com/lla-dane/LoyaltyX) on `NEAR`, integrating AI-based user interaction with automated smart contract execution for program creation, reward tracking and redemption.
 - Wrote an end-to-end [`bitcoin block contruction pipeline`]() in `rust` supporting full transaction validation (`P2PKH`, `P2SH`, `P2WPKH`, `P2WSH`), `merkle-tree` construction, and `PoW` mining, producing valid `~4M` weight blocks with optimized fee selection.

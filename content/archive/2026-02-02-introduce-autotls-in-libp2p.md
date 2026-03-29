@@ -1,6 +1,6 @@
 ---
 date: 2026-02-02T00:00:00Z
-tags: ["libp2p", "tls", "protocol", "p2p", "opensource"]
+tags: ["libp2p", "tls", "p2p", "opensource"]
 title: Introduced AutoTLS in libp2p(-py)
 ---
 

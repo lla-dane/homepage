@@ -1,6 +1,6 @@
 ---
 title: "Built a secure transport layer for my p2p stack"
-tags: ["p2p", "rnet", "rust", "networking", "protocol"]
+tags: ["p2p", "rnet", "rust", "networking"]
 date: 2026-03-27
 ---
 

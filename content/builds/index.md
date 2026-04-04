@@ -63,8 +63,9 @@ type: post
     - Applied low-level async Rust patterns to manage IO, stream lifecycles, and protocol execution safely.
     
     **Pull requests**:
-    - Introduce generic traits for global types: [**__#1__**](https://github.com/lla-dane/rnet/pull/1)
+    - refactor: revamp global types and generalize core design patterns: [**__#3__**](https://github.com/lla-dane/rnet/pull/3)
     - feat: Introduce secure transport layer (DH + ChaCha20Poly1305): [**__#2__**](https://github.com/lla-dane/rnet/pull/2)
+    - Introduce generic traits for global types: [**__#1__**](https://github.com/lla-dane/rnet/pull/1)
 
     *Repo: https://github.com/lla-dane/rnet*
 

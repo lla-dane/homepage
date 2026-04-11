@@ -63,7 +63,7 @@ type: post
     - Applied low-level async Rust patterns to manage IO, stream lifecycles, and protocol execution safely.
     
     **Pull requests**:
-    - refactor: core design patterns + integrage Arc<Protocols> in Node runtime: [**__#4__**](https://github.com/lla-dane/rnet/pull/4)
+    - refactor: core design patterns + integrage Arc<_Protocols_> in Node runtime: [**__#4__**](https://github.com/lla-dane/rnet/pull/4)
     - feat: Introduce secure transport layer (DH + ChaCha20Poly1305): [**__#2__**](https://github.com/lla-dane/rnet/pull/2)
     - Introduce generic traits for global types: [**__#1__**](https://github.com/lla-dane/rnet/pull/1)
 

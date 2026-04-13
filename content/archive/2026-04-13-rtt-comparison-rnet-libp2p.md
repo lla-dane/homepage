@@ -6,9 +6,9 @@ date: 2026-04-13
 
 Did an RTT benchmark comparing my experimental p2p stack `rnet` vs libp2p
 
-rnet → ~220–300μs
-rust-libp2p → ~130–250μs
-py-libp2p → ~300–400μs
+- rnet → ~220–300μs
+- rust-libp2p → ~130–250μs
+- py-libp2p → ~300–400μs
 
 Same machine, loopback
 libp2p: TCP + Noise + Yamux

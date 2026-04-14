@@ -1,0 +1,17 @@
+I've worked quite a lot in p2p protocols. 
+These are a few of my contribution in libp2p(-py) ecosystem
+- https://github.com/libp2p/py-libp2p/pull/1199
+- https://github.com/libp2p/py-libp2p/pull/1085
+- https://github.com/libp2p/py-libp2p/pull/1072 
+- https://github.com/libp2p/py-libp2p/pull/1064
+- https://github.com/libp2p/py-libp2p/pull/1002
+- https://github.com/libp2p/py-libp2p/pull/890
+- https://github.com/libp2p/py-libp2p/pull/889
+- https://github.com/libp2p/py-libp2p/pull/753
+
+My primary contributions in libp2p(-py) were across core protocol layers, like transport to securty (TLS, Gossipsub, Kademlia-DHT) and peerstore refactors.
+
+Besides from this I have been building an experimental p2p in rust: https://github.com/lla-dane/rnet
+
+
+Take a good look at all my builds here: https://shell.soiraspi.win/builds/

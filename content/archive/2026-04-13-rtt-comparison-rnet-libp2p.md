@@ -11,8 +11,9 @@ Did an RTT benchmark comparing my experimental p2p stack `rnet` vs libp2p
 - py-libp2p → ~300–400μs
 
 Same machine, loopback
-libp2p: TCP + Noise + Yamux
-rnet: TCP + custom security (Deffie-Hellman based key-exchange) + Mplex
+
+- libp2p: TCP + Noise + Yamux
+- rnet: TCP + custom security (Deffie-Hellman based key-exchange) + Mplex
 
 rnet lagging behind by ~60μs implementation overhead from rust-libp2p
 

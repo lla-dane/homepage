@@ -58,11 +58,13 @@ type: post
 1. [**__rnet__**](https://github.com/lla-dane/rnet): An experimental p2p networking stack for understanding rust and internal p2p mechanics.
 
     - Defined core P2P abstractions for peer identity, multiaddrs, connections, and stream-based protocol execution.
-    - Implemented TCP transport and mplex-style stream multiplexing with concurrent logical streams.
+    - Implemented TCP/UDP transport and mplex-style stream multiplexing with concurrent logical streams.
     - Developed core protocols like floodsub with end-to-end peer-subscriptions, message propagation and deduplication.
     - Applied low-level async Rust patterns to manage IO, stream lifecycles, and protocol execution safely.
     
     **Pull requests**:
+    - feat: liveliness check for UDP connections: [**__#9__**](https://github.com/lla-dane/rnet/pull/9)
+    - feat: Introduce UDP transport layer for rnet: [**__#8__**](https://github.com/lla-dane/rnet/pull/8)
     - bug: fix the latency issue with ping exchange: [**__#5__**](https://github.com/lla-dane/rnet/pull/5)
     - refactor: core design patterns + integrage Arc<_Protocols_> in Node runtime: [**__#4__**](https://github.com/lla-dane/rnet/pull/4)
     - feat: Introduce secure transport layer (DH + ChaCha20Poly1305): [**__#2__**](https://github.com/lla-dane/rnet/pull/2)

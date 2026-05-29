@@ -55,7 +55,7 @@ type: post
 ## Projects: 
 
 
-1. [**__rnet__**](https://github.com/lla-dane/rnet): An experimental p2p networking stack for understanding rust and internal p2p mechanics.
+1. [**__rnet-p2p__**](https://github.com/rnet-stack/rnet-p2p): An experimental p2p networking stack for understanding rust and internal p2p mechanics.
 
     - Defined core P2P abstractions for peer identity, multiaddrs, connections, and stream-based protocol execution.
     - Implemented TCP/UDP transport and mplex-style stream multiplexing with concurrent logical streams.
@@ -63,6 +63,7 @@ type: post
     - Applied low-level async Rust patterns to manage IO, stream lifecycles, and protocol execution safely.
     
     **Pull requests**:
+    - feat: route protocol events via global notification channel: [**__#2__**](https://github.com/rnet-stack/rnet-p2p/pull/2)
     - feat: liveliness check for UDP connections: [**__#9__**](https://github.com/lla-dane/rnet/pull/9)
     - feat: Introduce UDP transport layer for rnet: [**__#8__**](https://github.com/lla-dane/rnet/pull/8)
     - bug: fix the latency issue with ping exchange: [**__#5__**](https://github.com/lla-dane/rnet/pull/5)
@@ -70,7 +71,7 @@ type: post
     - feat: Introduce secure transport layer (DH + ChaCha20Poly1305): [**__#2__**](https://github.com/lla-dane/rnet/pull/2)
     - Introduce generic traits for global types: [**__#1__**](https://github.com/lla-dane/rnet/pull/1)
 
-    *Repo: https://github.com/lla-dane/rnet*
+    *Repo: https://github.com/rnet-stack/rnet-p2p*
 
 
 ---

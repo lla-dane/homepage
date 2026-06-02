@@ -73,6 +73,10 @@ type: post
 
     *Repo: https://github.com/rnet-stack/rnet-p2p*
 
+    **Used by:**
+    - [**__rnet-drand__**](https://github.com/rnet-stack/rnet-drand): A decentralized random-number generator using multi-party computation (MPC) built on top of ***rnet-p2p***, leveraging no 
+    trusted authority, not single point of bias, and unpredicatable output as long as 1 peer is honest.
+
 
 ---
 

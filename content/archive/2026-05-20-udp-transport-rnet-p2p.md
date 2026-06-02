@@ -10,4 +10,4 @@ Was fun.
 
 *PR: https://github.com/lla-dane/rnet/pull/8*
 
-*PS: rnet-p2p now moved here: https://github.com/rnet-stack/rnet-p2p*
+***PS: rnet-p2p now moved here: https://github.com/rnet-stack/rnet-p2p***

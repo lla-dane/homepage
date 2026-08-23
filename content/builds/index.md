@@ -5,12 +5,38 @@ type: post
 
 [**__Github__**](https://github.com/lla-dane) | [**__Linkedln__**](https://www.linkedin.com/in/abhinav-agarwalla-a80425258/) | [**__Twitter__**](https://x.com/lla_dane)
 
-## Open Source: 
+## Open Source:
+
+-  [**__MOI Protocol__**](https://docs.moi.technology/):  A participant-centric Layer-1 blockchain with DAG-based state and BFT finality.
+
+    - [**__go-moi__**](https://github.com/sarvalabs/go-moi): Official Go Implementation of the MOI Protocol.
+    
+        **Merged:**
+        - bump: go and deps version update: [**#1361**](https://github.com/sarvalabs/go-moi/pull/1361)
+        - feat: Enforce participant-lock checks in Ix validation: [**#1354**](https://github.com/sarvalabs/go-moi/pull/1354)
+        - fix bugs: [**#1350**](https://github.com/sarvalabs/go-moi/pull/1350)
+        - core: bug fix in signature validation logic: [**1346**](https://github.com/sarvalabs/go-moi/pull/1346)
+
+    - [**__moidocs__**](https://github.com/sarvalabs/moidocs): Official Documentation for the MOI Protocol..
+    
+        **Merged:**
+        - docs: Access Policy: [**#120**](https://github.com/sarvalabs/moidocs/pull/120)
+        - docs: Developer documentation on Tesseract: [**#119**](https://github.com/sarvalabs/moidocs/pull/119)
+        - docs: Developer documentation on Interactions: [**#118**](https://github.com/sarvalabs/moidocs/pull/118)
+        - docs: Multi-sig concept document in MOI: [**#115**](https://github.com/sarvalabs/moidocs/pull/115)
+        - docs: Developer documentation on MOI accounts: [**#114**](https://github.com/sarvalabs/moidocs/pull/114)
+
+    - [**__Loadbot__**](https://github.com/sarvalabs/moidocs): Basic load-bot implementation to stress test MOI protocol.
+
+        **Merged:**
+        - feat: Added Storage + Access Ix-ops in loadbot: [**#5**](https://github.com/sarvalabs/loadbot/pull/5)
+    
+
+---
 
 - [**__Libp2p(-py)__**](https://github.com/libp2p/py-libp2p) *(Python)*: The Python implementation of the libp2p networking stack.
---
 
-    **Pull Requests**: 
+    **Merged**: 
     - Prometheus metrics for libp2p protocols: [**#1199**](https://github.com/libp2p/py-libp2p/pull/1199)
     - Add TLS in the security options: [**#1085**](https://github.com/libp2p/py-libp2p/pull/1085)
     - Auto-TLS support for py-libp2p: [**#1072**](https://github.com/libp2p/py-libp2p/pull/1072)
@@ -33,7 +59,7 @@ type: post
 - [**__py-multiaddr__**](https://github.com/multiformats/py-multiaddr) *(Python)*: Multiaddr implementation for libp2p(-py)
 --
 
-  **Pull Requests**:
+  **Merged**:
     - Add SNI, NOISE, CERTHASH, WEBRTC, WEBRTC-DIRECT in py-multiaddr: [**#97**](https://github.com/multiformats/py-multiaddr/pull/97)
     - Add garlic64 and garlic32 encoding in py-multiaddr: [**#96**](https://github.com/multiformats/py-multiaddr/pull/96)
     - Add ipcidr protocol in reference with go-multiaddr: [**#95**](https://github.com/multiformats/py-multiaddr/pull/95)
@@ -44,7 +70,7 @@ type: post
 - [**__Floresta__**](https://github.com/getfloresta/Floresta) *(Rust)*:- A lightweight and embeddable Bitcoin client, built for sovereignty.
 --
 
-    **Pull requests**: 
+    **Merged**: 
     - bug fix: remove inflights of banned peers: [**__#203__**](https://github.com/getfloresta/Floresta/pull/203)
     - Functional tests for floresta-wire/sync-node: [**__#200__**](https://github.com/getfloresta/Floresta/pull/200)
     - Bug fix: chain_selector: [**__#182__**](https://github.com/getfloresta/Floresta/pull/182)
@@ -62,7 +88,7 @@ type: post
     - Developed core protocols like floodsub with end-to-end peer-subscriptions, message propagation and deduplication.
     - Applied low-level async Rust patterns to manage IO, stream lifecycles, and protocol execution safely.
     
-    **Pull requests**:
+    **Merged**:
     - feat: route protocol events via global notification channel: [**__#2__**](https://github.com/rnet-stack/rnet-p2p/pull/2)
     - feat: liveliness check for UDP connections: [**__#9__**](https://github.com/lla-dane/rnet/pull/9)
     - feat: Introduce UDP transport layer for rnet: [**__#8__**](https://github.com/lla-dane/rnet/pull/8)
